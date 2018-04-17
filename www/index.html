@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="bowerless_components/materialize/css/materialize.min.css"  media="screen,projection"/>
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="bowerless_components/materialize/js/materialize.min.js"></script>
+	<script type="text/javascript" src="bowerless_components/baskets/index.logic.js"></script>
+
+	<title>Baskets</title>
+	<link rel="icon" type="image/png" href="favicon/basket16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="favicon/basket32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="favicon/basket96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="favicon/basket192.png" sizes="192x192">
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,700');
+		html, input {
+			font-family: 'Work Sans', sans-serif;
+		}	
+	</style>
+</head>
+
+<body onload="bodyDidLoad()">
+	<script>
+		$(document).ready(function(){
+			$('select').formSelect();
+		});
+	</script>
+	<main class="container" style="min-height: 90vh;">
+		<h1 class="teal-text text-lighten-3">Baskets</h1>
+
+		<div class="row">
+
+			<div class="col m6 offset-s1">
+				<h4 class="grey-text text-darken-1">1. What are you searching for?</h4>
+				<p style="margin-bottom: 1.5rem;">
+					This uses ABS-TITLE-KEY (abstract, title, and keywords) for Scopus.
+				</p>
+				<div class="input-field">
+					<input onchange="refreshPageElements()" id="searchTerms" type="text" class="validate">
+					<label for="searchTerms">Search Term, e.g. sociomateriality</label>
+				</div>
+				<br />
+				<h4 class="grey-text text-darken-1">2. Which baskets of journals?</h4>
+				<p>
+					These lists are based off the Australian Business Deans Council (ABDC) Master Journal list
+					and the Association for Information Systems (AIS) Senior Scholars' Basket of Journals.
+
+				</p>
+				<br />
+				<div class="input-field">
+					<select multiple>
+						<option value="" disabled selected>Select your disciplines</option>
+						<option value="1">Accounting</option>
+						<option value="1">Business and Taxation Law</option>
+						<option value="1">Economics</option>
+						<option value="1">Finance</option>
+						<option value="1">Information Systems</option>
+						<option value="1">Management</option>
+						<option value="1">Marketing, Tourism, Logistics</option>
+						<option value="1">Other Commerce</option>
+						<option value="1">Statistics</option>
+					</select>
+					<label>Disciplines (select multiple if required)</label>
+				</div>
+				<br />
+				<div class="input-field">
+					<select id="selectedBaskets" multiple>
+						<option value="" disabled selected>Select your baskets</option>
+						<option value="ais">AIS Basket of 8</option>
+						<option value="abdc-1">ABDC A* journals</option>
+						<option value="abdc-2">ABDC A journals</option>
+						<option value="abdc-3">ABDC B journals</option>
+						<option value="abdc-4">ABDC C journals</option>
+					</select>
+					<label>Baskets (select multiple if required)</label>
+				</div>
+				<br />
+			</div>
+
+
+			<div class="col m6 offset-s1 ">
+				<h4 class="grey-text text-darken-1">3. Search</h4>
+				<div class="input-field">
+					<select id="universityProxy" onchange="refreshPageElements()">
+						<option value="none" selected>None</option>
+						<option value="unsw">UNSW</option>
+						<option value="uts">UTS</option>
+						<option value="usyd">Sydney University</option>
+					</select>
+					<label>University proxy (if not on-campus)</label>
+				</div>
+				<p>
+					<label>
+						<input id="openInNewTab" onchange="refreshPageElements()" type="checkbox" class="filled-in" />
+						<span>Open in new tab</span>
+					</label>
+				</p>
+				<p>
+					<br />
+					<a href="#" class="waves-effect waves-light btn-large light-blue darken-1 disabled" id="scopusSearch"><i class="material-icons left">search</i>Scopus</a>
+				</p>
+			</div>
+		</div>
+	</main>
+	<footer class="page-footer">
+
+		<div class="container">
+				<div class="row">
+				  <div class="col l6 s12">
+					<h5 class="white-text">baskets</h5>
+					<p class="grey-text text-lighten-4">
+						A project by <a class="grey-text text-lighten-3" href="https://blair.wang/">Blair Wang</a>.
+						Because he needed to complete his PhD literature review, and typing in filters manually got boring.
+					</p>
+					<p class="grey-text text-lighten-4">
+						Ideas for improvements / want more baskets?
+						Please email me: hello@blair.wang
+					</p>
+				  </div>
+				  <div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Links</h5>
+					<ul>
+					  <li><a class="grey-text text-lighten-3" href="#!">baskets on GitHub</a></li>
+					  <li><a class="grey-text text-lighten-3" href="#!">AIS list</a></li>
+					  <li><a class="grey-text text-lighten-3" href="#!">ABDC list</a></li>
+					  <li><a class="grey-text text-lighten-3" href="#!">UNSW Library</a></li>
+					</ul>
+				  </div>
+				</div>
+			  </div>
+	
+		<div class="footer-copyright">
+			<div class="container">
+				Design © 2018 Blair Wang. This project is not affiliated with AIS, ABDC, UNSW, Scopus, or Google Scholar.
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
