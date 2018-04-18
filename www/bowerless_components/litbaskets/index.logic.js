@@ -28,8 +28,7 @@ function updateCodeBox() {
 }
 
 function checkIfButtonEnabled() {
-	let searchTerms = $("#searchTerms").val();
-	if (searchTerms.length > 0) {
+	if (scopusSuffix != null) {
 		$("#scopusSearch").removeClass("disabled");
 	} else {
 		$("#scopusSearch").addClass("disabled");
