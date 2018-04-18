@@ -28,11 +28,6 @@
 </head>
 
 <body onload="bodyDidLoad()">
-	<script>
-		$(document).ready(function(){
-			$('select').formSelect();
-		});
-	</script>
 	<main class="container" style="min-height: 90vh;">
 		<h1 class="teal-text text-lighten-3">Baskets</h1>
 
@@ -56,17 +51,8 @@
 				</p>
 				<br />
 				<div class="input-field">
-					<select multiple>
+					<select id="selectedFields" multiple>
 						<option value="" disabled selected>Select your disciplines</option>
-						<option value="1">Accounting</option>
-						<option value="1">Business and Taxation Law</option>
-						<option value="1">Economics</option>
-						<option value="1">Finance</option>
-						<option value="1">Information Systems</option>
-						<option value="1">Management</option>
-						<option value="1">Marketing, Tourism, Logistics</option>
-						<option value="1">Other Commerce</option>
-						<option value="1">Statistics</option>
 					</select>
 					<label>Disciplines (select multiple if required)</label>
 				</div>
@@ -74,11 +60,6 @@
 				<div class="input-field">
 					<select id="selectedBaskets" multiple>
 						<option value="" disabled selected>Select your baskets</option>
-						<option value="ais">AIS Basket of 8</option>
-						<option value="abdc-1">ABDC A* journals</option>
-						<option value="abdc-2">ABDC A journals</option>
-						<option value="abdc-3">ABDC B journals</option>
-						<option value="abdc-4">ABDC C journals</option>
 					</select>
 					<label>Baskets (select multiple if required)</label>
 				</div>

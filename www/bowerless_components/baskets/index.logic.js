@@ -20,7 +20,6 @@ function refreshPageElements() {
 
 function checkIfButtonEnabled() {
 	let searchTerms = $("#searchTerms").val();
-	console.log(searchTerms);
 	if (searchTerms.length > 0) {
 		$("#scopusSearch").removeClass("disabled");
 	} else {
@@ -63,15 +62,45 @@ function updateScopusHref() {
 }
 
 function getData() {
-	$.get(API_ROOT + "getJournalsInSet.php", function(ajaxResponse) {
-		savedAjaxResponse = ajaxResponse;
-		buildScopusString();
+	$.get(API_ROOT + "getFieldsOfStudy.php", function(resFieldsOfStudy) {
+		populateFields(resFieldsOfStudy);
+
+		$.get(API_ROOT + "getBaskets.php", function(resBaskets) {
+			populateBaskets(resBaskets);
+			
+			$.get(API_ROOT + "getJournalsInSet.php", function(ajaxResponse) {
+				savedAjaxResponse = ajaxResponse;
+				buildScopusString();
+				$('select').formSelect();
+			});
+		});
 	});
+}
+
+function populateBaskets(resBaskets) {
+	for (var i = 0; i < resBaskets.length; i++) {
+		var htmlString = '<option value="' + resBaskets[i].basket_id + '">'
+		htmlString += resBaskets[i].basket_name;
+		htmlString += '</option>';
+
+		$("#selectedBaskets").append(htmlString);
+	}
+}
+
+function populateFields(resFieldsOfStudy) {
+	for (var i = 0; i < resFieldsOfStudy.length; i++) {
+		var htmlString = '<option value="' + resFieldsOfStudy[i].field_id + '">'
+		htmlString += resFieldsOfStudy[i].field_name;
+		htmlString += '</option>';
+		$("#selectedFields").append(htmlString);
+	}
 }
 
 function buildScopusString() {
 	var ranking = 1;
+	let specifiedFields = $("#selectedFields").val();
 	let specifiedBaskets = $("#selectedBaskets").val();
+
 
 	scopusSuffix = "(";
 
@@ -79,7 +108,7 @@ function buildScopusString() {
 	for (var i = 0; i < savedAjaxResponse.length; i++) {
 		if (
 			savedAjaxResponse[i].scopus_sourceid != null
-			&& journalInSelectedBaskets(savedAjaxResponse[i], specifiedBaskets)
+			&& journalMatchesCriteria(savedAjaxResponse[i], specifiedFields, specifiedBaskets)
 		) {
 			filteredResults.push(savedAjaxResponse[i]);
 		}
@@ -99,26 +128,11 @@ function buildScopusString() {
 	console.log("/scopusSuffix");
 }
 
-function journalInSelectedBaskets(journal, baskets) {
-	var preparedResponse = false;
-	let journal_rank = journal.abdc_rank;
+function journalMatchesCriteria(journal, fields, baskets) {
+	let fieldCheckPassed = ($.inArray(journal.field_id, fields) >= 0);
+	let basketCheckPassed = ($.inArray(journal.basket_id, baskets) >= 0);
 
-	for (var i = 0; i < baskets.length; i++) {
-		let basket = baskets[i];
-		console.log("journalInSelectedBaskets " + journal_rank + " " + basket);
-		if (basket == "abdc-1" && journal_rank == "1") {
-			preparedResponse = true;
-		}
-		if (basket == "abdc-2" && journal_rank == "2") {
-			preparedResponse = true;
-		}
-		if (basket == "abdc-3" && journal_rank == "3") {
-			preparedResponse = true;
-		}
-		if (basket == "abdc-4" && journal_rank == "4") {
-			preparedResponse = true;
-		}
-	}
-
+	let preparedResponse = (fieldCheckPassed && basketCheckPassed);
+	console.log("preparedResponse = " + preparedResponse);
 	return preparedResponse;
 }
