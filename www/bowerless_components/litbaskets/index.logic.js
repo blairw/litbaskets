@@ -1,4 +1,3 @@
-let API_ROOT = "../api/";
 let SCOPUS_URL = "https://www.scopus.com/";
 let SCOPUS_URL_USYD = "http://ezproxy.library.usyd.edu.au/login?url=scopus.com/"
 let SCOPUS_URL_UTS = "http://ezproxy.lib.uts.edu.au/login?url=scopus.com/"
