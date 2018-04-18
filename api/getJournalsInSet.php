@@ -1,6 +1,7 @@
 <?php	
 	// connect to mysql
 	include ('secret.php');
+	include ('cors.php');
 	
 	//
 	// GROUP DETAILS

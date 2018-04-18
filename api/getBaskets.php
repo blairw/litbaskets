@@ -1,5 +1,6 @@
 <?php	
 	// connect to mysql
+	include ('cors.php');
 	include ('secret.php');
 	
 	//
