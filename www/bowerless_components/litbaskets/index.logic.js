@@ -5,6 +5,7 @@ let SCOPUS_URL_UNSW = "https://www-scopus-com.wwwproxy1.library.unsw.edu.au/";
 let RESULTS_SUFFIX = "results/results.uri?sort=plf-f&src=s&sot=a&s=";
 var googleSuffix = "";
 var scopusSuffix = "";
+var fullScopusTerms = "";
 var savedAjaxResponse = [];
 
 function bodyDidLoad() {
@@ -14,7 +15,16 @@ function bodyDidLoad() {
 function refreshPageElements() {
 	buildScopusString();
 	updateScopusHref();
+	updateCodeBox();
 	checkIfButtonEnabled();
+}
+
+function updateCodeBox() {
+	if (scopusSuffix != null) {
+		$("#scopusSearchString").html(fullScopusTerms);
+	} else {
+		$("#scopusSearchString").html("(not available)");
+	}
 }
 
 function checkIfButtonEnabled() {
@@ -27,8 +37,7 @@ function checkIfButtonEnabled() {
 }
 
 function updateScopusHref() {
-	let fullScopusSuffix = "TITLE-ABS-KEY(" + $("#searchTerms").val() + ") AND " + scopusSuffix;
-	let encodedScopusSuffix = escape(fullScopusSuffix);
+	let encodedScopusSuffix = escape(fullScopusTerms);
 
 	let universityProxy = $("#universityProxy").val();
 	var scopusUrl = SCOPUS_URL;
@@ -100,8 +109,10 @@ function buildScopusString() {
 	let specifiedFields = $("#selectedFields").val();
 	let specifiedBaskets = $("#selectedBaskets").val();
 
+	scopusSuffix = null;
 
-	scopusSuffix = "(";
+	var scopusSuffixIsValid = false;
+	var preparedScopusSuffix = "(";
 
 	var filteredResults = [];
 	for (var i = 0; i < savedAjaxResponse.length; i++) {
@@ -114,17 +125,20 @@ function buildScopusString() {
 	}
 
 	for (var i = 0; i < filteredResults.length; i++) {
-		scopusSuffix += "SOURCE-ID(" + filteredResults[i].scopus_sourceid + ")";
+		preparedScopusSuffix += "SOURCE-ID(" + filteredResults[i].scopus_sourceid + ")";
+		scopusSuffixIsValid = true;
+
 		if (i == filteredResults.length - 1) {
-			scopusSuffix += ")";
+			preparedScopusSuffix += ")";
 		} else {
-			scopusSuffix += " OR ";
+			preparedScopusSuffix += " OR ";
 		}
 	}
 
-	console.log("scopusSuffix");
-	console.log(scopusSuffix);
-	console.log("/scopusSuffix");
+	if (scopusSuffixIsValid) {
+		scopusSuffix = preparedScopusSuffix;
+		fullScopusTerms = "TITLE-ABS-KEY(" + $("#searchTerms").val() + ") AND " + scopusSuffix;
+	}
 }
 
 function journalMatchesCriteria(journal, fields, baskets) {

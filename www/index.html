@@ -30,7 +30,7 @@
 
 <body onload="bodyDidLoad()">
 	<main class="container" style="min-height: 90vh;">
-		<h1 class="teal-text text-lighten-3">Baskets</h1>
+		<h1 class="teal-text text-lighten-3">Lit Baskets</h1>
 
 		<div class="row">
 
@@ -52,23 +52,19 @@
 				</p>
 				<br />
 				<div class="input-field">
-					<select id="selectedFields" multiple>
+					<select id="selectedFields" onchange="refreshPageElements()" multiple>
 						<option value="" disabled selected>Select your disciplines</option>
 					</select>
 					<label>Disciplines (select multiple if required)</label>
 				</div>
 				<br />
 				<div class="input-field">
-					<select id="selectedBaskets" multiple>
+					<select id="selectedBaskets" onchange="refreshPageElements()" multiple>
 						<option value="" disabled selected>Select your baskets</option>
 					</select>
 					<label>Baskets (select multiple if required)</label>
 				</div>
 				<br />
-			</div>
-
-
-			<div class="col m6 offset-s1 ">
 				<h4 class="grey-text text-darken-1">3. Search</h4>
 				<div class="input-field">
 					<select id="universityProxy" onchange="refreshPageElements()">
@@ -90,6 +86,18 @@
 					<a href="#" class="waves-effect waves-light btn-large light-blue darken-1 disabled" id="scopusSearch"><i class="material-icons left">search</i>Scopus</a>
 				</p>
 			</div>
+
+
+			<div class="col m6 offset-s1 ">
+				
+				<div class="card yellow lighten-3" style="margin-top: 3rem;">
+					<div class="card-content">
+					  <span class="card-title yellow-text text-darken-2">Scopus search string</span>
+					  <code style="font-size: 0.8rem;" class="yellow-text text-darken-4" id="scopusSearchString">
+						  (not available)
+					  </code>
+				</div>
+			</div>
 		</div>
 	</main>
 	<footer class="page-footer">
@@ -97,7 +105,7 @@
 		<div class="container">
 				<div class="row">
 				  <div class="col l6 s12">
-					<h5 class="white-text">baskets</h5>
+					<h5 class="white-text">Lit Baskets</h5>
 					<p class="grey-text text-lighten-4">
 						A project by <a class="grey-text text-lighten-3" href="https://blair.wang/">Blair Wang</a>.
 						Because he needed to complete his PhD literature review, and typing in filters manually got boring.
