@@ -4,7 +4,7 @@ let SCOPUS_URL_UTS = "http://ezproxy.lib.uts.edu.au/login?url=scopus.com/"
 let SCOPUS_URL_UNSW = "https://www-scopus-com.wwwproxy1.library.unsw.edu.au/";
 let RESULTS_SUFFIX = "results/results.uri?sort=plf-f&src=s&sot=a&s=";
 var googleSuffix = "";
-var scopusSuffix = "";
+var searchIsValid = false;
 var fullScopusTerms = "";
 var savedAjaxResponse = [];
 
@@ -15,24 +15,18 @@ function bodyDidLoad() {
 function refreshPageElements() {
 	buildScopusString();
 	updateScopusHref();
-	updateCodeBox();
-	checkIfButtonEnabled();
+	approveSearch();
 }
 
-function updateCodeBox() {
-	if (scopusSuffix != null) {
+function approveSearch() {
+	if (searchIsValid) {
 		$("#scopusSearchString").html(fullScopusTerms);
-	} else {
-		$("#scopusSearchString").html("(not available)");
-	}
-}
-
-function checkIfButtonEnabled() {
-	if (scopusSuffix != null) {
 		$("#scopusSearch").removeClass("disabled");
 	} else {
+		$("#scopusSearchString").html("(not available)");
 		$("#scopusSearch").addClass("disabled");
 	}
+
 }
 
 function updateScopusHref() {
@@ -104,15 +98,10 @@ function populateFields(resFieldsOfStudy) {
 }
 
 function buildScopusString() {
-	var ranking = 1;
 	let specifiedFields = $("#selectedFields").val();
 	let specifiedBaskets = $("#selectedBaskets").val();
 
-	scopusSuffix = null;
-
-	var scopusSuffixIsValid = false;
-	var preparedScopusSuffix = "(";
-
+	// generate basket selection
 	var filteredResults = [];
 	for (var i = 0; i < savedAjaxResponse.length; i++) {
 		if (
@@ -123,8 +112,12 @@ function buildScopusString() {
 		}
 	}
 
+	// check basket selection valid
+	var scopusSuffixIsValid = false;
+	var preparedScopusSuffix = "(";
 	for (var i = 0; i < filteredResults.length; i++) {
 		preparedScopusSuffix += "SOURCE-ID(" + filteredResults[i].scopus_sourceid + ")";
+		console.log("scopusSuffixIsValid");
 		scopusSuffixIsValid = true;
 
 		if (i == filteredResults.length - 1) {
@@ -134,9 +127,18 @@ function buildScopusString() {
 		}
 	}
 
-	if (scopusSuffixIsValid) {
-		scopusSuffix = preparedScopusSuffix;
-		fullScopusTerms = "TITLE-ABS-KEY(" + $("#searchTerms").val() + ") AND " + scopusSuffix;
+	// check search term valid
+	var scopusTermIsValid = false;
+	let proposedSearchTerm = $("#searchTerms").val();
+	if (proposedSearchTerm.length > 0) {
+		console.log("scopusTermIsValid");
+		scopusTermIsValid = true;
+	}
+
+	if (scopusSuffixIsValid && scopusTermIsValid) {
+		console.log("scopusSuffixIsValid && scopusTermIsValid");
+		searchIsValid = true;
+		fullScopusTerms = "TITLE-ABS-KEY(" + proposedSearchTerm + ") AND " + preparedScopusSuffix;
 	}
 }
 
