@@ -148,7 +148,7 @@ function buildScopusString() {
 	let docTypes = $("#documentTypes").val();
 	if (docTypes.length > 0) {
 
-		fullScopusTerms += "AND (";
+		fullScopusTerms += " AND (";
 		for (var i = 0; i < docTypes.length; i++) {
 			fullScopusTerms += "DOCTYPE(" + docTypes[i] + ")";
 
