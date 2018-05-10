@@ -135,11 +135,33 @@ function buildScopusString() {
 		scopusTermIsValid = true;
 	}
 
+	// check validity
 	if (scopusSuffixIsValid && scopusTermIsValid) {
 		console.log("scopusSuffixIsValid && scopusTermIsValid");
 		searchIsValid = true;
-		fullScopusTerms = "TITLE-ABS-KEY(" + proposedSearchTerm + ") AND " + preparedScopusSuffix;
 	}
+
+	// interim complete
+	fullScopusTerms = "TITLE-ABS-KEY(" + proposedSearchTerm + ")" 
+
+	// do doctypes
+	let docTypes = $("#documentTypes").val();
+	if (docTypes.length > 0) {
+
+		fullScopusTerms += "AND (";
+		for (var i = 0; i < docTypes.length; i++) {
+			fullScopusTerms += "DOCTYPE(" + docTypes[i] + ")";
+
+			if (i == docTypes.length - 1) {
+				fullScopusTerms += ")";
+			} else {
+				fullScopusTerms += " OR ";
+			}
+		}
+	}
+
+	// final complete
+	fullScopusTerms = fullScopusTerms + " AND " + preparedScopusSuffix;
 }
 
 function journalMatchesCriteria(journal, fields, baskets) {

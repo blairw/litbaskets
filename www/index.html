@@ -44,6 +44,27 @@
 					<label for="searchTerms">Search Term, e.g. sociomateriality</label>
 				</div>
 				<br />
+				<div class="input-field">
+					<select id="documentTypes" onchange="refreshPageElements()" multiple>
+						<option value="ar">Article</option>
+						<option value="ip">Article in Press</option>
+						<option value="ab">Abstract Report</option>
+						<option value="bk">Book</option>
+						<option value="ch">Book Chapter</option>
+						<option value="cp">Conference Paper</option>
+						<option value="cr">Conference Review</option>
+						<option value="ed">Editorial</option>
+						<option value="er">Erratum</option>
+						<option value="le">Letter</option>
+						<option value="no">Note</option>
+						<option value="pr">Press Release</option>
+						<option value="rp">Report</option>
+						<option value="re">Review</option>
+						<option value="sh">Short Survey</option>
+					</select>
+					<label>Filter document types</label>
+				</div>
+				<br />
 				<h4 class="grey-text text-darken-1">2. Which baskets of journals?</h4>
 				<p>
 					These lists are based off the Australian Business Deans Council (ABDC) Master Journal list
