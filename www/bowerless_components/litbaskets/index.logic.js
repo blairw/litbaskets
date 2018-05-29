@@ -14,7 +14,6 @@ function bodyDidLoad() {
 }
 
 function refreshPageElements() {
-	refreshSubdivisionsInSelectedBaskets();
 	buildScopusString();
 	updateScopusHref();
 	approveSearch();
