@@ -181,3 +181,5 @@ function buildScopusString() {
 	// final complete
 	fullScopusTerms = fullScopusTerms + " AND " + preparedScopusSuffix;
 }
+
+// FORCE A REFRESH.
