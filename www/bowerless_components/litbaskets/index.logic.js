@@ -6,13 +6,15 @@ let RESULTS_SUFFIX = "results/results.uri?sort=plf-f&src=s&sot=a&s=";
 var googleSuffix = "";
 var searchIsValid = false;
 var fullScopusTerms = "";
-var savedAjaxResponse = [];
+var savedJournalsBySubdivisions = [];
+var savedSubdivisionsByBaskets = [];
 
 function bodyDidLoad() {
 	getData();
 }
 
 function refreshPageElements() {
+	refreshSubdivisionsInSelectedBaskets();
 	buildScopusString();
 	updateScopusHref();
 	approveSearch();
@@ -63,52 +65,68 @@ function updateScopusHref() {
 }
 
 function getData() {
-	$.get(API_ROOT + "getFieldsOfStudy.php", function(resFieldsOfStudy) {
-		populateFields(resFieldsOfStudy);
-
-		$.get(API_ROOT + "getBaskets.php", function(resBaskets) {
-			populateBaskets(resBaskets);
+	$.get(API_ROOT + "getSubdivisionsByBaskets.php", function(subdivisionsByBaskets) {
+		savedSubdivisionsByBaskets = subdivisionsByBaskets;
+		populateBaskets(subdivisionsByBaskets);
 			
-			$.get(API_ROOT + "getJournalsInSet.php", function(ajaxResponse) {
-				savedAjaxResponse = ajaxResponse;
-				buildScopusString();
-				$('select').formSelect();
-			});
+		$.get(API_ROOT + "getJournalsBySubdivisions.php", function(journalsBySubdivisions) {
+			savedJournalsBySubdivisions = journalsBySubdivisions;
+			buildScopusString();
+			$('select').formSelect();
 		});
 	});
 }
 
-function populateBaskets(resBaskets) {
-	for (var i = 0; i < resBaskets.length; i++) {
-		var htmlString = '<option value="' + resBaskets[i].basket_id + '">'
-		htmlString += resBaskets[i].basket_name;
+function populateBaskets(subdivisionsByBaskets) {
+	for (var i = 0; i < subdivisionsByBaskets.length; i++) {
+		var htmlString = '<option value="' + subdivisionsByBaskets[i].basket_id + '">'
+		htmlString += subdivisionsByBaskets[i].basket_name;
 		htmlString += '</option>';
 
 		$("#selectedBaskets").append(htmlString);
 	}
 }
 
-function populateFields(resFieldsOfStudy) {
-	for (var i = 0; i < resFieldsOfStudy.length; i++) {
-		var htmlString = '<option value="' + resFieldsOfStudy[i].field_id + '">'
-		htmlString += resFieldsOfStudy[i].field_name;
-		htmlString += '</option>';
-		$("#selectedFields").append(htmlString);
+function refreshSubdivisionsInSelectedBaskets() {
+	console.log("refreshSubdivisionsInSelectedBaskets");
+	let specifiedBaskets = $("#selectedBaskets").val();
+
+	$("#selectedSubdivisions").empty();
+	for (var i = 0; i < savedSubdivisionsByBaskets.length; i++) {
+		let basketCheckPassed = ($.inArray(savedSubdivisionsByBaskets[i]["basket_id"], specifiedBaskets) >= 0); 
+		if (basketCheckPassed) {
+			console.log("basketCheckPassed == true")
+			for (var j = 0; j < savedSubdivisionsByBaskets[i]["subdivisions"].length; j++) {
+				let thisOne = savedSubdivisionsByBaskets[i]["subdivisions"][j];
+			
+				var htmlString = '<option value="' + thisOne["bsd_id"] + '" selected="true">'
+				htmlString += thisOne["subdivision_name"]
+				htmlString += '</option>';
+
+				console.log(thisOne["bsd_id"]);
+				$("#selectedSubdivisions").append(htmlString);
+			}
+		}
 	}
+
+	M.AutoInit();
 }
 
 function buildScopusString() {
-	let specifiedFields = $("#selectedFields").val();
-	let specifiedBaskets = $("#selectedBaskets").val();
+	let specifiedSubdivisions = $("#selectedSubdivisions").val();
 
 	// generate basket selection
 	var filteredResults = [];
-	for (var i = 0; i < savedAjaxResponse.length; i++) {
-		if (
-			savedAjaxResponse[i].scopus_sourceid != null
-			&& journalMatchesCriteria(savedAjaxResponse[i], specifiedFields, specifiedBaskets)
-		) {
-			filteredResults.push(savedAjaxResponse[i]);
+	for (var i = 0; i < savedJournalsBySubdivisions.length; i++) {
+		let subdivisionCheckPassed = ($.inArray(savedJournalsBySubdivisions[i]["bsd_id"], specifiedSubdivisions) >= 0); 
+		if (subdivisionCheckPassed) {
+			for (var j = 0; j < savedJournalsBySubdivisions[i]["journals"].length; j++) {
+				let thisOne = savedJournalsBySubdivisions[i]["journals"][j];
+
+				if (thisOne["scopus_sourceid"] != null) {
+					filteredResults.push(thisOne);
+				}
+			}
 		}
 	}
 
@@ -162,13 +180,4 @@ function buildScopusString() {
 
 	// final complete
 	fullScopusTerms = fullScopusTerms + " AND " + preparedScopusSuffix;
-}
-
-function journalMatchesCriteria(journal, fields, baskets) {
-	let fieldCheckPassed = ($.inArray(journal.field_id, fields) >= 0);
-	let basketCheckPassed = ($.inArray(journal.basket_id, baskets) >= 0);
-
-	let preparedResponse = (fieldCheckPassed && basketCheckPassed);
-	console.log("preparedResponse = " + preparedResponse);
-	return preparedResponse;
 }
