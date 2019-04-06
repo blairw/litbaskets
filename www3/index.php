@@ -9,7 +9,8 @@
 	<?php
 		include("fragments/40-litbaskets-search.php");
 		include("fragments/41-litbaskets-sources.php");
-		include("fragments/42-litbaskets-configuration.php");
+		include("fragments/42-litbaskets-types.php");
+		include("fragments/45-litbaskets-configuration.php");
 		include("fragments/50-litbaskets-about.php");
 	?>
 </div>

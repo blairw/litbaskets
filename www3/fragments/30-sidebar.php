@@ -19,6 +19,15 @@
 			</a>
 		</li>
 		<li class="list-group-item"
+			data-target="#litbaskets-types"
+			onclick="userDidSelectTab('litbaskets-types')"
+		>
+			<a href="#0">
+				<span class="fa fa-file" data-toggle="tooltip" title="Scopus Types"></span>
+				<span class="list-group-item-value">Scopus Types</span>
+			</a>
+		</li>
+		<li class="list-group-item"
 			data-target="#litbaskets-configuration"
 			onclick="userDidSelectTab('litbaskets-configuration')"
 		>
