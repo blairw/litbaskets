@@ -1,0 +1,12 @@
+{
+  "name": "litbaskets.io",
+  "version": "1.0.0",
+  "main": "index.php",
+  "repository": "github.com/blairw/litbaskets",
+  "author": "Blair Wang",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap-switch": "^3.3.4",
+    "patternfly": "^3.59.1"
+  }
+}

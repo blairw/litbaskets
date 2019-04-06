@@ -1,0 +1,21 @@
+.litbaskets-inline-button {
+    display: inline-block;
+    border: 1px solid lightgray;
+    background-color: rgb(231, 231, 231);
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-left: 2px;
+    margin-right: 2px;
+    color: black;
+}
+
+.litbaskets-inline-button:hover {
+    text-decoration: none;
+    color: black;
+    border: 1px solid rgb(255, 216, 87);
+    background-color: rgb(253, 239, 193);
+}
+
+.paragraph-that-contains-inline-buttons {
+    line-height: 2.5rem;
+}
