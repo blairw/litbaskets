@@ -10,6 +10,7 @@
 	<script src="node_modules/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
 	<script src="node_modules/patternfly-bootstrap-combobox/js/bootstrap-combobox.js"></script>
 	<script src="node_modules/underscore/underscore-min.js"></script>
+	<script src="node_modules/clipboard/dist/clipboard.min.js"></script>
 	<script src="extras/sidebar-tab-switcher.js"></script>
 	<script src="extras/api.js"></script>
 	<script src="extras/index.logic.js"></script>

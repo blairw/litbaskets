@@ -43,28 +43,12 @@
                     <h4 class="modal-title" id="myModalLabel">Modal Title</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" for="textInput">Field One</label>
-                            <div class="col-sm-9">
-                                <input type="text" id="textInput" class="form-control"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" for="textInput2">Field Two</label>
-                            <div class="col-sm-9">
-                                <input type="text" id="textInput2" class="form-control"></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" for="textInput3">Field Three</label>
-                            <div class="col-sm-9">
-                                <input type="text" id="textInput3" class="form-control">
-                            </div>
-                        </div>
-                    </form>
+                    <textarea class="form-control" id="txt_copy_to_clipboard" readonly>TEST</textarea>
                 </div>
                 <div class="modal-footer">
+                    <span id="lbl_copy_to_clipboard"></span>
+                    <button id="btn_copy_to_clipboard" type="button" class="btn btn-primary" data-clipboard-target="#txt_copy_to_clipboard">COPY TO CLIPBOARD</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </div>

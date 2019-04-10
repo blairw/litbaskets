@@ -18,6 +18,20 @@ function body_did_load() {
 	$().setupVerticalNavigation(true);
 
 	loadObjects();
+
+	// btn_copy_to_clipboard
+	var clipboard = new ClipboardJS('#btn_copy_to_clipboard');
+	clipboard.on('success', function(e) {
+		document.getElementById("lbl_copy_to_clipboard").style.opacity = '100';
+		$("#lbl_copy_to_clipboard").html("SUCCESS COPIED YAY");
+
+		// https://codepen.io/ssddayz/pen/zKkaBQ
+		window.setTimeout(lbl_copy_to_clipboard_fadeout, 2000); //2 seconds
+	});
+}
+
+function lbl_copy_to_clipboard_fadeout() {
+	document.getElementById("lbl_copy_to_clipboard").style.opacity = '0';
 }
 
 function loadObjects() {
