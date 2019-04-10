@@ -12,7 +12,7 @@
                     </div>
                     <div class="form-group">
                         <label>Subdivision</label>
-                        <select id="subdivisionSelector" class="custom-select bobox form-control">
+                        <select id="subdivisionSelector" class="custom-select bobox form-control" onchange="user_did_select_subdivision()">
 
                         </select>
                     </div>

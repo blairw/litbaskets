@@ -100,6 +100,18 @@ function user_did_select_basket() {
 	populate_journals_in_listview();
 }
 
+
+function user_did_select_subdivision() {
+	// clear model
+	user_selected_subdivision_ids = [];
+
+	// update model
+	user_selected_subdivision_ids.push($("#subdivisionSelector").val());
+
+	// thank u, next
+	populate_journals_in_listview();
+}
+
 function populate_journals_in_listview() {
 
 	// clear model and view
