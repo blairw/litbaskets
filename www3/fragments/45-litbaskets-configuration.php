@@ -1,4 +1,4 @@
-<div id="litbaskets-configuration" style="display: none;">
+<div id="litbaskets-configuration" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
     <h1>Configuration</h1>
     <p>
         These settings meow meow lorem ipsum dolor sit amet.

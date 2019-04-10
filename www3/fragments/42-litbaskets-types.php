@@ -1,4 +1,4 @@
-<div id="litbaskets-types" style="display: none;">
+<div id="litbaskets-types" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
     <h1>Scopus Types</h1>
 
     <form class="form-horizontal">

@@ -14,15 +14,6 @@
 		include("fragments/50-litbaskets-about.php");
 	?>
 </div>
-<script>
-	userDidSelectTab('litbaskets-search');
-
-	$(".bootstrap-switch").bootstrapSwitch();
-	$('.combobox').btComboBox();
-
-	// Initialize the vertical navigation
-	$().setupVerticalNavigation(true);
-</script>
 
 <?php
 	include("fragments/99-close-body-and-end.php");

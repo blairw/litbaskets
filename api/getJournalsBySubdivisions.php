@@ -10,8 +10,10 @@
 		SELECT DISTINCT bsd_id
 		FROM litfam_basket_subdivisions sd
 			JOIN litfam_baskets b ON sd.basket_id = b.basket_id
-		WHERE sd.subdivision_name LIKE '%0806%'
-			OR basket_name NOT LIKE 'ABDC%'
+		WHERE (
+			sd.subdivision_name LIKE '%0806%'
+			OR b.basket_name NOT LIKE 'ABDC%'
+		)
 	");
 	
 	$subdivisionsArray = array();
@@ -23,8 +25,7 @@
 	for ($i = 0; $i < count($subdivisionsArray); $i++) {
 		$resJ = $mysqli->query("
 			SELECT
-				j.journal_name,
-				j.scopus_sourceid
+				j.*
 			FROM litfam_journals j
 				JOIN litfam_basket_membership bm ON j.journal_id = bm.journal_id
 			WHERE bm.bsd_id = " . $subdivisionsArray[$i]["bsd_id"] . "

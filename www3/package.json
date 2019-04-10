@@ -7,7 +7,9 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap-switch": "^3.3.4",
+    "jquery": "^3.3.1",
     "patternfly": "^3.59.1",
-    "patternfly-bootstrap-combobox": "^1.1.7"
+    "patternfly-bootstrap-combobox": "^1.1.7",
+    "underscore": "^1.9.1"
   }
 }

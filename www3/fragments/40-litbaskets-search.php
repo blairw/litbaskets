@@ -1,4 +1,4 @@
-<div id="litbaskets-search" style="display: none;  width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
+<div id="litbaskets-search" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
 
 	<div style="text-align: center;">
         <h1 style="font-size: 4rem; font-weight: bold;">Lit Baskets <sub>beta</sub></h1>
