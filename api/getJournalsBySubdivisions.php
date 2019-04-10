@@ -7,11 +7,11 @@
 	// SUBDIVISIONS DETAILS
 	//
 	$resSubdivisions = $mysqli->query("
-		SELECT
-			DISTINCT bsd_id
-		FROM litfam_basket_membership
-		WHERE bsd_id IS NOT NULL
-		ORDER BY bsd_id ASC
+		SELECT DISTINCT bsd_id
+		FROM litfam_basket_subdivisions sd
+			JOIN litfam_baskets b ON sd.basket_id = b.basket_id
+		WHERE sd.subdivision_name LIKE '%0806%'
+			OR basket_name NOT LIKE 'ABDC%'
 	");
 	
 	$subdivisionsArray = array();

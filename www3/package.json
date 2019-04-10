@@ -6,6 +6,7 @@
   "author": "Blair Wang",
   "license": "MIT",
   "dependencies": {
+    "bootstrap-combobox": "^1.0.2",
     "bootstrap-switch": "^3.3.4",
     "patternfly": "^3.59.1"
   }

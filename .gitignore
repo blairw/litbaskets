@@ -3,5 +3,7 @@ api/secret.php
 
 # JS to API connection
 www/api.js
+www/extras/api.js
+www3/extras/api.js
 
 www/bower_components
