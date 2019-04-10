@@ -54,8 +54,3 @@
     <option value="WY">Wyoming</option>
   </select>
 </div>
-<script src="/components/bootstrap-combobox/js/bootstrap-combobox.js"></script>
-<script>
-  // Initialize Boostrap-Combobox
-  $('.combobox').combobox();
-</script>

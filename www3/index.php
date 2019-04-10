@@ -18,7 +18,7 @@
 	userDidSelectTab('litbaskets-search');
 
 	$(".bootstrap-switch").bootstrapSwitch();
-	$('.selectpicker').selectpicker();
+	$('.combobox').btComboBox();
 
 	// Initialize the vertical navigation
 	$().setupVerticalNavigation(true);
