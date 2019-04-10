@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap-switch": "^3.3.4",
+    "clipboard": "^2.0.4",
     "jquery": "^3.3.1",
     "patternfly": "^3.59.1",
     "patternfly-bootstrap-combobox": "^1.1.7",
