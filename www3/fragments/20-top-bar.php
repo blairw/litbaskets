@@ -6,9 +6,8 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a href="/" class="navbar-brand">
-			<img class="navbar-brand-icon" src="/assets/img/logo-alt.svg" alt="" /><img class="navbar-brand-name"
-				src="/assets/img/brand-alt.svg" alt="Lit Baskets" />
-		</a>
+		<span class="navbar-brand">
+			<h4><span style="font-weight: bold;">LIT BASKETS</span><span style="color: #bababa"> &mdash; Better literature searches for Information Systems researchers.</span></h4>
+		</span>
 	</div>
 </nav>
