@@ -9,6 +9,7 @@
                 id="litbaskets_search_textbox"
                 class="form-control"
                 onchange="check_if_search_buttons_should_be_locked()"
+                onkeyup="check_if_search_buttons_should_be_locked()"
                 style="font-size: 2rem; padding: 2rem; display: inline-block;" 
                 type="text" placeholder="e.g. Sociomateriality"
             />
