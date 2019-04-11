@@ -13,6 +13,7 @@
 	<script src="node_modules/clipboard/dist/clipboard.min.js"></script>
 	<script src="extras/sidebar-tab-switcher.js"></script>
 	<script src="extras/api.js"></script>
-	<script src="extras/index.logic.js"></script>
+	<script src="extras/index.model.js"></script>
+	<script src="extras/index.controller.js"></script>
 </head>
 <body onload="body_did_load()">

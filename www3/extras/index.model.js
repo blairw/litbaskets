@@ -7,28 +7,8 @@ var saved_journals_master_data = [];
 
 // storing user selections
 var user_selected_subdivision_ids = [];
-var user_selected_journal_ids = [];
-
-function body_did_load() {
-
-	userDidSelectTab('litbaskets-search');
-	$(".bootstrap-switch").bootstrapSwitch();
-
-	// Initialize the vertical navigation
-	$().setupVerticalNavigation(true);
-
-	loadObjects();
-
-	// btn_copy_to_clipboard
-	var clipboard = new ClipboardJS('#btn_copy_to_clipboard');
-	clipboard.on('success', function(e) {
-		document.getElementById("lbl_copy_to_clipboard").style.opacity = '100';
-		$("#lbl_copy_to_clipboard").html("SUCCESS COPIED YAY");
-
-		// https://codepen.io/ssddayz/pen/zKkaBQ
-		window.setTimeout(lbl_copy_to_clipboard_fadeout, 2000); //2 seconds
-	});
-}
+var user_selected_journal_ids_to_inspect = [];
+var user_selected_journal_ids_to_include = [];
 
 function lbl_copy_to_clipboard_fadeout() {
 	document.getElementById("lbl_copy_to_clipboard").style.opacity = '0';
@@ -50,9 +30,9 @@ function loadObjects() {
 
 function generate_journal_master_data() {
 	for (var i = 0; i < saved_journals_by_subdivisions.length; i++) {
-		let this_subdivision = saved_journals_by_subdivisions[i];
+		var this_subdivision = saved_journals_by_subdivisions[i];
 		for (var j = 0; j < this_subdivision.journals.length; j++) {
-			let this_journal = this_subdivision.journals[j];
+			var this_journal = this_subdivision.journals[j];
 			saved_journals_master_data.push(this_journal);
 		}
 	}
@@ -64,8 +44,14 @@ function generate_journal_master_data() {
 
 	// set default on/off
 	for (var i = 0; i < saved_journals_master_data.length; i++) {
-		let this_journal = saved_journals_master_data[i];
-		this_journal["is_selected"] = (this_journal.is_core == 1 ? true : false);
+		var this_journal = saved_journals_master_data[i];
+
+		if (this_journal.is_core == 1) {
+			user_selected_journal_ids_to_include.push(this_journal.journal_id);
+			this_journal.is_selected = true;
+		} else {
+			this_journal.is_selected = false;
+		}
 	}
 
 	console.log("generate_journal_master_data completed!");
@@ -86,67 +72,29 @@ function populate_subdivisions_with_blank() {
 	$("#subdivisionSelector").html("<option value='' selected='selected'>(All subdivisions, no filter applied)</option>");
 }
 
-function user_did_select_basket() {
-	// clear model
-	user_selected_subdivision_ids = [];
-
-	var selectedId = $("#basketSelector").val();
-	for (var i = 0; i < saved_subdivisions_by_baskets.length; i++) {
-		let thisBasket = saved_subdivisions_by_baskets[i];
-		if (thisBasket.basket_id == selectedId) {
-			populate_subdivisions_with_blank();
-
-			for (var j = 0; j < thisBasket.subdivisions.length; j++) {
-				let thisSubdivision = thisBasket.subdivisions[j];
-
-				// populate list on Model
-				user_selected_subdivision_ids.push(thisSubdivision.bsd_id);
-
-				// populate list on View
-				var htmlString = '<option value="' + thisSubdivision.bsd_id + '">'
-				htmlString += thisSubdivision.subdivision_name;
-				htmlString += '</option>';
-				$("#subdivisionSelector").append(htmlString);
-			}
-		}
-	}
-
-	populate_journals_in_listview();
-}
-
-
-function user_did_select_subdivision() {
-	// clear model
-	user_selected_subdivision_ids = [];
-
-	// update model
-	user_selected_subdivision_ids.push($("#subdivisionSelector").val());
-
-	// thank u, next
-	populate_journals_in_listview();
-}
-
+/*
+ * Inserts rows into the listview on screen 'Scopus Sources'
+ */
 function populate_journals_in_listview() {
-
 	// clear model and view
-	user_selected_journal_ids = [];
+	user_selected_journal_ids_to_inspect = [];
 	$("#journalsListView").html("");
 	
 	for (var i = 0; i < saved_journals_by_subdivisions.length; i++) {
-		let this_subdivision = saved_journals_by_subdivisions[i];
+		var this_subdivision = saved_journals_by_subdivisions[i];
 
 		// if user selected this subdivision
 		if (user_selected_subdivision_ids.includes(this_subdivision.bsd_id)) {
 			for (var j = 0; j < this_subdivision.journals.length; j++) {
-				user_selected_journal_ids.push(this_subdivision.journals[j].journal_id);
+				user_selected_journal_ids_to_inspect.push(this_subdivision.journals[j].journal_id);
 			}
 		}
 	}
 
 	for (var i = 0; i < saved_journals_master_data.length; i++) {
-		let thisJournal = saved_journals_master_data[i];
+		var thisJournal = saved_journals_master_data[i];
 
-		if (user_selected_journal_ids.includes(thisJournal.journal_id)) {
+		if (user_selected_journal_ids_to_inspect.includes(thisJournal.journal_id)) {
 			var html_string = '<div class="list-group-item">';
 			html_string += '<div class="list-view-pf-actions"><input id="switch_for_journal_'+ thisJournal.journal_id +'" class="bootstrap-switch" ';
 			html_string += 'id="bootstrap-switch-state" type="checkbox" ' + (thisJournal.is_selected ? 'checked' : '') + '> </div> <div class="list-view-pf-main-info"> <div class="list-view-pf-body"> <div class="list-view-pf-description">';
@@ -157,7 +105,5 @@ function populate_journals_in_listview() {
 			$("#journalsListView").append(html_string);
 			$("#switch_for_journal_" + thisJournal.journal_id).bootstrapSwitch();
 		}
-	}
-
-	
+	}	
 }

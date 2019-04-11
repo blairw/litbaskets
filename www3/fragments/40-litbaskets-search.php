@@ -6,15 +6,25 @@
 
         <div style="margin-bottom: 1rem;">
             <input
+                id="litbaskets_search_textbox"
                 class="form-control"
+                onchange="check_if_search_buttons_should_be_locked()"
                 style="font-size: 2rem; padding: 2rem; display: inline-block;" 
                 type="text" placeholder="e.g. Sociomateriality"
             />
         </div>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="font-size: 2rem;">
+        <button class="btn btn-primary" 
+            id="litbaskets_search_button"
+            onclick="user_did_click_search_button()"
+            data-toggle="modal" data-target="#myModal"
+            style="font-size: 2rem;"
+        >
             Search
         </button>
-        <button class="btn btn-default" data-toggle="modal" data-target="#myModal" style="font-size: 2rem;">
+        <button class="btn btn-default"
+            id="litbaskets_extended_search_button"
+            data-toggle="modal" data-target="#myModal" style="font-size: 2rem;"
+        >
             Extended Search
         </button>
     </div>
