@@ -17,5 +17,12 @@
 	<script src="extras/index.controller.js"></script>
 	<script src="extras/index.controller.search.js"></script>
 	<script src="extras/index.controller.sources.js"></script>
+
+	
+	<title>litbaskets.io</title>
+	<link rel="icon" type="image/png" href="images/litbasket16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="images/litbasket32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/litbasket96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="images/litbasket192.png" sizes="192x192">
 </head>
 <body onload="body_did_load()">
