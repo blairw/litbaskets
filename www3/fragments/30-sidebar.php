@@ -10,6 +10,7 @@
 			</a>
 		</li>
 		<li class="list-group-item"
+			id="link_for_nav_litbaskets_sources"
 			data-target="#litbaskets-sources"
 			onclick="userDidSelectTab('litbaskets-sources')"
 		>
@@ -20,6 +21,7 @@
 		</li>
 		<li class="list-group-item"
 			data-target="#litbaskets-types"
+			id="link_for_nav_litbaskets_sources"
 			onclick="userDidSelectTab('litbaskets-types')"
 		>
 			<a href="#0">
@@ -28,16 +30,8 @@
 			</a>
 		</li>
 		<li class="list-group-item"
-			data-target="#litbaskets-configuration"
-			onclick="userDidSelectTab('litbaskets-configuration')"
-		>
-			<a href="#0">
-				<span class="fa fa-cogs" data-toggle="tooltip" title="Configuration"></span>
-				<span class="list-group-item-value">Configuration</span>
-			</a>
-		</li>
-		<li class="list-group-item"
 			data-target="#litbaskets-about"
+			id="link_for_nav_litbaskets_about"
 			onclick="userDidSelectTab('litbaskets-about')"
 		>
 			<a href="#0">

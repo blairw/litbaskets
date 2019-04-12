@@ -24,6 +24,7 @@
         </button>
         <button class="btn btn-default"
             id="litbaskets_extended_search_button"
+            onclick="user_did_click_extended_search_button()"
             data-toggle="modal" data-target="#modal_for_search_results" style="font-size: 2rem;"
         >
             Extended Search
@@ -34,12 +35,9 @@
     <p style="margin-top: 4rem;" class="paragraph-that-contains-inline-buttons">
         <strong>Search</strong> includes only 'core' literature relating to Information Systems.
         <strong>Extended Search</strong> automatically includes all literature in Scopus that
-        may in some way be relevant to Information Systems researchers, and also automatically opens new
-        browser tabs performing searches on dblp and the AIS eLibrary. These options can be managed
-        by accessing the 
-        <a class="litbaskets-inline-button" href=""><span class="fa fa-database"></span> Scopus Sources</a>
-        and
-        <a class="litbaskets-inline-button" href=""><span class="fa fa-cogs"></span> Configuration</a>
-        tabs on the left-hand side of the screen.
+        may in some way be relevant to Information Systems researchers. The definition of 'core' literature
+        can be managed by accessing the 
+        <a class="litbaskets-inline-button" onclick="navigate_to_sources_tab()" href="#"><span class="fa fa-database"></span> Scopus Sources</a>
+        tab.
     </p>
 </div>

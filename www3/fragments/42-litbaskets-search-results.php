@@ -24,8 +24,7 @@
 
                 <p>
                     Alternatively, we've also automatically generated a <a id="link_for_scopus" href="#" target="blank">custom Scopus URL (opens in new tab)</a>
-                    which will perform this search for you. However, please note that this will not work for
-                    more complex queries.
+                    which will perform this search for you. This will not work for more complex queries.
                 </p>
 
                 <h2>Other Sources</h2>
