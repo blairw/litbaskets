@@ -29,26 +29,19 @@ function user_did_click_search_button() {
 
     $("#txt_copy_to_clipboard").val(prepared_response);
 
-    maybe_open_ais_elibrary();
-    maybe_open_dblp();
-    maybe_open_scopus(prepared_response);
+    // externals
+    var prepared_scopus_link = "https://www.scopus.com/results/results.uri?sort=plf-f&src=s&sot=a&s=" + escape(prepared_response);
+    console.log(prepared_scopus_link);
+    
+    $("#link_ais_elibrary").prop("href", "https://aisel.aisnet.org/do/search/?q=" + $("#litbaskets_search_textbox").val());
+    $("#link_ais_dblp").prop("href", "https://dblp.org/search?q=" + $("#litbaskets_search_textbox").val());
+    $("#link_for_scopus").prop("href", prepared_scopus_link);
 }
 
-function maybe_open_ais_elibrary() {
-    if (newtab_for_ais_elibrary) {
-        window.open("https://aisel.aisnet.org/do/search/?q=" + $("#litbaskets_search_textbox").val(), 'x');
-        chrome.tabs.create({url: "https://aisel.aisnet.org/do/search/?q=" + $("#litbaskets_search_textbox").val()});
-    }
+function user_starts_new_search() {
+    $('#litbaskets_search_textbox').val("");
 }
 
-function maybe_open_dblp() {
-    if (newtab_for_dblp) {
-        window.open("https://dblp.org/search?q=" + $("#litbaskets_search_textbox").val(), 'y');
-        chrome.tabs.create({url: "https://dblp.org/search?q=" + $("#litbaskets_search_textbox").val()});
-    }
-}
-function maybe_open_scopus(scopus_search_string) {
-    if (newtab_for_scopus) {
-        window.open("https://www.scopus.com/results/results.uri?sort=plf-f&src=s&sot=a&s=" + escape(scopus_search_string), 'z');
-    }
-}
+$(document).on('hidden.bs.modal', '#modal_for_search_results', function () {
+    $('#litbaskets_search_textbox').focus();
+});

@@ -16,7 +16,6 @@
 	<script src="extras/index.model.js"></script>
 	<script src="extras/index.controller.js"></script>
 	<script src="extras/index.controller.search.js"></script>
-	<script src="extras/index.controller.sourdes.js"></script>
-	<script src="extras/index.controller.configuration.js"></script>
+	<script src="extras/index.controller.sources.js"></script>
 </head>
 <body onload="body_did_load()">

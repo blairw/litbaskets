@@ -8,9 +8,9 @@
 <div id="litbaskets-container" class="container-fluid container-pf-nav-pf-vertical hide-nav-pf">
 	<?php
 		include("fragments/40-litbaskets-search.php");
-		include("fragments/41-litbaskets-sources.php");
-		include("fragments/42-litbaskets-types.php");
-		include("fragments/45-litbaskets-configuration.php");
+		include("fragments/42-litbaskets-search-results.php");
+		include("fragments/46-litbaskets-sources.php");
+		include("fragments/48-litbaskets-types.php");
 		include("fragments/50-litbaskets-about.php");
 	?>
 </div>

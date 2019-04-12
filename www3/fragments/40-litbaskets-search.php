@@ -17,14 +17,14 @@
         <button class="btn btn-primary" 
             id="litbaskets_search_button"
             onclick="user_did_click_search_button()"
-            data-toggle="modal" data-target="#myModal"
+            data-toggle="modal" data-target="#modal_for_search_results"
             style="font-size: 2rem;"
         >
             Search
         </button>
         <button class="btn btn-default"
             id="litbaskets_extended_search_button"
-            data-toggle="modal" data-target="#myModal" style="font-size: 2rem;"
+            data-toggle="modal" data-target="#modal_for_search_results" style="font-size: 2rem;"
         >
             Extended Search
         </button>
@@ -42,26 +42,4 @@
         <a class="litbaskets-inline-button" href=""><span class="fa fa-cogs"></span> Configuration</a>
         tabs on the left-hand side of the screen.
     </p>
-
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="Close">
-                        <span class="pficon pficon-close"></span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">Modal Title</h4>
-                </div>
-                <div class="modal-body">
-                    <textarea class="form-control" id="txt_copy_to_clipboard" readonly>TEST</textarea>
-                </div>
-                <div class="modal-footer">
-                    <span id="lbl_copy_to_clipboard"></span>
-                    <button id="btn_copy_to_clipboard" type="button" class="btn btn-primary" data-clipboard-target="#txt_copy_to_clipboard">COPY TO CLIPBOARD</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

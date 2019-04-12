@@ -23,5 +23,10 @@
 #lbl_copy_to_clipboard {
     font-weight: bold;
     color: green;
-    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+#txt_copy_to_clipboard {
+    font-family: monospace;
+    height: 10rem;
 }
