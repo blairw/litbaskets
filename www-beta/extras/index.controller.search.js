@@ -65,10 +65,12 @@ function perform_search_with_journals(search_mode, list_of_journals) {
     $("#txt_copy_to_clipboard").val(prepared_response);
 
     // externals
-    var prepared_scopus_link = "https://www.scopus.com/results/results.uri?sort=plf-f&src=s&sot=a&s=" + escape(prepared_response);
+    var prepared_scopus_link = generate_url("SCOPUS_SEARCH_QUERY", escape(prepared_response));
+    var prepared_ais_elibrary_link = generate_url("AIS_ELIBRARY_SEARCH", $("#litbaskets_search_textbox").val());
+    var prepared_dblp_link = generate_url("DBLP_SEARCH", $("#litbaskets_search_textbox").val());
     
-    $("#link_ais_elibrary").prop("href", "https://aisel.aisnet.org/do/search/?q=" + $("#litbaskets_search_textbox").val());
-    $("#link_ais_dblp").prop("href", "https://dblp.org/search?q=" + $("#litbaskets_search_textbox").val());
+    $("#link_ais_elibrary").prop("href", prepared_ais_elibrary_link);
+    $("#link_ais_dblp").prop("href", prepared_dblp_link);
     $("#link_for_scopus").prop("href", prepared_scopus_link);
 
     if (search_mode == "SHORT_SEARCH") {

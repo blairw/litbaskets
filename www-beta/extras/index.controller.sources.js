@@ -81,14 +81,17 @@ function populate_journals_in_listview_using_selected_subdivision() {
 		var thisJournal = saved_journals_master_data[i];
 
 		// ISSN details
-		var issnString = "";
+		var issnString = "<div>";
+		issnString += generate_url_html("SCOPUS_SOURCE_LOOKUP", thisJournal.scopus_sourceid, "Scopus #" + thisJournal.scopus_sourceid);
+		issnString += "</div>";
+
 		if (thisJournal.issn && thisJournal.issn.length > 0) {
-			issnString += thisJournal.issn;
+			issnString += generate_url_html("ISSN_LOOKUP", thisJournal.issn, thisJournal.issn);
 			if (thisJournal.issne && thisJournal.issne.length > 0) {
-				issnString += ",<br />" + thisJournal.issne;
+				issnString += ", " + generate_url_html("ISSN_LOOKUP", thisJournal.issne, thisJournal.issn);
 			}
 		} else if (thisJournal.issne && thisJournal.issne.length > 0) {
-			issnString += thisJournal.issne;
+			issnString += generate_url_html("ISSN_LOOKUP", thisJournal.issne, thisJournal.issn);
 		}
 
 		// Journal details
