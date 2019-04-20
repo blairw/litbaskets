@@ -5,6 +5,7 @@ var saved_subdivisions_by_baskets = [];
 // derived from API requests
 var saved_journals_master_data = [];
 var saved_journals_bo8_only = [];
+var saved_journals_litbaskets_ext_only = [];
 
 // storing user selections
 var user_selected_subdivision_ids = [];
@@ -23,6 +24,7 @@ function loadObjects() {
 			saved_journals_by_subdivisions = y;
 			
 			generate_journal_master_data();
+			generate_litbaskets_ext_master_data();
 			generate_bo8_master_data();
 			populate_baskets();
 
@@ -61,6 +63,27 @@ function generate_journal_master_data() {
 	console.log(saved_journals_master_data);
 }
 
+function generate_litbaskets_ext_master_data() {
+	var bsd_id_for_litbaskets_ext = -1;
+
+	// get Basket of 8 bsd_id
+	for (var i = 0; i < saved_subdivisions_by_baskets.length; i++) {
+		var this_basket = saved_subdivisions_by_baskets[i];
+		if (this_basket.basket_name == "Litbaskets Sets") {
+			bsd_id_for_litbaskets_ext = this_basket.subdivisions[0].bsd_id;
+		}
+	}
+
+	// Push to saved_journals_litbaskets_ext_only
+	for (var i = 0; i < saved_journals_by_subdivisions.length; i++) {
+		var this_subdivision = saved_journals_by_subdivisions[i];
+		if (this_subdivision.bsd_id == bsd_id_for_litbaskets_ext) {
+			saved_journals_litbaskets_ext_only = this_subdivision.journals;
+		}
+	}
+	
+}
+
 function generate_bo8_master_data() {
 	var bsd_id_for_bo8 = -1;
 
@@ -92,5 +115,5 @@ function populate_baskets() {
 }
 
 function populate_subdivisions_with_blank() {
-	$("#subdivisionSelector").html("<option value='' selected='selected'>(All subdivisions, no filter applied)</option>");
+	$("#subdivisionSelector").html("<option value='-1' selected='selected'>(All subdivisions, no filter applied)</option>");
 }

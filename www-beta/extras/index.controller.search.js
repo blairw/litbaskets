@@ -8,12 +8,12 @@ function check_if_search_buttons_should_be_locked() {
 
 function user_did_click_extended_search_button() {
     var scopus_ids = [];
-    for (var i = 0; i < saved_journals_master_data.length; i++) {
-        var this_journal = saved_journals_master_data[i];
+    for (var i = 0; i < saved_journals_litbaskets_ext_only.length; i++) {
+        var this_journal = saved_journals_litbaskets_ext_only[i];
         scopus_ids.push(this_journal.scopus_sourceid);
     }
 
-    perform_search_with_journals(scopus_ids);
+    perform_search_with_journals("LONG_SEARCH", scopus_ids);
 }
 
 function user_did_click_search_button() {
@@ -24,7 +24,7 @@ function user_did_click_search_button() {
         scopus_ids.push(this_journal.scopus_sourceid);
     }
 
-    perform_search_with_journals(scopus_ids);
+    perform_search_with_journals("SHORT_SEARCH", scopus_ids);
 }
 
 function user_did_click_search_bo8_button() {
@@ -35,10 +35,19 @@ function user_did_click_search_bo8_button() {
         scopus_ids.push(this_journal.scopus_sourceid);
     }
 
-    perform_search_with_journals(scopus_ids);
+    perform_search_with_journals("SHORT_SEARCH", scopus_ids);
 }
 
-function perform_search_with_journals(list_of_journals) {
+function perform_search_with_journals(search_mode, list_of_journals) {
+    // work with search_mode
+    if (search_mode == "SHORT_SEARCH") {
+        $(".litbaskets_modal_message_if_short_search").css("display", "block");
+        $(".litbaskets_modal_message_if_long_search").css("display", "none");
+    } else {
+        $(".litbaskets_modal_message_if_short_search").css("display", "none");
+        $(".litbaskets_modal_message_if_long_search").css("display", "block");
+    }
+
     $("#txt_copy_to_clipboard").text("");
 
     var prepared_response = "TITLE-ABS-KEY(" + $("#litbaskets_search_textbox").val() + ") AND (";
@@ -57,11 +66,19 @@ function perform_search_with_journals(list_of_journals) {
 
     // externals
     var prepared_scopus_link = "https://www.scopus.com/results/results.uri?sort=plf-f&src=s&sot=a&s=" + escape(prepared_response);
-    console.log(prepared_scopus_link);
     
     $("#link_ais_elibrary").prop("href", "https://aisel.aisnet.org/do/search/?q=" + $("#litbaskets_search_textbox").val());
     $("#link_ais_dblp").prop("href", "https://dblp.org/search?q=" + $("#litbaskets_search_textbox").val());
     $("#link_for_scopus").prop("href", prepared_scopus_link);
+
+    if (search_mode == "SHORT_SEARCH") {
+        // https://stackoverflow.com/questions/19851782/how-to-open-a-url-in-a-new-tab-using-javascript-or-jquery
+        var win = window.open(prepared_scopus_link);
+        if (win) {
+            //Browser has allowed it to be opened
+            win.focus();
+        }
+    }
 }
 
 function user_starts_new_search() {

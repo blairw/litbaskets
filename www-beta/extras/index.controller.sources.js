@@ -23,19 +23,22 @@ function user_did_select_basket() {
 		}
 	}
 
-	populate_journals_in_listview();
+	populate_journals_in_listview_using_selected_subdivision();
 }
 
 
 function user_did_select_subdivision() {
-	// clear model
-	user_selected_subdivision_ids = [];
-
-	// update model
-	user_selected_subdivision_ids.push($("#subdivisionSelector").val());
-
-	// thank u, next
-	populate_journals_in_listview();
+	var user_selection = $("#subdivisionSelector").val();
+	
+	if (user_selection > 0) {
+		// selected a valid option
+		user_selected_subdivision_ids = [];
+		user_selected_subdivision_ids.push(user_selection);
+		populate_journals_in_listview_using_selected_subdivision();
+	} else {
+		// selected "all subdivisons, no filter applied"
+		user_did_select_basket();
+	}
 }
 
 
@@ -58,7 +61,7 @@ function toggle_inclusion_of_journal_with_id(given_journal_id) {
 /*
  * Inserts rows into the listview on screen 'Scopus Sources'
  */
-function populate_journals_in_listview() {
+function populate_journals_in_listview_using_selected_subdivision() {
 	// clear model and view
 	user_selected_journal_ids_to_inspect = [];
 	$("#journalsListView").html("");
@@ -77,13 +80,33 @@ function populate_journals_in_listview() {
 	for (var i = 0; i < saved_journals_master_data.length; i++) {
 		var thisJournal = saved_journals_master_data[i];
 
+		// ISSN details
+		var issnString = "";
+		if (thisJournal.issn && thisJournal.issn.length > 0) {
+			issnString += thisJournal.issn;
+			if (thisJournal.issne && thisJournal.issne.length > 0) {
+				issnString += ",<br />" + thisJournal.issne;
+			}
+		} else if (thisJournal.issne && thisJournal.issne.length > 0) {
+			issnString += thisJournal.issne;
+		}
+
+		// Journal details
+		var journal_name_string = "<div>" + thisJournal.journal_name + "</div>";
+		if (thisJournal.url && thisJournal.url.length > 0) {
+			journal_name_string += "<div style='margin-top: 0.5rem;'>"
+			journal_name_string += "<a href='" + thisJournal.url + "' target='_blank'>" + (thisJournal.url.length > 75 ? thisJournal.url.substring(0, 75) + "..." : thisJournal.url) + "</a>";
+			journal_name_string += "</div>"
+		}
+
 		if (user_selected_journal_ids_to_inspect.includes(thisJournal.journal_id)) {
 			var html_string = '<div class="list-group-item">';
 			html_string += '<div class="list-view-pf-actions"><input id="switch_for_journal_'+ thisJournal.journal_id +'" class="bootstrap-switch" ';
 			html_string += 'onchange="toggle_inclusion_of_journal_with_id(' + thisJournal.journal_id + ')" type="checkbox" ' + (thisJournal.is_selected ? 'checked' : '') + '> </div> <div class="list-view-pf-main-info"> <div class="list-view-pf-body"> <div class="list-view-pf-description">';
-			html_string += '<div class="list-group-item-heading">'+ thisJournal.journal_code +'</div>';
-			html_string += '<div class="list-group-item-text">'+ thisJournal.journal_name +'</div>'; 
-			html_string += '</div> <div class="list-view-pf-additional-info"> additional info </div> </div> </div> </div>';
+			html_string += '<div class="list-group-item-heading">'+ issnString + '</div>';
+			html_string += '<div class="list-group-item-text">'+ journal_name_string + '</div>'; 
+			html_string += '</div>';
+			html_string += '</div> </div> </div>';
 
 			$("#journalsListView").append(html_string);
 			$("#switch_for_journal_" + thisJournal.journal_id).bootstrapSwitch();
