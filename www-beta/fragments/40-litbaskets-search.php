@@ -22,6 +22,14 @@
         >
             Search
         </button>
+        <button class="btn btn-default" 
+            id="litbaskets_search_bo8_button"
+            onclick="user_did_click_search_bo8_button()"
+            data-toggle="modal" data-target="#modal_for_search_results"
+            style="font-size: 2rem;"
+        >
+            Search Bo8
+        </button>
         <button class="btn btn-default"
             id="litbaskets_extended_search_button"
             onclick="user_did_click_extended_search_button()"

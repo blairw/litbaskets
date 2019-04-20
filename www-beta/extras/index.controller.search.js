@@ -2,6 +2,7 @@ function check_if_search_buttons_should_be_locked() {
     var should_lock = ($("#litbaskets_search_textbox").val().length == 0);
     
     $("#litbaskets_search_button").attr("disabled", should_lock);
+    $("#litbaskets_search_bo8_button").attr("disabled", should_lock);
     $("#litbaskets_extended_search_button").attr("disabled", should_lock);
 }
 
@@ -20,6 +21,17 @@ function user_did_click_search_button() {
 	for (var i = 0; i < user_selected_journal_ids_to_include.length; i++) {
         var this_journal_id = user_selected_journal_ids_to_include[i];
         var this_journal = _.findWhere(saved_journals_master_data, {journal_id: this_journal_id});
+        scopus_ids.push(this_journal.scopus_sourceid);
+    }
+
+    perform_search_with_journals(scopus_ids);
+}
+
+function user_did_click_search_bo8_button() {
+    var scopus_ids = [];
+
+    for (var i = 0; i < saved_journals_bo8_only.length; i++) {
+        var this_journal = saved_journals_bo8_only[i];
         scopus_ids.push(this_journal.scopus_sourceid);
     }
 
