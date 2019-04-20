@@ -7,7 +7,7 @@
 			<span class="icon-bar"></span>
 		</button>
 		<span class="navbar-brand">
-			<h4><span style="font-weight: bold;">LIT BASKETS</span><span style="color: #bababa"> &mdash; Better literature searches for Information Systems researchers.</span></h4>
+			<h4><span style="font-weight: bold;">LITBASKETS</span><span style="color: #bababa"> &mdash; Better literature searches for Information Systems researchers.</span></h4>
 		</span>
 	</div>
 </nav>

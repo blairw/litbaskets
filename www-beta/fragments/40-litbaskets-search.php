@@ -1,7 +1,7 @@
 <div id="litbaskets-search" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
 
 	<div style="text-align: center;">
-        <h1 style="color: rgb(128, 203, 196); font-size: 4rem; font-weight: bold;">Lit Baskets <sub>beta</sub></h1>
+        <h1 style="color: rgb(128, 203, 196); font-size: 4rem; font-weight: bold;">Litbaskets <sub>beta</sub></h1>
         <img src="images/baskets500.png" alt="litbaskets.io" style="height: 25rem; padding: 1rem;" />
 
         <div style="margin-bottom: 1rem;">
@@ -11,7 +11,7 @@
                 onchange="check_if_search_buttons_should_be_locked()"
                 onkeyup="check_if_search_buttons_should_be_locked()"
                 style="font-size: 2rem; padding: 2rem; display: inline-block;" 
-                type="text" placeholder="e.g. Sociomateriality"
+                type="text" placeholder="e.g. Crowdfunding"
             />
         </div>
         <button class="btn btn-primary" 
@@ -39,13 +39,20 @@
         </button>
     </div>
     
-
-    <p style="margin-top: 4rem;" class="paragraph-that-contains-inline-buttons">
-        <strong>Search</strong> includes only 'core' literature relating to Information Systems.
-        <strong>Extended Search</strong> automatically includes all literature in Scopus that
-        may in some way be relevant to Information Systems researchers. The definition of 'core' literature
-        can be managed by accessing the 
-        <a class="litbaskets-inline-button" onclick="navigate_to_sources_tab()" href="#"><span class="fa fa-database"></span> Scopus Sources</a>
-        tab.
-    </p>
+    <div style="text-align: center; margin-top: 4rem;">
+        <p>
+            <strong>Litbaskets is realized through Scopus, you will need to have access to Scopus to use the search.</strong>
+        </p>
+        <p>
+            <strong>Search</strong> includes a core set of nineteen (19) core journals about Information Systems.
+            <strong>Search Bo8</strong> includes only the eight (8) journals in the <a href="https://aisnet.org/page/SeniorScholarBasket">AIS Senior Scholars' Basket</a>.
+            <strong>Extended Search</strong> includes all literature that
+            may in some way be relevant to Information Systems researchers.
+        </p>
+        <p>
+            The definition of the core set that drives the <strong>Search</strong> button be managed by accessing the 
+            <span class="litbaskets-inline-button"><span class="fa fa-database"></span> Scopus Sources</span>
+            tab.
+        </p>
+    </div>
 </div>

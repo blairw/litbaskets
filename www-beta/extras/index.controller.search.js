@@ -71,8 +71,3 @@ function user_starts_new_search() {
 $(document).on('hidden.bs.modal', '#modal_for_search_results', function () {
     $('#litbaskets_search_textbox').focus();
 });
-
-function navigate_to_sources_tab() {
-    $("#link_for_nav_litbaskets_sources").click();
-    return false;
-}

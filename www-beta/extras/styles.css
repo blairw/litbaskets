@@ -9,17 +9,6 @@
     color: black;
 }
 
-.litbaskets-inline-button:hover {
-    text-decoration: none;
-    color: black;
-    border: 1px solid rgb(255, 216, 87);
-    background-color: rgb(253, 239, 193);
-}
-
-.paragraph-that-contains-inline-buttons {
-    line-height: 2.5rem;
-}
-
 #lbl_copy_to_clipboard {
     font-weight: bold;
     color: green;
