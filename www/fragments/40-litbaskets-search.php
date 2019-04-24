@@ -1,7 +1,7 @@
 <div id="litbaskets-search" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
 
 	<div style="text-align: center;">
-        <h1 style="color: rgb(128, 203, 196); font-size: 4rem; font-weight: bold;">Litbaskets <sub>beta</sub></h1>
+        <h1 style="color: rgb(128, 203, 196); font-size: 4rem; font-weight: bold;">Litbaskets<sub>beta</sub></h1>
         <img src="images/baskets500.png" alt="litbaskets.io" style="height: 25rem; padding: 1rem;" />
 
         <div style="margin-bottom: 1rem;">
