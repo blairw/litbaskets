@@ -1,5 +1,5 @@
 <div id="litbaskets-types" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
-	<h1>Configuration</h1>
+	<h1>Filters</h1>
 
 	<form class="form-horizontal">
 		<div class="form-group">

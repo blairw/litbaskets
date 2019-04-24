@@ -24,8 +24,8 @@
 			onclick="userDidSelectTab('litbaskets-types')"
 		>
 			<a href="#0">
-				<span class="fa fa-file" data-toggle="tooltip" title="Configuration"></span>
-				<span class="list-group-item-value">Configuration</span>
+				<span class="fa fa-filter" data-toggle="tooltip" title="Filters"></span>
+				<span class="list-group-item-value">Filters</span>
 			</a>
 		</li>
 		<li class="list-group-item"
