@@ -149,9 +149,11 @@ function populate_journals_in_listview_using_selected_subdivision() {
 		}
 
 		if (user_selected_journal_ids_to_inspect.includes(thisJournal.journal_id)) {
+			var is_selected = user_selected_journal_ids_to_include.includes(thisJournal.journal_id)
+
 			var html_string = '<div class="list-group-item">';
 			html_string += '<div class="list-view-pf-actions"><input id="switch_for_journal_'+ thisJournal.journal_id +'" class="bootstrap-switch" ';
-			html_string += 'onchange="toggle_inclusion_of_journal_with_id(' + thisJournal.journal_id + ')" type="checkbox" ' + (thisJournal.is_selected ? 'checked' : '') + '> </div> <div class="list-view-pf-main-info"> <div class="list-view-pf-body"> <div class="list-view-pf-description">';
+			html_string += 'onchange="toggle_inclusion_of_journal_with_id(' + thisJournal.journal_id + ')" type="checkbox" ' + (is_selected ? 'checked' : '') + '> </div> <div class="list-view-pf-main-info"> <div class="list-view-pf-body"> <div class="list-view-pf-description">';
 			html_string += '<div class="list-group-item-heading">'+ issnString + '</div>';
 			html_string += '<div class="list-group-item-text">'+ journal_name_string + '</div>'; 
 			html_string += '</div>';

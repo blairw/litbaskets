@@ -54,9 +54,6 @@ function generate_journal_master_data() {
 
 		if (this_journal.is_core == 1) {
 			user_selected_journal_ids_to_include.push(this_journal.journal_id);
-			this_journal.is_selected = true;
-		} else {
-			this_journal.is_selected = false;
 		}
 	}
 
