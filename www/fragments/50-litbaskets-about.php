@@ -2,7 +2,7 @@
 	<h1>About</h1>
 	<p class="litfam_bibliography_entry">
 		Software developers' names blinded for review.
-		Illustration by <a href="https://www.linkedin.com/in/sunny-lai-b04958136/" target="_blank">Sunny Lai</a>.
+		Illustration by <a href="https://www.instagram.com/acidyellows/" target="_blank">acidyellows</a>.
 	</p>
 	<h2>Where did the baskets come from?</h2>
 	<p class="litfam_bibliography_entry">
