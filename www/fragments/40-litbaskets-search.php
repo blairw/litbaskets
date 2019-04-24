@@ -40,7 +40,7 @@
     
     <div style="text-align: center; margin-top: 4rem;">
         <p>
-            <strong>Litbaskets is realized through Scopus, you will need to have access to Scopus to use the search.</strong>
+            <strong>Litbaskets is realised through Scopus, you will need to have access to Scopus to use the search.</strong>
         </p>
         <p>
             <strong>Search</strong> includes a core set of thirty (30) core journals about Information Systems.

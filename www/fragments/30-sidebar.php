@@ -33,8 +33,8 @@
 			onclick="userDidSelectTab('litbaskets-suggest')"
 		>
 			<a href="#0">
-				<span class="fa fa-commenting" data-toggle="tooltip" title="Suggest a Source"></span>
-				<span class="list-group-item-value">Suggest a Source</span>
+				<span class="fa fa-commenting" data-toggle="tooltip" title="Suggest"></span>
+				<span class="list-group-item-value">Suggest</span>
 			</a>
 		</li>
 		<li class="list-group-item"

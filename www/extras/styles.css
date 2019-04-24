@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,700,700i');
+
+html, body {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
 .litbaskets-inline-button {
     display: inline-block;
     border: 1px solid lightgray;
