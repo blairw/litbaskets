@@ -21,7 +21,7 @@
 				>
 				
 				<span style="margin-left: 3rem; display: inline-block;">
-					only show results since
+					published after
 				</span>
 				<span style="display: inline-block;">
 					<input class="form-control" id="limit_years_data" onkeyup="check_limit_years_data()" type="number"
