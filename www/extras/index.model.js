@@ -116,7 +116,7 @@ function populate_baskets() {
 }
 
 function populate_subdivisions_with_blank() {
-	$("#subdivisionSelector").html("<option value='-1' selected='selected'>(All subdivisions, no filter applied)</option>");
+	$("#subdivisionSelector").html("<option value='-1' selected='selected'>(all subdivisions)</option>");
 }
 
 function generate_url(mode, search_terms) {

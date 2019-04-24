@@ -12,18 +12,21 @@
 		AIS Members of the College of Senior Scholars, 2011, <em>Senior Scholars' Basket of Journals</em>, <a href="https://aisnet.org/page/SeniorScholarBasket" target="_blank">https://aisnet.org/page/SeniorScholarBasket</a>
 	</p>
 	<p class="litfam_bibliography_entry">
-		Chan H.C., Guness V., Kim H.-W., 2015, 'A method for identifying journals in a discipline: An application to information systems', <em>Information & Management</em>, vol. 52, doi: <code>10.1016/j.im.2014.11.003</code>
+		Chan H.C., Guness V., Kim H.-W., 2015, 'A method for identifying journals in a discipline: An application to information systems', <em>Information & Management</em>, vol. 52, doi: <a href="https://dx.doi.org/10.1016/j.im.2014.11.003" target="_blank">10.1016/j.im.2014.11.003</a>
 	</p>
 	<p class="litfam_bibliography_entry">
-		Holsapple C.W., 2009, 'A new map for Knowledge dissemination channels', <em>Communications of the ACM</em>, vol. 52, no. 3, doi: <code>10.1145/1467247.1467276</code>
+		Chartered Association of Business Schools, 2018, <em>Academic Journal Guide</em>, <a href="https://charteredabs.org/academic-journal-guide-2018/" target="_blank">https://charteredabs.org/academic-journal-guide-2018/</a>
 	</p>
 	<p class="litfam_bibliography_entry">
-		Jiang L., Jiang D., & Grover V., 2017, 'The Sphere of Influence of Information Systems Journals: A Longitudinal Study', <em>Communications of the Association for Information Systems</em>, vol. 41, doi: <code>10.17705/1CAIS.04107</code>
+		Holsapple C.W., 2009, 'A new map for Knowledge dissemination channels', <em>Communications of the ACM</em>, vol. 52, no. 3, doi: <a href="https://dx.doi.org/10.1145/1467247.1467276" target="_blank">10.1145/1467247.1467276</a>
 	</p>
 	<p class="litfam_bibliography_entry">
-		Stewart A., Cotton J.L., & Adya M., 2017, 'Information Systems: A House Divided?', <em>Communications of the Association for Information Systems</em>, vol. 41, doi: <code>10.17705/1CAIS.04124</code>
+		Jiang L., Jiang D., & Grover V., 2017, 'The Sphere of Influence of Information Systems Journals: A Longitudinal Study', <em>Communications of the Association for Information Systems</em>, vol. 41, doi: <a href="https://dx.doi.org/10.17705/1CAIS.04107" target="_blank">10.17705/1CAIS.04107</a>
 	</p>
 	<p class="litfam_bibliography_entry">
-		Wilcocks L., Whitley E.A., & Avgerou C., 2008, 'The ranking of top IS journals: a perspective from the London School of Economics', <em>European Journal of Information Systems</em>, vol. 17, doi: <code>10.1057/ejis.2008.9</code>
+		Stewart A., Cotton J.L., & Adya M., 2017, 'Information Systems: A House Divided?', <em>Communications of the Association for Information Systems</em>, vol. 41, doi: <a href="https://dx.doi.org/10.17705/1CAIS.04124" target="_blank">10.17705/1CAIS.04124</code>
+	</p>
+	<p class="litfam_bibliography_entry">
+		Wilcocks L., Whitley E.A., & Avgerou C., 2008, 'The ranking of top IS journals: a perspective from the London School of Economics', <em>European Journal of Information Systems</em>, vol. 17, doi: <a href="https://dx.doi.org/10.1057/ejis.2008.9" target="_blank">10.1057/ejis.2008.9</code>
 	</p>
 </div>

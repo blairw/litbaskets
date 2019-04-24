@@ -1,6 +1,10 @@
 <div id="litbaskets-libraries" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
 	<h1>Open Source Libraries</h1>
 	<p>
+		Litbaskets is an open source project licensed under the MIT license.
+		Details (including link to GitHub repository) are currently blinded for review.
+	</p>
+	<p>
 		The following sets forth attribution notices for third party software that may be contained in portions of the Litbaskets product.
 		We thank the open source community for all of their contributions.
 	</p>

@@ -1,7 +1,7 @@
 <div id="litbaskets-search" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
 
 	<div style="text-align: center;">
-        <h1 style="color: rgb(128, 203, 196); font-size: 4rem; font-weight: bold;">Litbaskets<sub style="font-style: italic; color: rgba(128, 203, 196, 0.75);">beta</sub></h1>
+        <h1 style="color: rgb(128, 203, 196); font-size: 4rem; font-weight: bold;">LITBASKETS<sub style="font-style: italic; color: rgba(128, 203, 196, 0.5);">beta</sub></h1>
         <img src="images/baskets500.png" alt="litbaskets.io" style="height: 25rem; padding: 1rem;" />
 
         <div style="margin-bottom: 1rem;">
@@ -43,15 +43,15 @@
             <strong>Litbaskets is realised through Scopus, you will need to have access to Scopus to use the search.</strong>
         </p>
         <p>
-            <strong>Search</strong> includes a core set of thirty (30) core journals about Information Systems.
+            <strong>Search</strong> includes a core set of twenty-nine (29) core journals about Information Systems.
+            This set can be customised at your discretion by using the 
+            <span class="litbaskets-inline-button"><span class="fa fa-database"></span> Sources</span>
+            tab, where you can select journals individually by searching through journal baskets.
+        </p>
+        <p>
             <strong>Search Bo8</strong> includes only the set of eight (8) journals in the <a href="https://aisnet.org/page/SeniorScholarBasket">AIS Senior Scholars' Basket</a>.
             <strong>Extended Search</strong> includes a huge set of one hundred and twelve (112) journals that
             may in some way be relevant to Information Systems researchers.
-        </p>
-        <p>
-            The definition of the core set that drives the <strong>Search</strong> button be managed by accessing the 
-            <span class="litbaskets-inline-button"><span class="fa fa-database"></span> Sources</span>
-            tab.
         </p>
     </div>
 </div>

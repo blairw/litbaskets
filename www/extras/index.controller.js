@@ -20,7 +20,12 @@ function body_did_load() {
 
 		// https://codepen.io/ssddayz/pen/zKkaBQ
 		window.setTimeout(lbl_copy_to_clipboard_fadeout, 2000); //2 seconds
-    });
+	});
+	
+	// lock subdivision operation buttons
+	$("#current_subdivision_select_all").prop("disabled", true);
+	$("#current_subdivision_select_none").prop("disabled", true);
+	$("#current_subdivision_select_default").prop("disabled", true);
     
 	// ready
 	$("#limit_years_data").val(limit_years_data);
