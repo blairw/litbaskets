@@ -41,3 +41,7 @@ function check_limit_years_switch() {
 		$("#limit_years_data").prop("disabled", true);
 	}
 }
+
+function check_limit_years_data() {
+	limit_years_data = $("#limit_years_data").val();
+}

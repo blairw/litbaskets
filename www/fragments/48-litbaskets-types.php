@@ -21,10 +21,10 @@
 				>
 				
 				<span style="margin-left: 3rem; display: inline-block;">
-					only show results published after
+					only show results since
 				</span>
 				<span style="display: inline-block;">
-					<input class="form-control" id="limit_years_data" type="number"
+					<input class="form-control" id="limit_years_data" onkeyup="check_limit_years_data()" type="number"
 						style="max-width: 10rem; border-top: none; border-left: none; border-right: none; box-shadow: none;"
 					/>
 				</span>
