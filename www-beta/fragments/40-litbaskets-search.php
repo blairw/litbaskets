@@ -44,8 +44,8 @@
             <strong>Litbaskets is realized through Scopus, you will need to have access to Scopus to use the search.</strong>
         </p>
         <p>
-            <strong>Search</strong> includes a core set of nineteen (19) core journals about Information Systems.
-            <strong>Search Bo8</strong> includes only the eight (8) journals in the <a href="https://aisnet.org/page/SeniorScholarBasket">AIS Senior Scholars' Basket</a>.
+            <strong>Search</strong> includes a core set of thirty (30) core journals about Information Systems.
+            <strong>Search Bo8</strong> includes only the set of eight (8) journals in the <a href="https://aisnet.org/page/SeniorScholarBasket">AIS Senior Scholars' Basket</a>.
             <strong>Extended Search</strong> includes all literature that
             may in some way be relevant to Information Systems researchers.
         </p>
