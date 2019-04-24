@@ -104,7 +104,7 @@ function populate_journals_in_listview_using_selected_subdivision() {
 
 		if (thisJournal.url && thisJournal.url.length > 0) {
 			journal_name_string += "<div style='margin-top: 0.5rem;'>"
-			journal_name_string += "<a href='" + thisJournal.url + "' target='_blank'>" + (thisJournal.url.length > 75 ? thisJournal.url.substring(0, 75) + "..." : thisJournal.url) + "</a>";
+			journal_name_string += "<a href='" + thisJournal.url + "' target='_blank'>" + (thisJournal.url.length > 60 ? thisJournal.url.substring(0, 60) + "..." : thisJournal.url) + "</a>";
 			journal_name_string += "</div>"
 		}
 

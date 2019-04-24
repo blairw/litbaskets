@@ -60,12 +60,17 @@ function perform_search_with_journals(search_mode, list_of_journals) {
 
     $("#txt_copy_to_clipboard").text("");
 
-    var prepared_response = "TITLE-ABS-KEY(" + $("#litbaskets_search_textbox").val() + ") AND (";
+    var prepared_response = "TITLE-ABS-KEY(" + $("#litbaskets_search_textbox").val() + ")";
 
     if (is_reviews_only) {
-        prepared_response += "DOCTYPE(re)) AND (";
+        prepared_response += " AND DOCTYPE(re)";
     }
 
+    if (limit_years && limit_years_data > 0) {
+        prepared_response += " AND PUBYEAR AFT " + limit_years_data;
+    }
+
+    prepared_response += " AND (";
     for (var i = 0; i < list_of_journals.length; i++) {
         if (i > 0) {
             prepared_response += " OR ";

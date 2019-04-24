@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,700,700i');
 
-html, body {
+html, body, pre {
     font-family: 'IBM Plex Mono', monospace;
 }
 
@@ -22,7 +22,6 @@ html, body {
 }
 
 #txt_copy_to_clipboard {
-    font-family: monospace;
     height: 10rem;
 }
 
