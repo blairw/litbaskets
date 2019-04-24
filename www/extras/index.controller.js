@@ -27,8 +27,13 @@ function body_did_load() {
     $("#litbaskets_search_textbox").focus();
 }
 
+function things_to_do_after_data_loaded_from_api() {
+	update_sidebar_badges();
+}
+
 function check_review_only_switch() {
 	is_reviews_only = $("#reviews_only_switch").prop('checked');
+	update_sidebar_badges();
 }
 
 function check_limit_years_switch() {
@@ -40,8 +45,22 @@ function check_limit_years_switch() {
 		console.log("limit_years is false");
 		$("#limit_years_data").prop("disabled", true);
 	}
+	update_sidebar_badges();
 }
 
 function check_limit_years_data() {
 	limit_years_data = $("#limit_years_data").val();
+}
+
+function update_sidebar_badges() {
+	var sources_count = "";
+	if (user_selected_journal_ids_to_include.length > 0) {
+		sources_count = user_selected_journal_ids_to_include.length;
+	}
+	$("#sidebar_badge_for_sources").html(sources_count);
+
+	var filter_count = 0;
+	if (limit_years) filter_count++;
+	if (is_reviews_only) filter_count++;
+	$("#sidebar_badge_for_filters").html(filter_count > 0 ? filter_count : "");
 }

@@ -29,6 +29,7 @@ function loadObjects() {
 			populate_baskets();
 
 			populate_subdivisions_with_blank();
+			things_to_do_after_data_loaded_from_api();
 		});
 	});
 }

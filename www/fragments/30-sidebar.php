@@ -16,7 +16,10 @@
 		>
 			<a href="#0">
 				<span class="fa fa-database" data-toggle="tooltip" title="Sources"></span>
-				<span class="list-group-item-value">Sources</span>
+				<span class="list-group-item-value">
+					Sources
+					<span id="sidebar_badge_for_sources" class="badge"></span>
+				</span>
 			</a>
 		</li>
 		<li class="list-group-item"
@@ -25,7 +28,10 @@
 		>
 			<a href="#0">
 				<span class="fa fa-filter" data-toggle="tooltip" title="Filters"></span>
-				<span class="list-group-item-value">Filters</span>
+				<span class="list-group-item-value">
+					Filters
+					<span id="sidebar_badge_for_filters" class="badge"></span>
+				</span>
 			</a>
 		</li>
 		<li class="list-group-item"

@@ -46,9 +46,6 @@ function user_did_select_subdivision() {
 function toggle_inclusion_of_journal_with_id(given_journal_id) {
 	var is_selected = $("#switch_for_journal_" + given_journal_id).prop('checked');
 
-	console.log("toggle_inclusion_of_journal_with_id " + given_journal_id);
-	console.log("is_selected " + is_selected);
-
 	if (is_selected) {
 		user_selected_journal_ids_to_include.push(given_journal_id.toString());
 	} else {
@@ -56,6 +53,7 @@ function toggle_inclusion_of_journal_with_id(given_journal_id) {
 	}
 
 	user_selected_journal_ids_to_include = _.uniq(user_selected_journal_ids_to_include);
+	update_sidebar_badges();
 }
 
 /*
