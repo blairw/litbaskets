@@ -6,6 +6,16 @@ function check_if_search_buttons_should_be_locked() {
     $("#litbaskets_extended_search_button").attr("disabled", should_lock);
 }
 
+$(document).keyup(function(event) {
+    if ($("#litbaskets_search_textbox").is(":focus")) {
+        check_if_search_buttons_should_be_locked();
+        
+		if (event.keyCode == 13) {
+			user_did_click_search_button();
+		}
+    }
+});
+
 function user_did_click_extended_search_button() {
     var scopus_ids = [];
     for (var i = 0; i < saved_journals_litbaskets_ext_only.length; i++) {
