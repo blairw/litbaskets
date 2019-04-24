@@ -4,6 +4,15 @@ html, body, pre {
     font-family: 'IBM Plex Mono', monospace;
 }
 
+h1 {
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+h2 {
+    margin-top: 2rem;
+}
+
 .litbaskets-inline-button {
     display: inline-block;
     border: 1px solid lightgray;
