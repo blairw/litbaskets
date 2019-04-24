@@ -1,1 +1,0 @@
-let API_ROOT = "https://localhost/dev/litbaskets/api/";
