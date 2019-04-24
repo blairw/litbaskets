@@ -15,18 +15,26 @@
 			onclick="userDidSelectTab('litbaskets-sources')"
 		>
 			<a href="#0">
-				<span class="fa fa-database" data-toggle="tooltip" title="Scopus Sources"></span>
-				<span class="list-group-item-value">Scopus Sources</span>
+				<span class="fa fa-database" data-toggle="tooltip" title="Sources"></span>
+				<span class="list-group-item-value">Sources</span>
 			</a>
 		</li>
 		<li class="list-group-item"
 			data-target="#litbaskets-types"
-			id="link_for_nav_litbaskets_sources"
 			onclick="userDidSelectTab('litbaskets-types')"
 		>
 			<a href="#0">
-				<span class="fa fa-file" data-toggle="tooltip" title="Scopus Types"></span>
-				<span class="list-group-item-value">Scopus Types</span>
+				<span class="fa fa-file" data-toggle="tooltip" title="Configuration"></span>
+				<span class="list-group-item-value">Configuration</span>
+			</a>
+		</li>
+		<li class="list-group-item"
+			data-target="#litbaskets-suggest"
+			onclick="userDidSelectTab('litbaskets-suggest')"
+		>
+			<a href="#0">
+				<span class="fa fa-commenting" data-toggle="tooltip" title="Suggest a Source"></span>
+				<span class="list-group-item-value">Suggest a Source</span>
 			</a>
 		</li>
 		<li class="list-group-item"
@@ -37,6 +45,15 @@
 			<a href="#0">
 				<span class="fa fa-info-circle" data-toggle="tooltip" title="About"></span>
 				<span class="list-group-item-value">About</span>
+			</a>
+		</li>
+		<li class="list-group-item"
+			data-target="#litbaskets-libraries"
+			onclick="userDidSelectTab('litbaskets-libraries')"
+		>
+			<a href="#0">
+				<span class="fa fa-code" data-toggle="tooltip" title="Open Source"></span>
+				<span class="list-group-item-value">Open Source</span>
 			</a>
 		</li>
 	</ul>

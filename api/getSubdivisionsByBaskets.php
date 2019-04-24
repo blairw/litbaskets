@@ -29,10 +29,6 @@
 			FROM litfam_basket_subdivisions bsd
 				JOIN litfam_baskets b ON bsd.basket_id = b.basket_id
 			WHERE b.basket_id = " . $basketsArray[$i]["basket_id"] . "
-			AND (
-				bsd.subdivision_name LIKE '%0806%'
-				OR b.basket_name NOT LIKE 'ABDC%'
-			)
 			ORDER BY bsd.subdivision_name ASC
 		");
 

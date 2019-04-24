@@ -52,6 +52,10 @@ function perform_search_with_journals(search_mode, list_of_journals) {
 
     var prepared_response = "TITLE-ABS-KEY(" + $("#litbaskets_search_textbox").val() + ") AND (";
 
+    if (is_reviews_only) {
+        prepared_response += "DOCTYPE(re)) AND (";
+    }
+
     for (var i = 0; i < list_of_journals.length; i++) {
         if (i > 0) {
             prepared_response += " OR ";

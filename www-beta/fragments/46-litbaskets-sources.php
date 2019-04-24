@@ -1,5 +1,5 @@
 <div id="litbaskets-sources" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
-    <h1>Scopus Sources</h1>
+    <h1>Sources</h1>
     <div class="container-fluid">
         <div class="row toolbar-pf">
             <div class="toolbar-pf-actions">

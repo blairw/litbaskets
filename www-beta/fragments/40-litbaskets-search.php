@@ -51,7 +51,7 @@
         </p>
         <p>
             The definition of the core set that drives the <strong>Search</strong> button be managed by accessing the 
-            <span class="litbaskets-inline-button"><span class="fa fa-database"></span> Scopus Sources</span>
+            <span class="litbaskets-inline-button"><span class="fa fa-database"></span> Sources</span>
             tab.
         </p>
     </div>

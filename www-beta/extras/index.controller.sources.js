@@ -59,7 +59,7 @@ function toggle_inclusion_of_journal_with_id(given_journal_id) {
 }
 
 /*
- * Inserts rows into the listview on screen 'Scopus Sources'
+ * Inserts rows into the listview on screen 'Sources'
  */
 function populate_journals_in_listview_using_selected_subdivision() {
 	// clear model and view

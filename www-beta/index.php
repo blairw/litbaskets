@@ -11,7 +11,9 @@
 		include("fragments/42-litbaskets-search-results.php");
 		include("fragments/46-litbaskets-sources.php");
 		include("fragments/48-litbaskets-types.php");
+		include("fragments/49-litbaskets-suggest.php");
 		include("fragments/50-litbaskets-about.php");
+		include("fragments/60-litbaskets-libraries.php");
 	?>
 </div>
 

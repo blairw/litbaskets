@@ -19,3 +19,9 @@
     font-family: monospace;
     height: 10rem;
 }
+
+.litfam_bibliography_entry {
+    font-size: 1.5rem;
+    padding-left: 4rem;
+    text-indent: -4rem;
+}

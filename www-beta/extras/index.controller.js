@@ -1,3 +1,5 @@
+var is_reviews_only = false;
+
 function body_did_load() {
 	userDidSelectTab('litbaskets-search');
 	$(".bootstrap-switch").bootstrapSwitch();
@@ -20,4 +22,8 @@ function body_did_load() {
     
     // ready
     $("#litbaskets_search_textbox").focus();
+}
+
+function check_review_only_switch() {
+	is_reviews_only = $("#reviews_only_switch").prop('checked');
 }
