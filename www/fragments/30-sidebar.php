@@ -23,8 +23,8 @@
 			</a>
 		</li>
 		<li class="list-group-item"
-			data-target="#litbaskets-types"
-			onclick="userDidSelectTab('litbaskets-types')"
+			data-target="#litbaskets-filters"
+			onclick="userDidSelectTab('litbaskets-filters')"
 		>
 			<a href="#">
 				<span class="fa fa-filter" data-toggle="tooltip" title="Filters"></span>
