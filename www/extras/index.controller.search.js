@@ -62,12 +62,15 @@ function perform_search_with_journals(search_mode, list_of_journals) {
 
     var prepared_response = "TITLE-ABS-KEY(" + $("#litbaskets_search_textbox").val() + ")";
 
-    if (is_reviews_only) {
+    if (GLOBAL_FILTERS_CONTROLLER.is_reviews_only) {
         prepared_response += " AND DOCTYPE(re)";
     }
+    if (GLOBAL_FILTERS_CONTROLLER.is_editorials_only) {
+        prepared_response += " AND DOCTYPE(ed)";
+    }
 
-    if (limit_years && limit_years_data > 0) {
-        prepared_response += " AND PUBYEAR AFT " + limit_years_data;
+    if (GLOBAL_FILTERS_CONTROLLER.limit_years && GLOBAL_FILTERS_CONTROLLER.limit_years_data > 0) {
+        prepared_response += " AND PUBYEAR AFT " + GLOBAL_FILTERS_CONTROLLER.limit_years_data;
     }
 
     prepared_response += " AND (";
