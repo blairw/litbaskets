@@ -6,13 +6,13 @@
 				<div class="col-sm-12">
 					<div class="form-group">
 						<label>Basket</label>
-						<select id="basketSelector" class="custom-select form-control" onchange="user_did_select_basket()">
+						<select id="basketSelector" class="custom-select form-control" onchange="GLOBAL_SOURCES_TOPBAR_CONTROLLER.user_did_select_basket()">
 							<option value="" selected="selected" disabled>Select a Basket ...</option>
 						</select>
 					</div>
 					<div class="form-group">
 						<label>Subdivision</label>
-						<select id="subdivisionSelector" class="custom-select bobox form-control" onchange="user_did_select_subdivision()">
+						<select id="subdivisionSelector" class="custom-select bobox form-control" onchange="GLOBAL_SOURCES_TOPBAR_CONTROLLER.user_did_select_subdivision()">
 						</select>
 					</div>
 					<div class="form-group">

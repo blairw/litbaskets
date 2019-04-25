@@ -1,3 +1,4 @@
+var GLOBAL_SOURCES_TOPBAR_CONTROLLER = Object.create(LitbasketsSourcesTopbarController);
 var GLOBAL_FILTERS_CONTROLLER = Object.create(LitbasketsFiltersController);
 
 function body_did_load() {

@@ -8,7 +8,6 @@ var saved_journals_bo8_only = [];
 var saved_journals_litbaskets_ext_only = [];
 
 // storing user selections
-var user_selected_subdivision_ids = [];
 var user_selected_journal_ids_to_inspect = [];
 var user_selected_journal_ids_to_include = [];
 

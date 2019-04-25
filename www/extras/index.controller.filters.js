@@ -67,4 +67,4 @@ LitbasketsFiltersController = {
 		if (this.is_filters_only) filter_count++;
 		$("#sidebar_badge_for_filters").html(filter_count > 0 ? filter_count : "");
 	}
-}
+};
