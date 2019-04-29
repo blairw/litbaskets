@@ -2,7 +2,7 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="node_modules/patternfly/dist/css/patternfly.min.css">
 	<link rel="stylesheet" type="text/css" href="node_modules/patternfly/dist/css/patternfly-additions.min.css">
-	<link rel="stylesheet" type="text/css" href="extras/styles.css?litbasketsRevision=34" />
+	<link rel="stylesheet" type="text/css" href="extras/styles.css?litbasketsRevision=35" />
 	
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -11,14 +11,14 @@
 	<script src="node_modules/patternfly-bootstrap-combobox/js/bootstrap-combobox.js"></script>
 	<script src="node_modules/underscore/underscore-min.js"></script>
 	<script src="node_modules/clipboard/dist/clipboard.min.js"></script>
-	<script src="extras/sidebar-tab-switcher.js?litbasketsRevision=34"></script>
-	<script src="extras/api.js?litbasketsRevision=34"></script>
-	<script src="extras/index.model.js?litbasketsRevision=34"></script>
-	<script src="extras/index.controller.search.js?litbasketsRevision=34"></script>
-	<script src="extras/index.controller.sources.topbar.js?litbasketsRevision=34"></script>
-	<script src="extras/index.controller.sources.js?litbasketsRevision=34"></script>
-	<script src="extras/index.controller.filters.js?litbasketsRevision=34"></script>
-	<script src="extras/index.controller.js?litbasketsRevision=34"></script>
+	<script src="extras/sidebar-tab-switcher.js?litbasketsRevision=35"></script>
+	<script src="extras/api.js?litbasketsRevision=35"></script>
+	<script src="extras/index.model.js?litbasketsRevision=35"></script>
+	<script src="extras/index.controller.search.js?litbasketsRevision=35"></script>
+	<script src="extras/index.controller.sources.topbar.js?litbasketsRevision=35"></script>
+	<script src="extras/index.controller.sources.js?litbasketsRevision=35"></script>
+	<script src="extras/index.controller.filters.js?litbasketsRevision=35"></script>
+	<script src="extras/index.controller.js?litbasketsRevision=35"></script>
 
 	
 	<title>Litbaskets</title>
