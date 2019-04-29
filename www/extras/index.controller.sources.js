@@ -38,7 +38,7 @@ function exclude_journal_with_id(given_journal_id) {
 
 function set_journal_inclusion_to_default(given_journal_id) {
 	var journal_object = _.findWhere(saved_journals_master_data, {journal_id: given_journal_id});
-	var is_core = (journal_object.is_core == 1);
+	var is_core = (journal_object.listing_count >= 4);
 	if (is_core) {
 		$("#switch_for_journal_" + given_journal_id).bootstrapSwitch('state', true);
 	} else {

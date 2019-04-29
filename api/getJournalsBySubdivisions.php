@@ -21,9 +21,10 @@
 	for ($i = 0; $i < count($subdivisionsArray); $i++) {
 		$resJ = $mysqli->query("
 			SELECT
-				j.*
+				j.*, r.listing_count
 			FROM litfam_journals j
 				JOIN litfam_basket_membership bm ON j.journal_id = bm.journal_id
+				JOIN v_litbaskets_rankings r ON r.journal_id = j.journal_id
 			WHERE bm.bsd_id = " . $subdivisionsArray[$i]["bsd_id"] . "
 			AND j.scopus_sourceid IS NOT NULL
 		");

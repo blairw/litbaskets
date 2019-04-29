@@ -51,7 +51,7 @@ function generate_journal_master_data() {
 	for (var i = 0; i < saved_journals_master_data.length; i++) {
 		var this_journal = saved_journals_master_data[i];
 
-		if (this_journal.is_core == 1) {
+		if (this_journal.listing_count >= 4) {
 			user_selected_journal_ids_to_include.push(this_journal.journal_id);
 		}
 	}
@@ -87,7 +87,7 @@ function generate_bo8_master_data() {
 	// get Basket of 8 bsd_id
 	for (var i = 0; i < saved_subdivisions_by_baskets.length; i++) {
 		var this_basket = saved_subdivisions_by_baskets[i];
-		if (this_basket.basket_name == "AIS Senior Scholars Basket") {
+		if (this_basket.basket_name == "AIS Baskets") {
 			bsd_id_for_bo8 = this_basket.subdivisions[0].bsd_id;
 		}
 	}
