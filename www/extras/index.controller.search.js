@@ -3,7 +3,6 @@ function check_if_search_buttons_should_be_locked() {
     
     $("#litbaskets_search_button").attr("disabled", should_lock);
     $("#litbaskets_search_bo8_button").attr("disabled", should_lock);
-    $("#litbaskets_extended_search_button").attr("disabled", should_lock);
 }
 
 $(document).keyup(function(event) {
@@ -15,16 +14,6 @@ $(document).keyup(function(event) {
 		}
     }
 });
-
-function user_did_click_extended_search_button() {
-    var scopus_ids = [];
-    for (var i = 0; i < saved_journals_litbaskets_ext_only.length; i++) {
-        var this_journal = saved_journals_litbaskets_ext_only[i];
-        scopus_ids.push(this_journal.scopus_sourceid);
-    }
-
-    perform_search_with_journals("LONG_SEARCH", scopus_ids);
-}
 
 function user_did_click_search_button() {
     var scopus_ids = [];

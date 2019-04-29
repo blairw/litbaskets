@@ -29,13 +29,6 @@
         >
             Search Bo8
         </button>
-        <button class="btn btn-default"
-            id="litbaskets_extended_search_button"
-            onclick="user_did_click_extended_search_button()"
-            data-toggle="modal" data-target="#modal_for_search_results" style="font-size: 2rem;"
-        >
-            Extended Search
-        </button>
     </div>
     
     <div style="text-align: center; margin-top: 4rem;">
@@ -43,15 +36,13 @@
             <strong>Litbaskets is realised through Scopus, you will need to have access to Scopus to use the search.</strong>
         </p>
         <p>
-            <strong>Search</strong> includes a core set of twenty-nine (29) core journals about Information Systems.
+            <strong>Search</strong> includes a core set of thirty (30) core journals about Information Systems.
             This set can be customised at your discretion by using the 
             <span class="litbaskets-inline-button"><span class="fa fa-database"></span> Sources</span>
             tab, where you can select journals individually by searching through journal baskets.
         </p>
         <p>
             <strong>Search Bo8</strong> includes only the set of eight (8) journals in the <a href="https://aisnet.org/page/SeniorScholarBasket">AIS Senior Scholars' Basket</a>.
-            <strong>Extended Search</strong> includes a huge set of one hundred and twelve (112) journals that
-            may in some way be relevant to Information Systems researchers.
         </p>
     </div>
 </div>

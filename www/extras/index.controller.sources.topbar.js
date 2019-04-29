@@ -8,8 +8,6 @@ LitbasketsSourcesTopbarController = {
 		$("#current_subdivision_select_default").prop("disabled", false);
 	
 		// clear model
-		this.user_selected_subdivision_ids = [];
-	
 		var selectedId = $("#basketSelector").val();
 		for (var i = 0; i < saved_subdivisions_by_baskets.length; i++) {
 			var thisBasket = saved_subdivisions_by_baskets[i];
@@ -70,6 +68,8 @@ LitbasketsSourcesTopbarController = {
 				}
 			}
 		}
+
+		user_selected_journal_ids_to_inspect = _.uniq(user_selected_journal_ids_to_inspect);
 
 		for (var i = 0; i < saved_journals_master_data.length; i++) {
 			var thisJournal = saved_journals_master_data[i];
