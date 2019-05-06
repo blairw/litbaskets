@@ -36,7 +36,7 @@
             <strong>Litbaskets is realised through Scopus, you will need to have access to Scopus to use the search.</strong>
         </p>
         <p>
-            <strong>Search</strong> includes a core set of thirty (30) core journals about Information Systems.
+            <strong>Search</strong> includes a core set of fifty-three (53) core journals about Information Systems.
             This set can be customised at your discretion by using the 
             <span class="litbaskets-inline-button"><span class="fa fa-database"></span> Sources</span>
             tab, where you can select journals individually by searching through journal baskets.
