@@ -42,11 +42,6 @@ LitbasketsFiltersController = {
 	*/
 	, check_limit_years_switch: function() {
 		this.limit_years = $("#limit_years_switch").prop('checked');
-		if (limit_years) {
-			$("#limit_years_data").prop("disabled", false);
-		} else {
-			$("#limit_years_data").prop("disabled", true);
-		}
 		update_sidebar_badges();
 	}
 
