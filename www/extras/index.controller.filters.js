@@ -41,7 +41,7 @@ LitbasketsFiltersController = {
 		Invoked when user clicks the switch to filter by year
 	*/
 	, check_limit_years_switch: function() {
-		limit_years = $("#limit_years_switch").prop('checked');
+		this.limit_years = $("#limit_years_switch").prop('checked');
 		if (limit_years) {
 			$("#limit_years_data").prop("disabled", false);
 		} else {
