@@ -1,6 +1,10 @@
 LitbasketsSourcesTopbarController = {
 	user_selected_subdivision_ids: []
 
+	, data_reset: function() {
+		this.user_selected_subdivision_ids = [];
+	}
+
 	, user_did_select_basket: function() {
 		// enable
 		$("#current_subdivision_select_all").prop("disabled", false);

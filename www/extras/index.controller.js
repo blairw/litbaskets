@@ -1,5 +1,6 @@
 var GLOBAL_SOURCES_TOPBAR_CONTROLLER = Object.create(LitbasketsSourcesTopbarController);
 var GLOBAL_FILTERS_CONTROLLER = Object.create(LitbasketsFiltersController);
+var GLOBAL_SEARCH_CONTROLLER = Object.create(LitbasketsSearchController);
 
 function body_did_load() {
 	userDidSelectTab('litbaskets-search');
@@ -28,7 +29,9 @@ function body_did_load() {
     
 	// ready
 	$("#limit_years_data").val(GLOBAL_FILTERS_CONTROLLER.limit_years_data);
-    $("#litbaskets_search_textbox").focus();
+	$("#litbaskets_search_textbox").focus();
+	
+	GLOBAL_SEARCH_CONTROLLER.init_slider();
 }
 
 function things_to_do_after_data_loaded_from_api() {

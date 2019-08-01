@@ -7,7 +7,6 @@
 					<div class="form-group">
 						<label>Basket</label>
 						<select id="basketSelector" class="custom-select form-control" onchange="GLOBAL_SOURCES_TOPBAR_CONTROLLER.user_did_select_basket()">
-							<option value="" selected="selected" disabled>Select a Basket ...</option>
 						</select>
 					</div>
 					<div class="form-group">

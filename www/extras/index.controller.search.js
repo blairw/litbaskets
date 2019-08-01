@@ -1,3 +1,23 @@
+var DEFAULT_THRESHOLD = 5;
+
+LitbasketsSearchController = {
+    current_threshold: DEFAULT_THRESHOLD
+
+    , init_slider: function() {
+        var sd = $("#myslider").slider();
+        sd.slider('setValue', DEFAULT_THRESHOLD);
+    }
+
+    , user_did_change_threshold: function() {
+        var sd = $("#myslider").slider();
+        this.current_threshold = sd.slider('getValue');
+        console.log(this.current_threshold);
+
+        launch_sequence_after_api_load();
+    }
+}
+
+
 function check_if_search_buttons_should_be_locked() {
     var should_lock = ($("#litbaskets_search_textbox").val().length == 0);
     

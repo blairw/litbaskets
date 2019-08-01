@@ -7,6 +7,7 @@
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="node_modules/patternfly/dist/js/patternfly.min.js"></script>
+	<script src="node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
 	<script src="node_modules/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
 	<script src="node_modules/patternfly-bootstrap-combobox/js/bootstrap-combobox.js"></script>
 	<script src="node_modules/underscore/underscore-min.js"></script>
