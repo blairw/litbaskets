@@ -51,8 +51,8 @@
 		<div style="margin: 0 auto; padding-left: 10rem; padding-right: 10rem; padding-top: 3rem; padding-bottom: 3rem;">
 		<input id="myslider" type="text"
 			data-provide="slider"
-			data-slider-ticks="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]"
-			data-slider-ticks-labels='["<em>(most journals)</em>", "", "", "", "", "", "", "", "", "", "<em>(least journals)</em>"]'
+			data-slider-ticks="[11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]"
+			data-slider-ticks-labels='["<em>(least journals)</em>", "", "", "", "", "", "", "", "", "", "<em>(most journals)</em>"]'
 			data-slider-min="1"
 			data-slider-max="11"
 			data-slider-step="1"
