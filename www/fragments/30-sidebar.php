@@ -49,8 +49,8 @@
 			onclick="userDidSelectTab('litbaskets-about')"
 		>
 			<a href="#">
-				<span class="fa fa-info-circle" data-toggle="tooltip" title="About"></span>
-				<span class="list-group-item-value">About</span>
+				<span class="fa fa-info-circle" data-toggle="tooltip" title="FAQ"></span>
+				<span class="list-group-item-value">FAQ</span>
 			</a>
 		</li>
 		<li class="list-group-item"

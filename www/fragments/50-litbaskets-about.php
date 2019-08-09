@@ -1,5 +1,6 @@
 <div id="litbaskets-about" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
-	<h1>About</h1>
+	<h1>FAQ</h1>
+	<h2>Who made this?</h2>
 	<p class="litfam_bibliography_entry">
 		Software developers' names blinded for review.
 		Illustration by <a href="https://www.instagram.com/acidyellows/" target="_blank">acidyellows</a>.
