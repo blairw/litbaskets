@@ -37,25 +37,25 @@
 		</p>
 		
 		<p>
-			<strong>Search</strong> includes a core set of fifty-three (53) core journals about Information Systems.
+			<strong>Search</strong> includes a core set of fifty-one (51) core journals about Information Systems.
 			This set can be customised at your discretion by using the 
 			<span class="litbaskets-inline-button"><span class="fa fa-database"></span> Sources</span>
 			tab, where you can select journals individually by searching through journal baskets.
 		</p>
 		<p>
 			<strong>
-				Or for quickly changing the "size of the net", adjust the threshold value below:
+				Or for quickly changing the "size of the net", adjust the slider below (best results at setting L5 = 51 journals):
 			</strong>
 		</p>
 
 		<div style="margin: 0 auto; padding-left: 10rem; padding-right: 10rem; padding-top: 3rem; padding-bottom: 3rem;">
 		<input id="myslider" type="text"
 			data-provide="slider"
-			data-slider-ticks="[11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]"
+			data-slider-ticks="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]"
 			data-slider-ticks-labels='["<em>(least journals)</em>", "", "", "", "", "", "", "", "", "", "<em>(most journals)</em>"]'
-			data-slider-min="1"
-			data-slider-max="11"
-			data-slider-step="1"
+			data-slider-min="11"
+			data-slider-max="1"
+			data-slider-step="-1"
 			data-slider-value="3"
 			data-slider-tooltip="show"
 			onchange="GLOBAL_SEARCH_CONTROLLER.user_did_change_threshold()" />

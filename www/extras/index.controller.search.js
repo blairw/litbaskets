@@ -4,7 +4,27 @@ LitbasketsSearchController = {
     current_threshold: DEFAULT_THRESHOLD
 
     , init_slider: function() {
-        var sd = $("#myslider").slider();
+        var sd = $("#myslider").slider({
+            tooltip: 'always',
+            reversed : true,
+            formatter: function(value) {
+                var journal_count = -1;
+                switch (value) {
+                    case 1: journal_count = 847; break;
+                    case 2: journal_count = 302; break;
+                    case 3: journal_count = 154; break;
+                    case 4: journal_count = 87; break;
+                    case 5: journal_count = 51; break;
+                    case 6: journal_count = 29; break;
+                    case 7: journal_count = 16; break;
+                    case 8: journal_count = 12; break;
+                    case 9: journal_count = 7; break;
+                    case 10: journal_count = 6; break;
+                    case 11: journal_count = 5; break;
+                }
+                return journal_count + " journals (" + "setting L" + value + ")";
+            }
+        });
         sd.slider('setValue', DEFAULT_THRESHOLD);
     }
 
