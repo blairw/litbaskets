@@ -35,15 +35,6 @@
 			</a>
 		</li>
 		<li class="list-group-item"
-			data-target="#litbaskets-suggest"
-			onclick="userDidSelectTab('litbaskets-suggest')"
-		>
-			<a href="#">
-				<span class="fa fa-commenting" data-toggle="tooltip" title="Suggest"></span>
-				<span class="list-group-item-value">Suggest</span>
-			</a>
-		</li>
-		<li class="list-group-item"
 			data-target="#litbaskets-about"
 			id="link_for_nav_litbaskets_about"
 			onclick="userDidSelectTab('litbaskets-about')"

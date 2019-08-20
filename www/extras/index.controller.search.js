@@ -9,6 +9,7 @@ LitbasketsSearchController = {
             reversed : true,
             formatter: function(value) {
                 var journal_count = -1;
+                var level_string = value + "";
                 switch (value) {
                     case 1: journal_count = 847; break;
                     case 2: journal_count = 302; break;
@@ -16,13 +17,10 @@ LitbasketsSearchController = {
                     case 4: journal_count = 87; break;
                     case 5: journal_count = 51; break;
                     case 6: journal_count = 29; break;
-                    case 7: journal_count = 16; break;
-                    case 8: journal_count = 12; break;
-                    case 9: journal_count = 7; break;
-                    case 10: journal_count = 6; break;
-                    case 11: journal_count = 5; break;
+                    case 7: journal_count = 16; level_string = "7-8"; break;
+                    case 8: journal_count = 7; level_string = "9-11"; break;
                 }
-                return journal_count + " journals (" + "setting L" + value + ")";
+                return journal_count + " journals (" + "setting L" + level_string + ")";
             }
         });
         sd.slider('setValue', DEFAULT_THRESHOLD);
