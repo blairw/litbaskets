@@ -47,3 +47,13 @@ h2 {
 .link_for_nav_litbaskets > a {
     font-size: 100% !important;
 }
+
+.homepage_steps_table {
+    border-collapse: separate;
+}
+
+.homepage_steps_table td {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: rgb(244,244,244);
+}

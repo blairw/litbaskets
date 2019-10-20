@@ -30,4 +30,36 @@
 			Search Bo8
 		</button>
 	</div>
+
+	<div style="text-align: left; margin-top: 4rem;">
+		<p>
+			Welcome to Litbaskets! Before you proceed, you should ensure that you are happy with the following:
+		</p>
+		<table class="homepage_steps_table">
+			<tr>
+				<td style="width: 15rem;">
+					<span class="litbaskets-inline-button"><span class="fa fa-shopping-basket"></span> 1. Net Size</span>
+				</td>
+				<td>
+					The default is a set of 51 journals that balances recall and precision reasonably well most of the time.
+				</td>
+			</tr>
+		</table>
+		<ul>
+			
+			
+		</ul>
+
+			<strong>Search</strong> can be customised. You can easily change the "size of the net" (amount of journals) by adjusting
+			the slider above (default level L5 = 51 journals, up to 847 journals). Or, use the
+			<span class="litbaskets-inline-button"><span class="fa fa-database"></span> Sources</span>
+			tab to customise your selection of journals.
+		</p>
+		<p>
+			<strong>Search Bo8</strong> includes only the set of eight (8) journals in the <a href="https://aisnet.org/page/SeniorScholarBasket">AIS Senior Scholars' Basket</a>.
+		</p>
+		<p>
+			<strong>Litbaskets is realised through Scopus, you will need to have access to Scopus to use the search.</strong>
+		</p>
+	</div>
 </div>
