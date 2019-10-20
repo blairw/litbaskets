@@ -2,6 +2,7 @@ var DEFAULT_THRESHOLD = 5;
 
 LitbasketsSearchController = {
     current_threshold: DEFAULT_THRESHOLD
+    , just_use_bo8: false
 
     , init_slider: function() {
         var sd = $("#myslider").slider({
@@ -17,12 +18,17 @@ LitbasketsSearchController = {
                     case 4: journal_count = 87; break;
                     case 5: journal_count = 51; break;
                     case 6: journal_count = 29; break;
-                    case 7: journal_count = 16; level_string = "7-8"; break;
-                    case 8: journal_count = 7; level_string = "9-11"; break;
+                    case 7: journal_count = 16; level_string = "7-11"; break;
+                    case 8: break;
                 }
-                return journal_count + " journals (" + "setting L" + level_string + ")";
+                if (value == 8) {
+                    return "Basket of Eight";
+                } else {
+                    return journal_count + " journals (" + "setting L" + level_string + ")";
+                }
             }
         });
+        
         sd.slider('setValue', DEFAULT_THRESHOLD);
     }
 

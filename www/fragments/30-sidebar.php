@@ -9,7 +9,20 @@
 				<span class="list-group-item-value">Search</span>
 			</a>
 		</li>
-		<li class="list-group-item"
+		<li class="list-group-item link_for_nav_litbaskets"
+			id="link_for_nav_litbaskets_initial"
+			data-target="#litbaskets-initial"
+			onclick="userDidSelectTab('litbaskets-initial')"
+		>
+			<a href="#">
+				<span class="fa fa-shopping-basket" data-toggle="tooltip" title="Initial Net Size"></span>
+				<span class="list-group-item-value">
+					1. Net Size
+					<span id="sidebar_badge_for_initial" class="badge pull-right"></span>
+				</span>
+			</a>
+		</li>
+		<li class="list-group-item link_for_nav_litbaskets"
 			id="link_for_nav_litbaskets_sources"
 			data-target="#litbaskets-sources"
 			onclick="userDidSelectTab('litbaskets-sources')"
@@ -17,24 +30,24 @@
 			<a href="#">
 				<span class="fa fa-database" data-toggle="tooltip" title="Sources"></span>
 				<span class="list-group-item-value">
-					Sources
+					2. Sources
 					<span id="sidebar_badge_for_sources" class="badge pull-right"></span>
 				</span>
 			</a>
 		</li>
-		<li class="list-group-item"
+		<li class="list-group-item link_for_nav_litbaskets"
 			data-target="#litbaskets-filters"
 			onclick="userDidSelectTab('litbaskets-filters')"
 		>
 			<a href="#">
 				<span class="fa fa-filter" data-toggle="tooltip" title="Filters"></span>
 				<span class="list-group-item-value">
-					Filters
+					3. Filters
 					<span id="sidebar_badge_for_filters" class="badge pull-right"></span>
 				</span>
 			</a>
 		</li>
-		<li class="list-group-item"
+		<li class="list-group-item link_for_nav_litbaskets"
 			data-target="#litbaskets-about"
 			id="link_for_nav_litbaskets_about"
 			onclick="userDidSelectTab('litbaskets-about')"
@@ -44,7 +57,7 @@
 				<span class="list-group-item-value">FAQ</span>
 			</a>
 		</li>
-		<li class="list-group-item"
+		<li class="list-group-item link_for_nav_litbaskets"
 			data-target="#litbaskets-libraries"
 			onclick="userDidSelectTab('litbaskets-libraries')"
 		>

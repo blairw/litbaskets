@@ -43,3 +43,7 @@ h2 {
 .litfam_faq_para {
     font-size: 1.5rem;
 }
+
+.link_for_nav_litbaskets > a {
+    font-size: 100% !important;
+}
