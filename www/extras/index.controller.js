@@ -11,8 +11,8 @@ function body_did_load() {
 	// Initialize the vertical navigation
 	$().setupVerticalNavigation(true);
 
-    loadObjects();
-    check_if_search_buttons_should_be_locked();
+	loadObjects();
+	check_if_search_buttons_should_be_locked();
 
 	// btn_copy_to_clipboard
 	var clipboard = new ClipboardJS('#btn_copy_to_clipboard');
@@ -28,7 +28,7 @@ function body_did_load() {
 	$("#current_subdivision_select_all").prop("disabled", true);
 	$("#current_subdivision_select_none").prop("disabled", true);
 	$("#current_subdivision_select_default").prop("disabled", true);
-    
+	
 	// ready
 	$("#limit_years_data").val(GLOBAL_FILTERS_CONTROLLER.limit_years_data);
 	$("#litbaskets_search_textbox").focus();
