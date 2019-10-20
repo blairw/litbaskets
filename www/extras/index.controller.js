@@ -1,6 +1,10 @@
+var GLOBAL_MODEL_HELPER = Object.create(LitbasketsModelHelper);
+var GLOBAL_EXTERNAL_LOGIC_HELPER = Object.create(LitbasketsExternalLogicHelper);
+
 var GLOBAL_SEARCH_CONTROLLER = Object.create(LitbasketsSearchController);
 var GLOBAL_INITIAL_CONTROLLER = Object.create(LitbasketsInitialNetSizeController);
 var GLOBAL_SOURCES_TOPBAR_CONTROLLER = Object.create(LitbasketsSourcesTopbarController);
+var GLOBAL_SOURCES_CONTROLLER = Object.create(LitbasketsSourcesController);
 var GLOBAL_FILTERS_CONTROLLER = Object.create(LitbasketsFiltersController);
 
 
@@ -11,8 +15,8 @@ function body_did_load() {
 	// Initialize the vertical navigation
 	$().setupVerticalNavigation(true);
 
-	loadObjects();
-	check_if_search_buttons_should_be_locked();
+	GLOBAL_MODEL_HELPER.load_objects();
+	GLOBAL_SEARCH_CONTROLLER.check_if_search_buttons_should_be_locked();
 
 	// btn_copy_to_clipboard
 	var clipboard = new ClipboardJS('#btn_copy_to_clipboard');
@@ -34,15 +38,7 @@ function body_did_load() {
 	$("#litbaskets_search_textbox").focus();
 }
 
-function things_to_do_after_data_loaded_from_api() {
-	update_sidebar_badges();
-}
-
 function update_sidebar_badges() {
-	var sources_count = "";
-	if (user_selected_journal_ids_to_include.length > 0) {
-		sources_count = user_selected_journal_ids_to_include.length;
-	}
-	$("#sidebar_badge_for_sources").html(sources_count);
+	GLOBAL_SOURCES_CONTROLLER.update_sidebar_sources_count();
 	GLOBAL_FILTERS_CONTROLLER.update_sidebar_filter_count();
 }

@@ -1,46 +1,48 @@
-// TODO: move stuff into the controller
+/*
+ * LitbasketsSearchController
+ * Instantiated in index.controller.js as GLOBAL_SEARCH_CONTROLLER
+ */
 LitbasketsSearchController = {
-}
+	check_if_search_buttons_should_be_locked: function() {
+		var should_lock = ($("#litbaskets_search_textbox").val().length == 0);
+		
+		$("#litbaskets_search_button").attr("disabled", should_lock);
+		$("#litbaskets_search_bo8_button").attr("disabled", should_lock);
+	}
 
-
-function check_if_search_buttons_should_be_locked() {
-	var should_lock = ($("#litbaskets_search_textbox").val().length == 0);
+	, user_did_click_search_button: function() {
+		var scopus_ids = [];
+		for (var i = 0; i < user_selected_journal_ids_to_include.length; i++) {
+			var this_journal_id = user_selected_journal_ids_to_include[i];
+			var this_journal = _.findWhere(saved_journals_master_data, {journal_id: this_journal_id});
+			scopus_ids.push(this_journal.scopus_sourceid);
+		}
 	
-	$("#litbaskets_search_button").attr("disabled", should_lock);
-	$("#litbaskets_search_bo8_button").attr("disabled", should_lock);
+		perform_search_with_journals("SHORT_SEARCH", scopus_ids);
+	}
+
+	, user_did_click_search_bo8_button: function() {
+		var scopus_ids = [];
+	
+		for (var i = 0; i < saved_journals_bo8_only.length; i++) {
+			var this_journal = saved_journals_bo8_only[i];
+			scopus_ids.push(this_journal.scopus_sourceid);
+		}
+	
+		perform_search_with_journals("SHORT_SEARCH", scopus_ids);
+	}
 }
 
 $(document).keyup(function(event) {
 	if ($("#litbaskets_search_textbox").is(":focus")) {
-		check_if_search_buttons_should_be_locked();
+		GLOBAL_SEARCH_CONTROLLER.check_if_search_buttons_should_be_locked();
 		
 		if (event.keyCode == 13) {
-			user_did_click_search_button();
+			GLOBAL_SEARCH_CONTROLLER.user_did_click_search_button();
 		}
 	}
 });
 
-function user_did_click_search_button() {
-	var scopus_ids = [];
-	for (var i = 0; i < user_selected_journal_ids_to_include.length; i++) {
-		var this_journal_id = user_selected_journal_ids_to_include[i];
-		var this_journal = _.findWhere(saved_journals_master_data, {journal_id: this_journal_id});
-		scopus_ids.push(this_journal.scopus_sourceid);
-	}
-
-	perform_search_with_journals("SHORT_SEARCH", scopus_ids);
-}
-
-function user_did_click_search_bo8_button() {
-	var scopus_ids = [];
-
-	for (var i = 0; i < saved_journals_bo8_only.length; i++) {
-		var this_journal = saved_journals_bo8_only[i];
-		scopus_ids.push(this_journal.scopus_sourceid);
-	}
-
-	perform_search_with_journals("SHORT_SEARCH", scopus_ids);
-}
 
 function perform_search_with_journals(search_mode, list_of_journals) {
 	// work with search_mode
@@ -81,9 +83,9 @@ function perform_search_with_journals(search_mode, list_of_journals) {
 	$("#txt_copy_to_clipboard").val(prepared_response);
 
 	// externals
-	var prepared_scopus_link = generate_url("SCOPUS_SEARCH_QUERY", escape(prepared_response));
-	var prepared_ais_elibrary_link = generate_url("AIS_ELIBRARY_SEARCH", $("#litbaskets_search_textbox").val());
-	var prepared_dblp_link = generate_url("DBLP_SEARCH", $("#litbaskets_search_textbox").val());
+	var prepared_scopus_link = GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url("SCOPUS_SEARCH_QUERY", escape(prepared_response));
+	var prepared_ais_elibrary_link = GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url("AIS_ELIBRARY_SEARCH", $("#litbaskets_search_textbox").val());
+	var prepared_dblp_link = GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url("DBLP_SEARCH", $("#litbaskets_search_textbox").val());
 	
 	$("#link_ais_elibrary").prop("href", prepared_ais_elibrary_link);
 	$("#link_ais_dblp").prop("href", prepared_dblp_link);

@@ -1,6 +1,56 @@
-// saving API requests (FINAL, DO NOT CHANGE)
-var final_journals_by_subdivisions = [];
-var final_subdivisions_by_baskets = [];
+/*
+ * LitbasketsModelHelper
+ * Instantiated in index.controller.js as GLOBAL_MODEL_HELPER
+ */
+LitbasketsModelHelper = {
+	/* saving API requests (FINAL, DO NOT CHANGE) */
+	final_journals_by_subdivisions: []
+	, final_subdivisions_by_baskets: []
+
+	/* 
+	 * only called here (load_objects)
+	 * and in LitbasketsInitialNetSizeController for slider handler (user_did_change_threshold)
+	*/
+	, launch_sequence_after_api_load: function() {
+		
+		// BEGIN RESET DERIVED DATA
+		saved_journals_master_data = [];
+		saved_journals_bo8_only = [];
+		saved_journals_litbaskets_ext_only = [];
+
+		user_selected_journal_ids_to_inspect = [];
+		user_selected_journal_ids_to_include = [];
+
+		saved_journals_by_subdivisions = this.final_journals_by_subdivisions;
+		saved_subdivisions_by_baskets = this.final_subdivisions_by_baskets;
+
+		GLOBAL_SOURCES_TOPBAR_CONTROLLER.data_reset();
+		// END RESET DERIVED DATA
+	
+		generate_journal_master_data();
+		generate_litbaskets_ext_master_data();
+		generate_bo8_master_data();
+
+		GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_baskets();
+		GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_subdivisions_with_blank();
+		update_sidebar_badges();
+	}
+
+	/* called in body_did_load */
+	, load_objects: function() {
+		$.get(API_ROOT + "getSubdivisionsByBaskets.php", function(x) {
+			GLOBAL_MODEL_HELPER.final_subdivisions_by_baskets = x;
+				
+			$.get(API_ROOT + "getJournalsBySubdivisions.php", function(y) {
+				GLOBAL_MODEL_HELPER.final_journals_by_subdivisions = y;
+	
+				GLOBAL_MODEL_HELPER.launch_sequence_after_api_load();
+			});
+		});
+	}
+}
+
+
 
 // copied versions (THESE CAN CHANGE)
 var saved_journals_by_subdivisions = [];
@@ -17,46 +67,6 @@ var user_selected_journal_ids_to_include = [];
 
 function lbl_copy_to_clipboard_fadeout() {
 	document.getElementById("lbl_copy_to_clipboard").style.opacity = '0';
-}
-
-function loadObjects() {
-	$.get(API_ROOT + "getSubdivisionsByBaskets.php", function(x) {
-		final_subdivisions_by_baskets = x;
-			
-		$.get(API_ROOT + "getJournalsBySubdivisions.php", function(y) {
-			final_journals_by_subdivisions = y;
-
-			launch_sequence_after_api_load();
-		});
-	});
-}
-
-
-function launch_sequence_after_api_load() {
-	reset_derived_data();
-
-	generate_journal_master_data();
-	generate_litbaskets_ext_master_data();
-	generate_bo8_master_data();
-	populate_baskets();
-
-	populate_subdivisions_with_blank();
-	things_to_do_after_data_loaded_from_api();
-}
-
-
-function reset_derived_data() {
-	saved_journals_master_data = [];
-	saved_journals_bo8_only = [];
-	saved_journals_litbaskets_ext_only = [];
-
-	user_selected_journal_ids_to_inspect = [];
-	user_selected_journal_ids_to_include = [];
-
-	saved_journals_by_subdivisions = final_journals_by_subdivisions;
-	saved_subdivisions_by_baskets = final_subdivisions_by_baskets;
-
-	GLOBAL_SOURCES_TOPBAR_CONTROLLER.data_reset();
 }
 
 function generate_journal_master_data() {
@@ -90,7 +100,7 @@ function generate_journal_master_data() {
 		}
 		
 		if (include_journal) {
-			user_selected_journal_ids_to_include.push(this_journal.journal_id);
+			user_selected_journal_ids_to_include.push(journal_object.journal_id);
 		}
 	}
 }
@@ -134,44 +144,4 @@ function generate_bo8_master_data() {
 			saved_journals_bo8_only = this_subdivision.journals;
 		}
 	}
-}
-
-function populate_baskets() {
-	$("#basketSelector").html('<option value="" selected="selected" disabled>Select a Basket ...</option>');
-	for (var i = 0; i < saved_subdivisions_by_baskets.length; i++) {
-		var htmlString = '<option value="' + saved_subdivisions_by_baskets[i].basket_id + '">'
-		htmlString += saved_subdivisions_by_baskets[i].basket_name;
-		htmlString += '</option>';
-
-		$("#basketSelector").append(htmlString);
-	}
-}
-
-function populate_subdivisions_with_blank() {
-	$("#subdivisionSelector").html("<option value='-1' selected='selected'>(all subdivisions)</option>");
-}
-
-function generate_url(mode, search_terms) {
-	var preparedReturn = "";
-	if (mode == "ISSN_LOOKUP") {
-		preparedReturn = "https://portal.issn.org/api/search?search[]=MUST=notcanc,notinc,notissn,notissnl=" + search_terms;
-	}
-	if (mode == "AIS_ELIBRARY_SEARCH") {
-		preparedReturn = "https://aisel.aisnet.org/do/search/?q=" + search_terms;
-	}
-	if (mode == "DBLP_SEARCH") {
-		preparedReturn = "https://dblp.org/search?q=" + search_terms;
-	}
-	if (mode == "SCOPUS_SOURCE_LOOKUP") {
-		preparedReturn = "https://www.scopus.com/sourceid/" + search_terms;
-	}
-	if (mode == "SCOPUS_SEARCH_QUERY") {
-		preparedReturn = "https://www.scopus.com/results/results.uri?sort=plf-f&src=s&sot=a&s=" + search_terms;
-	}
-
-	return preparedReturn;
-}
-
-function generate_url_html(mode, search_terms, label) {
-	return "<a href='" + generate_url(mode, search_terms) + "' target='_blank'>" + label + "</a>";
 }

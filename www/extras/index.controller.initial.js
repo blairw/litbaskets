@@ -37,8 +37,7 @@ LitbasketsInitialNetSizeController = {
 	, user_did_change_threshold: function() {
 		var sd = $("#myslider").slider();
 		this.current_threshold = sd.slider('getValue');
-		console.log(this.current_threshold);
 
-		launch_sequence_after_api_load();
+		GLOBAL_MODEL_HELPER.launch_sequence_after_api_load();
 	}
 }

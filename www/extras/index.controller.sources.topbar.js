@@ -1,3 +1,7 @@
+/*
+ * LitbasketsSourcesTopbarController
+ * Instantiated in index.controller.js as GLOBAL_SOURCES_TOPBAR_CONTROLLER
+ */
 LitbasketsSourcesTopbarController = {
 	user_selected_subdivision_ids: []
 
@@ -16,7 +20,7 @@ LitbasketsSourcesTopbarController = {
 		for (var i = 0; i < saved_subdivisions_by_baskets.length; i++) {
 			var thisBasket = saved_subdivisions_by_baskets[i];
 			if (thisBasket.basket_id == selectedId) {
-				populate_subdivisions_with_blank();
+				this.populate_subdivisions_with_blank();
 	
 				for (var j = 0; j < thisBasket.subdivisions.length; j++) {
 					var thisSubdivision = thisBasket.subdivisions[j];
@@ -53,6 +57,21 @@ LitbasketsSourcesTopbarController = {
 
 		update_counters();
 	}
+
+	, populate_baskets: function() {
+		$("#basketSelector").html('<option value="" selected="selected" disabled>Select a Basket ...</option>');
+		for (var i = 0; i < saved_subdivisions_by_baskets.length; i++) {
+			var htmlString = '<option value="' + saved_subdivisions_by_baskets[i].basket_id + '">'
+			htmlString += saved_subdivisions_by_baskets[i].basket_name;
+			htmlString += '</option>';
+
+			$("#basketSelector").append(htmlString);
+		}
+	}
+
+	, populate_subdivisions_with_blank: function() {
+		$("#subdivisionSelector").html("<option value='-1' selected='selected'>(all subdivisions)</option>");
+	}
 	
 	/*
 	* Inserts rows into the listview on screen 'Sources'
@@ -80,16 +99,16 @@ LitbasketsSourcesTopbarController = {
 
 			// ISSN details
 			var issnString = "<div>";
-			issnString += generate_url_html("SCOPUS_SOURCE_LOOKUP", thisJournal.scopus_sourceid, "Scopus #" + thisJournal.scopus_sourceid);
+			issnString += GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("SCOPUS_SOURCE_LOOKUP", thisJournal.scopus_sourceid, "Scopus #" + thisJournal.scopus_sourceid);
 			issnString += "</div>";
 
 			if (thisJournal.issn && thisJournal.issn.length > 0) {
-				issnString += generate_url_html("ISSN_LOOKUP", thisJournal.issn, thisJournal.issn);
+				issnString += GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("ISSN_LOOKUP", thisJournal.issn, thisJournal.issn);
 				if (thisJournal.issne && thisJournal.issne.length > 0) {
-					issnString += ", " + generate_url_html("ISSN_LOOKUP", thisJournal.issne, thisJournal.issn);
+					issnString += ", " + GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("ISSN_LOOKUP", thisJournal.issne, thisJournal.issn);
 				}
 			} else if (thisJournal.issne && thisJournal.issne.length > 0) {
-				issnString += generate_url_html("ISSN_LOOKUP", thisJournal.issne, thisJournal.issn);
+				issnString += GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("ISSN_LOOKUP", thisJournal.issne, thisJournal.issn);
 			}
 
 			// Journal details
@@ -111,7 +130,7 @@ LitbasketsSourcesTopbarController = {
 
 				var html_string = '<div class="list-group-item">';
 				html_string += '<div class="list-view-pf-actions"><input id="switch_for_journal_'+ thisJournal.journal_id +'" class="bootstrap-switch" ';
-				html_string += 'onchange="toggle_inclusion_of_journal_with_id(' + thisJournal.journal_id + ')" type="checkbox" ' + (is_selected ? 'checked' : '') + '> </div> <div class="list-view-pf-main-info"> <div class="list-view-pf-body"> <div class="list-view-pf-description">';
+				html_string += 'onchange="GLOBAL_SOURCES_CONTROLLER.toggle_inclusion_of_journal_with_id(' + thisJournal.journal_id + ')" type="checkbox" ' + (is_selected ? 'checked' : '') + '> </div> <div class="list-view-pf-main-info"> <div class="list-view-pf-body"> <div class="list-view-pf-description">';
 				html_string += '<div class="list-group-item-heading">'+ issnString + '</div>';
 				html_string += '<div class="list-group-item-text">'+ journal_name_string + '</div>'; 
 				html_string += '</div>';
@@ -123,3 +142,5 @@ LitbasketsSourcesTopbarController = {
 		}	
 	}
 };
+
+

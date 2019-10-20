@@ -24,9 +24,9 @@
 							Select:
 							<?php
 								$buttons = [
-									  ["current_subdivision_select_all", "ALL", "success", "cs_select_all()"]
-									, ["current_subdivision_select_none", "NONE", "danger", "cs_select_none()"]
-									, ["current_subdivision_select_default", "DEFAULT", "primary", "cs_select_default()"]
+									  ["current_subdivision_select_all", "ALL", "success", "GLOBAL_SOURCES_CONTROLLER.cs_select_all()"]
+									, ["current_subdivision_select_none", "NONE", "danger", "GLOBAL_SOURCES_CONTROLLER.cs_select_none()"]
+									, ["current_subdivision_select_default", "DEFAULT", "primary", "GLOBAL_SOURCES_CONTROLLER.cs_select_default()"]
 								];
 
 								for ($i = 0; $i < count($buttons); $i++) {

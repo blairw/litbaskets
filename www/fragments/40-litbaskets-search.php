@@ -8,14 +8,14 @@
 			<input
 				id="litbaskets_search_textbox"
 				class="form-control"
-				onchange="check_if_search_buttons_should_be_locked()"
+				onchange="GLOBAL_SEARCH_CONTROLLER.check_if_search_buttons_should_be_locked()"
 				style="font-size: 2rem; padding: 2rem; display: inline-block;" 
 				type="text" placeholder="e.g. Crowdfunding"
 			/>
 		</div>
 		<button class="btn btn-primary" 
 			id="litbaskets_search_button"
-			onclick="user_did_click_search_button()"
+			onclick="GLOBAL_SEARCH_CONTROLLER.user_did_click_search_button()"
 			data-toggle="modal" data-target="#modal_for_search_results"
 			style="font-size: 2rem;"
 		>
@@ -23,7 +23,7 @@
 		</button>
 		<button class="btn btn-default" 
 			id="litbaskets_search_bo8_button"
-			onclick="user_did_click_search_bo8_button()"
+			onclick="GLOBAL_SEARCH_CONTROLLER.user_did_click_search_bo8_button()"
 			data-toggle="modal" data-target="#modal_for_search_results"
 			style="font-size: 2rem;"
 		>
