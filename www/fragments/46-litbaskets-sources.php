@@ -1,5 +1,12 @@
 <div id="litbaskets-sources" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
-	<h1>Sources</h1>
+	<h1>2. Sources</h1>
+	
+	<p>
+		Step 1 was a <em>quantitative</em> assessment of how big your starter pack needs to be.
+		In step 2, you make a <em>qualitative</em> assessment of specific journals you need. For example, if your research question is about
+		graphical user interface design, you might wish to select some HCI journals and deselect some Management journals.
+	</p>
+
 	<div class="container-fluid">
 		<div class="row toolbar-pf">
 			<div class="toolbar-pf-actions">

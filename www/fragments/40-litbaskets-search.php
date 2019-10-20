@@ -33,31 +33,44 @@
 
 	<div style="text-align: left; margin-top: 4rem;">
 		<p>
-			Welcome to Litbaskets! Before you proceed, you should ensure that you are happy with the following:
+			Welcome to Litbaskets! Before you proceed, <strong>please ensure that you are happy with the following</strong> which can be configured
+			using the tabs on the left side of the screen:
 		</p>
 		<table class="homepage_steps_table">
 			<tr>
-				<td style="width: 15rem;">
-					<span class="litbaskets-inline-button"><span class="fa fa-shopping-basket"></span> 1. Net Size</span>
+				<td style="width: 17rem;">
+					<span class="litbaskets-inline-button"><span class="fa fa-shopping-basket"></span> 1. Starter Pack</span>
 				</td>
 				<td>
-					The default is a set of 51 journals that balances recall and precision reasonably well most of the time.
+					We have a number of starter packs from the smallest (Bo8) to the largest (L1: 847 journals!).
+					The smaller packs start with the most "core" IS journals
+					and the larger ones begin to include those that are not as "core" to IS (Management, Computer Science, etc.).
+					The default starter pack, L5 (51 journals), balances recall and precision reasonably well in typical cases.
+					However, depending on your research topic, you may need to set this to be narrower
+					(e.g. if you're searching for common keywords like "user experience")
+					or wider (e.g. if you're searching for rare keywords like "nomadicity").
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 15rem;">
+					<span class="litbaskets-inline-button"><span class="fa fa-database"></span> 2. Sources</span>
+				</td>
+				<td>
+					Step 1 was a <em>quantitative</em> assessment of how big your starter pack needs to be.
+					In step 2, you make a <em>qualitative</em> assessment of specific journals you need. For example, if your research question is about
+					graphical user interface design, you might wish to select some HCI journals and deselect some Management journals.
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 15rem;">
+					<span class="litbaskets-inline-button"><span class="fa fa-filter"></span> 3. Filters</span>
+				</td>
+				<td>
+					You may apply some additional criteria such as limiting to papers published since some given year (default: 2013), or limiting to "reviews only" / "editorials only".
 				</td>
 			</tr>
 		</table>
-		<ul>
-			
-			
-		</ul>
-
-			<strong>Search</strong> can be customised. You can easily change the "size of the net" (amount of journals) by adjusting
-			the slider above (default level L5 = 51 journals, up to 847 journals). Or, use the
-			<span class="litbaskets-inline-button"><span class="fa fa-database"></span> Sources</span>
-			tab to customise your selection of journals.
-		</p>
-		<p>
-			<strong>Search Bo8</strong> includes only the set of eight (8) journals in the <a href="https://aisnet.org/page/SeniorScholarBasket">AIS Senior Scholars' Basket</a>.
-		</p>
+		<br />
 		<p>
 			<strong>Litbaskets is realised through Scopus, you will need to have access to Scopus to use the search.</strong>
 		</p>

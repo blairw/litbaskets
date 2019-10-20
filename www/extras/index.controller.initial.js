@@ -26,7 +26,7 @@ LitbasketsInitialNetSizeController = {
 					return "Basket of Eight";
 				} else {
 					GLOBAL_INITIAL_CONTROLLER.just_use_bo8 = false;
-					return journal_count + " journals (" + "setting L" + level_string + ")";
+					return journal_count + " journals (" + "Starter Pack L" + level_string + ")";
 				}
 			}
 		});

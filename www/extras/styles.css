@@ -50,10 +50,10 @@ h2 {
 
 .homepage_steps_table {
 	border-collapse: separate;
+	border-spacing: 0.5rem;
 }
 
 .homepage_steps_table td {
-	padding-left: 1rem;
-	padding-right: 1rem;
+	padding: 1rem;
 	background-color: rgb(244,244,244);
 }

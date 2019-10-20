@@ -1,6 +1,8 @@
 <div id="litbaskets-filters" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
-	<h1>Filters</h1>
-
+	<h1>3. Filters</h1>
+	<p>
+		You may apply some additional criteria such as limiting to papers published since some given year (default: 2013), or limiting to "reviews only" / "editorials only".
+	</p>
 	<form class="form-horizontal">
 		<div class="form-group">
 			<label for="reviews_only_switch" class="col-sm-2 control-label">Reviews only</label>

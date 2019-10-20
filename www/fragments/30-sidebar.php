@@ -17,7 +17,7 @@
 			<a href="#">
 				<span class="fa fa-shopping-basket" data-toggle="tooltip" title="Initial Net Size"></span>
 				<span class="list-group-item-value">
-					1. Net Size
+					1. Starter Pack
 					<span id="sidebar_badge_for_initial" class="badge pull-right"></span>
 				</span>
 			</a>

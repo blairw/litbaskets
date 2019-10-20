@@ -1,6 +1,16 @@
 <div id="litbaskets-initial" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
-	<h1>Initial Net Size</h1>
+	<h1>1. Starter Pack</h1>
 	
+	<p>
+		We have a number of starter packs from the smallest (Bo8) to the largest (L1: 847 journals!).
+		The smaller packs start with the most "core" IS journals
+		and the larger ones begin to include those that are not as "core" to IS (Management, Computer Science, etc.).
+		The default starter pack, L5 (51 journals), balances recall and precision reasonably well in typical cases.
+		However, depending on your research topic, you may need to set this to be narrower
+		(e.g. if you're searching for common keywords like "user experience")
+		or wider (e.g. if you're searching for rare keywords like "nomadicity").
+	</p>
+
 	<div style="text-align: center; margin-bottom: 4rem;">
 		<img src="images/graph.png" style="width: 100%; padding-left: 4rem; padding-right: 8rem;" /> 
 
@@ -17,17 +27,5 @@
 				onchange="GLOBAL_INITIAL_CONTROLLER.user_did_change_threshold()"
 			/>
 		</div>
-		<p>
-			<strong>Search</strong> can be customised. You can easily change the "size of the net" (amount of journals) by adjusting
-			the slider above (default level L5 = 51 journals, up to 847 journals). Or, use the
-			<span class="litbaskets-inline-button"><span class="fa fa-database"></span> Sources</span>
-			tab to customise your selection of journals.
-		</p>
-		<p>
-			<strong>Search Bo8</strong> includes only the set of eight (8) journals in the <a href="https://aisnet.org/page/SeniorScholarBasket">AIS Senior Scholars' Basket</a>.
-		</p>
-		<p>
-			<strong>Litbaskets is realised through Scopus, you will need to have access to Scopus to use the search.</strong>
-		</p>
 	</div>
 </div>
