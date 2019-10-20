@@ -75,9 +75,21 @@ function generate_journal_master_data() {
 
 	// set default on/off
 	for (var i = 0; i < saved_journals_master_data.length; i++) {
-		var this_journal = saved_journals_master_data[i];
+		var journal_object = saved_journals_master_data[i];
 
-		if (this_journal.listing_count >= GLOBAL_SEARCH_CONTROLLER.current_threshold) {
+
+		var include_journal = false;
+		if (GLOBAL_INITIAL_CONTROLLER.just_use_bo8) {
+			if (parseInt(journal_object.is_bo8) == 1) {
+				include_journal = true;
+			}
+		} else {
+			if (journal_object.listing_count >= GLOBAL_INITIAL_CONTROLLER.current_threshold) {
+				include_journal = true;
+			}
+		}
+		
+		if (include_journal) {
 			user_selected_journal_ids_to_include.push(this_journal.journal_id);
 		}
 	}

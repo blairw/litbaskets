@@ -15,6 +15,7 @@
 	<script src="<?php echo $server ?>/extras/sidebar-tab-switcher.js?litbasketsRevision=42"></script>
 	<script src="<?php echo $server ?>/extras/api.js?litbasketsRevision=42"></script>
 	<script src="<?php echo $server ?>/extras/index.model.js?litbasketsRevision=42"></script>
+	<script src="<?php echo $server ?>/extras/index.controller.initial.js?litbasketsRevision=42"></script>
 	<script src="<?php echo $server ?>/extras/index.controller.search.js?litbasketsRevision=42"></script>
 	<script src="<?php echo $server ?>/extras/index.controller.sources.topbar.js?litbasketsRevision=42"></script>
 	<script src="<?php echo $server ?>/extras/index.controller.sources.js?litbasketsRevision=42"></script>

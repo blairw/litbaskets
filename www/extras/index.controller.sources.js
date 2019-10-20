@@ -38,8 +38,19 @@ function exclude_journal_with_id(given_journal_id) {
 
 function set_journal_inclusion_to_default(given_journal_id) {
 	var journal_object = _.findWhere(saved_journals_master_data, {journal_id: given_journal_id});
-	var is_core = (journal_object.listing_count >= GLOBAL_SEARCH_CONTROLLER.current_threshold);
-	if (is_core) {
+
+	var include_journal = false;
+	if (GLOBAL_INITIAL_CONTROLLER.just_use_bo8) {
+		if (parseInt(journal_object.is_bo8) == 1) {
+			include_journal = true;
+		}
+	} else {
+		if (journal_object.listing_count >= GLOBAL_INITIAL_CONTROLLER.current_threshold) {
+			include_journal = true;
+		}
+	}
+
+	if (include_journal) {
 		$("#switch_for_journal_" + given_journal_id).bootstrapSwitch('state', true);
 	} else {
 		$("#switch_for_journal_" + given_journal_id).bootstrapSwitch('state', false);
@@ -48,6 +59,7 @@ function set_journal_inclusion_to_default(given_journal_id) {
 
 
 function cs_select_all() {
+	console.log("Executed: cs_select_all");
 	for (var i = 0; i < user_selected_journal_ids_to_inspect.length; i++) {
 		var this_journal_id = user_selected_journal_ids_to_inspect[i];
 		$("#switch_for_journal_" + this_journal_id).bootstrapSwitch('state', true);
@@ -55,6 +67,7 @@ function cs_select_all() {
 }
 
 function cs_select_none() {
+	console.log("Executed: cs_select_none");
 	for (var i = 0; i < user_selected_journal_ids_to_inspect.length; i++) {
 		var this_journal_id = user_selected_journal_ids_to_inspect[i];
 		$("#switch_for_journal_" + this_journal_id).bootstrapSwitch('state', false);
@@ -62,6 +75,7 @@ function cs_select_none() {
 }
 
 function cs_select_default() {
+	console.log("Executed: cs_select_default");
 	for (var i = 0; i < user_selected_journal_ids_to_inspect.length; i++) {
 		var this_journal_id = user_selected_journal_ids_to_inspect[i];
 		set_journal_inclusion_to_default(this_journal_id);

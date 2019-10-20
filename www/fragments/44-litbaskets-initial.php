@@ -14,7 +14,7 @@
 				data-slider-step="1"
 				data-slider-value="5"
 				data-slider-tooltip="show"
-				onchange="GLOBAL_SEARCH_CONTROLLER.user_did_change_threshold()"
+				onchange="GLOBAL_INITIAL_CONTROLLER.user_did_change_threshold()"
 			/>
 		</div>
 		<p>
