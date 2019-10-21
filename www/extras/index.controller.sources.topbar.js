@@ -7,6 +7,7 @@ LitbasketsSourcesTopbarController = {
 
 	, data_reset: function() {
 		this.user_selected_subdivision_ids = [];
+		$("#journalsListView").html("");
 	}
 
 	, user_did_select_basket: function() {
