@@ -18,7 +18,11 @@ LitbasketsSearchController = {
 			scopus_ids.push(this_journal.scopus_sourceid);
 		}
 	
-		perform_search_with_journals("SHORT_SEARCH", scopus_ids);
+		var search_mode = "LONG_SEARCH";
+		if (scopus_ids.length <= 55) {
+			var search_mode = "SHORT_SEARCH";
+		}
+		perform_search_with_journals(search_mode, scopus_ids);
 	}
 
 	, user_did_click_search_bo8_button: function() {
