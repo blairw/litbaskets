@@ -8,7 +8,10 @@
 	</p>
 	<h2>Who made this?</h2>
 	<p class="litfam_faq_para">
-		Software developers' names blinded for review.
+		Product design and implementation by
+		<a href="https://business.sydney.edu.au/staff/sebastian.boell">Sebastian Boell</a>
+		and
+		<a href="https://blair.wang/">Blair Wang</a>.
 		Illustration by <a href="https://www.instagram.com/acidyellows/" target="_blank">acidyellows</a>.
 	</p>
 	<h2>How did you select which journals to include?</h2>

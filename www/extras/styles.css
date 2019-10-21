@@ -11,6 +11,9 @@ h1 {
 
 h2 {
 	margin-top: 4rem;
+	font-weight: bold;
+	font-style: italic;
+	color: gray;
 }
 
 .litbaskets-inline-button {
