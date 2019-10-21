@@ -1,7 +1,7 @@
 <?php
-	// $server = "https://litbaskets.b-cdn.net";
+	$server = "https://litbaskets.b-cdn.net";
 	// $server = "https://localhost/dev/litbaskets/www";
-	$server = "https://www-beta.litbaskets.io";
+	// $server = "https://www-beta.litbaskets.io";
 
 	include("fragments/00-preheader.php");
 	include("fragments/10-header-and-open-body.php");
