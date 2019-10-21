@@ -21,14 +21,6 @@
 		>
 			Search
 		</button>
-		<button class="btn btn-default" 
-			id="litbaskets_search_bo8_button"
-			onclick="GLOBAL_SEARCH_CONTROLLER.user_did_click_search_bo8_button()"
-			data-toggle="modal" data-target="#modal_for_search_results"
-			style="font-size: 2rem;"
-		>
-			Search Bo8
-		</button>
 	</div>
 
 	<div style="text-align: left; margin-top: 4rem;">

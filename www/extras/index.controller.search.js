@@ -7,7 +7,6 @@ LitbasketsSearchController = {
 		var should_lock = ($("#litbaskets_search_textbox").val().length == 0);
 		
 		$("#litbaskets_search_button").attr("disabled", should_lock);
-		$("#litbaskets_search_bo8_button").attr("disabled", should_lock);
 	}
 
 	, user_did_click_search_button: function() {
@@ -23,17 +22,6 @@ LitbasketsSearchController = {
 			var search_mode = "SHORT_SEARCH";
 		}
 		perform_search_with_journals(search_mode, scopus_ids);
-	}
-
-	, user_did_click_search_bo8_button: function() {
-		var scopus_ids = [];
-	
-		for (var i = 0; i < saved_journals_bo8_only.length; i++) {
-			var this_journal = saved_journals_bo8_only[i];
-			scopus_ids.push(this_journal.scopus_sourceid);
-		}
-	
-		perform_search_with_journals("SHORT_SEARCH", scopus_ids);
 	}
 }
 

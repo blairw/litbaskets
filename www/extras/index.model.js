@@ -15,7 +15,6 @@ LitbasketsModelHelper = {
 		
 		// BEGIN RESET DERIVED DATA
 		saved_journals_master_data = [];
-		saved_journals_bo8_only = [];
 		saved_journals_litbaskets_ext_only = [];
 
 		user_selected_journal_ids_to_inspect = [];
@@ -29,7 +28,6 @@ LitbasketsModelHelper = {
 	
 		generate_journal_master_data();
 		generate_litbaskets_ext_master_data();
-		generate_bo8_master_data();
 
 		GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_baskets();
 		GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_subdivisions_with_blank();
@@ -58,7 +56,6 @@ var saved_subdivisions_by_baskets = [];
 
 // derived from API requests
 var saved_journals_master_data = [];
-var saved_journals_bo8_only = [];
 var saved_journals_litbaskets_ext_only = [];
 
 // storing user selections
@@ -124,24 +121,4 @@ function generate_litbaskets_ext_master_data() {
 		}
 	}
 	
-}
-
-function generate_bo8_master_data() {
-	var bsd_id_for_bo8 = -1;
-
-	// get Basket of 8 bsd_id
-	for (var i = 0; i < saved_subdivisions_by_baskets.length; i++) {
-		var this_basket = saved_subdivisions_by_baskets[i];
-		if (this_basket.basket_name == "AIS Baskets") {
-			bsd_id_for_bo8 = this_basket.subdivisions[0].bsd_id;
-		}
-	}
-
-	// Push to saved_journals_bo8_only
-	for (var i = 0; i < saved_journals_by_subdivisions.length; i++) {
-		var this_subdivision = saved_journals_by_subdivisions[i];
-		if (this_subdivision.bsd_id == bsd_id_for_bo8) {
-			saved_journals_bo8_only = this_subdivision.journals;
-		}
-	}
 }
