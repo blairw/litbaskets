@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-switch",
   "description": "Turn checkboxes and radio buttons into toggle switches.",
-  "version": "3.3.4",
+  "version": "3.4.0",
   "keywords": [
     "bootstrap",
     "switch",
@@ -16,27 +16,34 @@
   ],
   "main": "dist/js/bootstrap-switch.js",
   "peerDependencies": {
-    "bootstrap": "^3.1.1",
-    "jquery": ">=1.9.0"
+    "bootstrap": "^4.3.1",
+    "jquery": ">=1.12.4"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/Bttstrp/bootstrap-switch.git"
   },
   "bugs": "https://github.com/Bttstrp/bootstrap-switch/issues",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
     "babel-cli": "^6.22.2",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^22.4.3",
     "babel-polyfill": "^6.22.0",
     "babel-preset-babili": "^0.0.10",
     "babel-preset-env": "^1.1.8",
-    "babel-preset-stage-2": "^6.22.0",
+    "babel-preset-stage-0": "^6.24.1",
     "bootstrap": "^3.3.7",
-    "harp": "^0.23.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.2.0",
+    "harp": "^0.30.0",
     "headr": "0.0.4",
     "jasmine": "^2.5.3",
     "jasmine-core": "^2.5.2",
+    "jest": "^22.4.3",
     "jquery": "^1.12.4",
     "karma": "^1.4.1",
     "karma-babel-preprocessor": "^6.0.1",
@@ -46,13 +53,13 @@
     "karma-phantomjs-launcher": "^1.0.2",
     "less": "^2.7.2",
     "less-plugin-clean-css": "^1.5.0",
-    "npm-run-all": "^4.0.1",
-    "standard": "^8.6.0",
+    "npm-run-all": "^4.1.5",
+    "regenerator-runtime": "^0.11.1",
     "wintersmith": "^2.3.6"
   },
   "scripts": {
-    "js:lint": "standard src/js/**/*.js",
-    "js:test": "mkdir -p test && babel -d test src/js && karma start karma.conf.js",
+    "js:lint": "eslint src/js/",
+    "js:test": "jest",
     "js:build:dir": "mkdir -p dist/js",
     "js:build:base": "babel -o dist/js/bootstrap-switch.js src/js/bootstrap-switch.js",
     "js:build:min": "NODE_ENV=production babel -o dist/js/bootstrap-switch.min.js src/js/bootstrap-switch.js",
@@ -85,5 +92,11 @@
       ]
     }
   ],
-  "dependencies": {}
+  "dependencies": {},
+  "jest": {
+    "testURL": "http://localhost/",
+    "setupFiles": [
+      "./src/setup-test.js"
+    ]
+  }
 }
