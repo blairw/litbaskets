@@ -10,7 +10,6 @@ var GLOBAL_FILTERS_CONTROLLER = Object.create(LitbasketsFiltersController);
 
 function body_did_load() {
 	userDidSelectTab('litbaskets-search');
-	$(".bootstrap-switch").bootstrapSwitch();
 
 	// Initialize the vertical navigation
 	$().setupVerticalNavigation(true);
@@ -34,7 +33,6 @@ function body_did_load() {
 	$("#current_subdivision_select_default").prop("disabled", true);
 	
 	// ready
-	$("#limit_years_data").val(GLOBAL_FILTERS_CONTROLLER.limit_years_data);
 	$("#litbaskets_search_textbox").focus();
 }
 

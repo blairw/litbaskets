@@ -31,16 +31,10 @@
 		<table class="homepage_steps_table">
 			<tr>
 				<td style="width: 17rem;">
-					<span class="litbaskets-inline-button"><span class="fa fa-shopping-basket"></span> 1. Starter Pack</span>
+					<span class="litbaskets-inline-button"><span class="fa fa-shopping-basket"></span> 1. Litbasket</span>
 				</td>
 				<td>
-					We have a number of starter packs from the smallest (Bo8) to the largest (L1: 847 journals!).
-					The smaller packs start with the most "core" IS journals
-					and the larger ones begin to include those that are not as "core" to IS (Management, Computer Science, etc.).
-					The default starter pack, L5 (51 journals), balances recall and precision reasonably well in typical cases.
-					However, depending on your research topic, you may need to set this to be narrower
-					(e.g. if you're searching for common keywords like "user experience")
-					or wider (e.g. if you're searching for rare keywords like "nomadicity").
+					We have a number of prepacked litbaskets from the smallest (Bo8) to the largest (L1: 847 journals!). The smaller packs start with the most "core" IS journals and the larger ones begin to include those that are not as "core" to IS (Management, Computer Science, etc.). The default litbasket, L5 (51 journals), balances recall and precision reasonably well for initial exploratory searches. However, depending on your research topic, you may need to set this to be narrower (e.g. if you're searching for common keywords like "user experience") or wider (e.g. if you're searching for rare keywords like "nomadicity").
 				</td>
 			</tr>
 			<tr>
@@ -48,9 +42,7 @@
 					<span class="litbaskets-inline-button"><span class="fa fa-database"></span> 2. Sources</span>
 				</td>
 				<td>
-					Step 1 was a <em>quantitative</em> assessment of how big your starter pack needs to be.
-					In step 2, you make a <em>qualitative</em> assessment of specific journals you need. For example, if your research question is about
-					graphical user interface design, you might wish to select some HCI journals and deselect some Management journals.
+					You can make personal adjustments to include or exclude specific journals you need. For example, if your research question is about graphical user interface design, you might wish to select some HCI journals and deselect some Management journals.
 				</td>
 			</tr>
 			<tr>

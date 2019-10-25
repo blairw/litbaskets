@@ -1,9 +1,23 @@
 LitbasketsFiltersController = {
 	  is_reviews_only: false
 	, is_editorials_only: false
+	, has_been_init: false
 	, limit_years: true
 	, limit_years_data: 2013
 	, currently_killing_one_of_the_type_filter_switches: false
+
+	, init: function(beforeStarting, afterStarting) {
+		beforeStarting();
+
+		if (!this.has_been_init) {
+			$(".bootstrap-switch").bootstrapSwitch();
+			$("#limit_years_data").val(this.limit_years_data);
+			$("#limit_years_switch").bootstrapSwitch('state', true);
+		}
+		
+		this.has_been_init = true;
+		afterStarting();
+	}
 
 	/*
 		Invoked when user clicks the switches for Scopus types (Editorials, Reviews)
