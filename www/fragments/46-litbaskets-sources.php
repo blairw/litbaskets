@@ -14,9 +14,7 @@
 						<label>Basket</label>
 						<select id="basketSelector" class="custom-select form-control" onchange="GLOBAL_SOURCES_TOPBAR_CONTROLLER.user_did_select_basket()">
 						</select>
-					</div>
-					<div class="form-group">
-						<label>Subdivision</label>
+						<label style="margin-top: 1rem;">Subdivision</label>
 						<select id="subdivisionSelector" class="custom-select bobox form-control" onchange="GLOBAL_SOURCES_TOPBAR_CONTROLLER.user_did_select_subdivision()">
 						</select>
 					</div>
@@ -42,6 +40,15 @@
 									;
 								}
 							?>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>
+							Other options:
+						</label>
+						<div>
+							<button id="empty_litbasket" onclick="GLOBAL_SOURCES_TOPBAR_CONTROLLER.empty_litbasket()" class="btn btn-danger">EMPTY LITBASKET</button>
+							<button id="download_csv" onclick="GLOBAL_SOURCES_TOPBAR_CONTROLLER.download_csv()" class="btn btn-primary">DOWNLOAD CSV</button>
 						</div>
 					</div>
 				</div>

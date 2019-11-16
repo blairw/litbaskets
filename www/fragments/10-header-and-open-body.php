@@ -12,6 +12,7 @@
 	<script src="<?php echo $server ?>/node_modules/patternfly-bootstrap-combobox/js/bootstrap-combobox.js"></script>
 	<script src="<?php echo $server ?>/node_modules/underscore/underscore-min.js"></script>
 	<script src="<?php echo $server ?>/node_modules/clipboard/dist/clipboard.min.js"></script>
+	<script src="<?php echo $server ?>/node_modules/downloadjs/download.min.js"></script>
 	<script src="<?php echo $server ?>/extras/sidebar-tab-switcher.js?litbasketsRevision=51"></script>
 	<script src="<?php echo $server ?>/extras/api.js?litbasketsRevision=51"></script>
 	<script src="<?php echo $server ?>/extras/index.model.js?litbasketsRevision=51"></script>

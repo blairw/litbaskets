@@ -95,53 +95,98 @@ LitbasketsSourcesTopbarController = {
 
 		user_selected_journal_ids_to_inspect = _.uniq(user_selected_journal_ids_to_inspect);
 
-		for (var i = 0; i < saved_journals_master_data.length; i++) {
-			var thisJournal = saved_journals_master_data[i];
-
+		for (var i = 0; i < user_selected_journal_ids_to_inspect.length; i++) {
+			var this_journal_id = user_selected_journal_ids_to_inspect[i];
+			var journal_record = GLOBAL_MODEL_HELPER.get_master_record_by_journal_id(this_journal_id);
+			
 			// ISSN details
 			var issnString = "<div>";
-			issnString += GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("SCOPUS_SOURCE_LOOKUP", thisJournal.scopus_sourceid, "Scopus #" + thisJournal.scopus_sourceid);
+			issnString += GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("SCOPUS_SOURCE_LOOKUP", journal_record.scopus_sourceid, "Scopus #" + journal_record.scopus_sourceid);
 			issnString += "</div>";
 
-			if (thisJournal.issn && thisJournal.issn.length > 0) {
-				issnString += GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("ISSN_LOOKUP", thisJournal.issn, thisJournal.issn);
-				if (thisJournal.issne && thisJournal.issne.length > 0) {
-					issnString += ", " + GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("ISSN_LOOKUP", thisJournal.issne, thisJournal.issn);
+			if (journal_record.issn && journal_record.issn.length > 0) {
+				issnString += GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("ISSN_LOOKUP", journal_record.issn, journal_record.issn);
+				if (journal_record.issne && journal_record.issne.length > 0) {
+					issnString += ", " + GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("ISSN_LOOKUP", journal_record.issne, journal_record.issn);
 				}
-			} else if (thisJournal.issne && thisJournal.issne.length > 0) {
-				issnString += GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("ISSN_LOOKUP", thisJournal.issne, thisJournal.issn);
+			} else if (journal_record.issne && journal_record.issne.length > 0) {
+				issnString += GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("ISSN_LOOKUP", journal_record.issne, journal_record.issn);
 			}
 
 			// Journal details
-			var journal_name_string = "<div><strong>" + thisJournal.journal_name + "</strong></div>";
-			if (thisJournal.scopus_coverage && thisJournal.scopus_coverage.length > 0) {
+			var journal_name_string = "<div><strong>" + journal_record.journal_name + "</strong></div>";
+			if (journal_record.scopus_coverage && journal_record.scopus_coverage.length > 0) {
 				journal_name_string += "<div style='margin-top: 0.5rem;'>"
-				journal_name_string += "Scopus coverage: " + thisJournal.scopus_coverage;
+				journal_name_string += "Scopus coverage: " + journal_record.scopus_coverage;
 				journal_name_string += "</div>"
 			}
 
-			if (thisJournal.url && thisJournal.url.length > 0) {
+			if (journal_record.url && journal_record.url.length > 0) {
 				journal_name_string += "<div style='margin-top: 0.5rem;'>"
-				journal_name_string += "<a href='" + thisJournal.url + "' target='_blank'>" + (thisJournal.url.length > 60 ? thisJournal.url.substring(0, 60) + "..." : thisJournal.url) + "</a>";
+				journal_name_string += "<a href='" + journal_record.url + "' target='_blank'>" + (journal_record.url.length > 60 ? journal_record.url.substring(0, 60) + "..." : journal_record.url) + "</a>";
 				journal_name_string += "</div>"
 			}
 
-			if (user_selected_journal_ids_to_inspect.includes(thisJournal.journal_id)) {
-				var is_selected = user_selected_journal_ids_to_include.includes(thisJournal.journal_id)
+			var is_selected = user_selected_journal_ids_to_include.includes(journal_record.journal_id);
 
-				var html_string = '<div class="list-group-item">';
-				html_string += '<div class="list-view-pf-actions"><input id="switch_for_journal_'+ thisJournal.journal_id +'" class="bootstrap-switch" ';
-				html_string += 'onchange="GLOBAL_SOURCES_CONTROLLER.toggle_inclusion_of_journal_with_id(' + thisJournal.journal_id + ')" type="checkbox" ' + (is_selected ? 'checked' : '') + '> </div> <div class="list-view-pf-main-info"> <div class="list-view-pf-body"> <div class="list-view-pf-description">';
-				html_string += '<div class="list-group-item-heading">'+ issnString + '</div>';
-				html_string += '<div class="list-group-item-text">'+ journal_name_string + '</div>'; 
-				html_string += '</div>';
-				html_string += '</div> </div> </div>';
+			var html_string = '<div class="list-group-item">';
+			html_string += '<div class="list-view-pf-actions"><input id="switch_for_journal_'+ journal_record.journal_id +'" class="bootstrap-switch" ';
+			html_string += 'onchange="GLOBAL_SOURCES_CONTROLLER.toggle_inclusion_of_journal_with_id(' + journal_record.journal_id + ')" type="checkbox"> </div> <div class="list-view-pf-main-info"> <div class="list-view-pf-body"> <div class="list-view-pf-description">';
+			html_string += '<div class="list-group-item-heading">'+ issnString + '</div>';
+			html_string += '<div class="list-group-item-text">'+ journal_name_string + '</div>'; 
+			html_string += '</div>';
+			html_string += '</div> </div> </div>';
 
-				$("#journalsListView").append(html_string);
-				$("#switch_for_journal_" + thisJournal.journal_id).bootstrapSwitch();
+			$("#journalsListView").append(html_string);
+			$("#switch_for_journal_" + journal_record.journal_id).bootstrapSwitch();
+			if (is_selected) {
+				$("#switch_for_journal_" + journal_record.journal_id).bootstrapSwitch('state', true);
 			}
-		}	
+		}
+	}
+
+	, download_csv: function() {
+		var prepared_return = [
+			[
+				"Scopus Source ID",
+				"Scopus Coverage",
+				"Journal Name",
+				"Journal ISSN",
+				"Journal ISSN (e)",
+				"Journal Website",
+				"Listing Count"
+			]
+		];
+		for (var i = 0; i < user_selected_journal_ids_to_include.length; i++) {
+			var journal_id = user_selected_journal_ids_to_include[i];
+			var journal_record = GLOBAL_MODEL_HELPER.get_master_record_by_journal_id(journal_id);
+			prepared_return.push([
+				journal_record["scopus_source_id"],
+				journal_record["scopus_coverage"],
+				journal_record["journal_name"],
+				journal_record["issn"],
+				journal_record["issne"],
+				journal_record["url"],
+				journal_record["listing_count"]
+			]);
+		}
+		console.log(prepared_return);
+
+		var csvContent = '';
+		for (var i = 0; i < prepared_return.length; i++) {
+			this_row = prepared_return[i];
+			dataString = this_row.join(',');
+			csvContent += (i < prepared_return.length ? dataString + '\n' : dataString);
+		}
+		download(csvContent, "Litbaskets Export "+ (new Date().toISOString().replace(':','_')) +".csv", "text/csv");
+	}
+
+	, empty_litbasket: function() {
+		for (var i = 0; i < user_selected_journal_ids_to_inspect.length; i++) {
+			$("#switch_for_journal_" + user_selected_journal_ids_to_inspect[i]).bootstrapSwitch('state', false);
+		}
+		user_selected_journal_ids_to_include = [];
+		update_sidebar_badges();
+		update_counters();
 	}
 };
-
-

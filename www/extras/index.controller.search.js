@@ -13,7 +13,7 @@ LitbasketsSearchController = {
 		var scopus_ids = [];
 		for (var i = 0; i < user_selected_journal_ids_to_include.length; i++) {
 			var this_journal_id = user_selected_journal_ids_to_include[i];
-			var this_journal = _.findWhere(saved_journals_master_data, {journal_id: this_journal_id});
+			var this_journal = GLOBAL_MODEL_HELPER.get_master_record_by_journal_id(this_journal_id);
 			scopus_ids.push(this_journal.scopus_sourceid);
 		}
 	

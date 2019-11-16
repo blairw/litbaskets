@@ -15,6 +15,7 @@ LitbasketsModelHelper = {
 		
 		// BEGIN RESET DERIVED DATA
 		saved_journals_master_data = [];
+		saved_journals_vlookup_journal_id_to_index = [];
 		saved_journals_litbaskets_ext_only = [];
 
 		user_selected_journal_ids_to_inspect = [];
@@ -46,6 +47,11 @@ LitbasketsModelHelper = {
 			});
 		});
 	}
+
+	, get_master_record_by_journal_id(journal_id) {
+		var index_in_master = saved_journals_vlookup_journal_id_to_index[journal_id];
+		return saved_journals_master_data[index_in_master];
+	}
 }
 
 
@@ -56,6 +62,7 @@ var saved_subdivisions_by_baskets = [];
 
 // derived from API requests
 var saved_journals_master_data = [];
+var saved_journals_vlookup_journal_id_to_index = [];
 var saved_journals_litbaskets_ext_only = [];
 
 // storing user selections
@@ -80,10 +87,14 @@ function generate_journal_master_data() {
 		return JSON.stringify(x);
 	});
 
-	// set default on/off
+	
 	for (var i = 0; i < saved_journals_master_data.length; i++) {
-		var journal_object = saved_journals_master_data[i];
+		// populate vlookup
+		saved_journals_vlookup_journal_id_to_index[saved_journals_master_data[i]["journal_id"]] = i;
 
+		// set default on/off ----
+
+		var journal_object = saved_journals_master_data[i];
 
 		var include_journal = false;
 		if (GLOBAL_INITIAL_CONTROLLER.just_use_bo8) {
@@ -99,6 +110,8 @@ function generate_journal_master_data() {
 		if (include_journal) {
 			user_selected_journal_ids_to_include.push(journal_object.journal_id);
 		}
+
+		// -------------------------
 	}
 }
 

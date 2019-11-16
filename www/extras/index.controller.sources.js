@@ -48,7 +48,7 @@ LitbasketsSourcesController = {
 
 	/* set_journal_inclusion_to_default(...): called by cs_select_default only */
 	, set_journal_inclusion_to_default: function(given_journal_id) {
-		var journal_object = _.findWhere(saved_journals_master_data, {journal_id: given_journal_id});
+		var this_journal = GLOBAL_MODEL_HELPER.get_master_record_by_journal_id(this_journal_id);
 	
 		var include_journal = false;
 		if (GLOBAL_INITIAL_CONTROLLER.just_use_bo8) {

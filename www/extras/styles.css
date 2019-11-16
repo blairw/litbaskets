@@ -60,3 +60,7 @@ h2 {
 	padding: 1rem;
 	background-color: rgb(244,244,244);
 }
+
+.custom-select {
+	font-size: 8pt;
+}
