@@ -11,37 +11,50 @@ LitbasketsSourcesTopbarController = {
 	}
 
 	, user_did_select_basket: function() {
-		// enable
-		$("#current_subdivision_select_all").prop("disabled", false);
-		$("#current_subdivision_select_none").prop("disabled", false);
-		$("#current_subdivision_select_default").prop("disabled", false);
-	
-		// clear model
-		var selectedId = $("#basketSelector").val();
-		for (var i = 0; i < saved_subdivisions_by_baskets.length; i++) {
-			var thisBasket = saved_subdivisions_by_baskets[i];
-			if (thisBasket.basket_id == selectedId) {
-				this.populate_subdivisions_with_blank();
-	
-				for (var j = 0; j < thisBasket.subdivisions.length; j++) {
-					var thisSubdivision = thisBasket.subdivisions[j];
-	
-					// populate list on Model
-					this.user_selected_subdivision_ids.push(thisSubdivision.bsd_id);
-	
-					// populate list on View
-					var htmlString = '<option value="' + thisSubdivision.bsd_id + '">'
-					htmlString += thisSubdivision.subdivision_name;
-					htmlString += '</option>';
-					$("#subdivisionSelector").append(htmlString);
+
+		var spinnerHTML = '<br /><i class="fa fa-cog fa-spin fa-3x fa-fw"></i> <span class="sr-only">Loading...</span>';
+
+		// source: https://stackoverflow.com/questions/4005096/force-immediate-dom-update-modified-with-jquery-in-long-running-function
+		$("#sources_loading_status").html("Loading" + spinnerHTML);
+		$("#basketSelector").prop("disabled", true);
+		$("#subdivisionSelector").prop("disabled", true);
+		window.setTimeout(function() {
+			// enable
+			$("#current_subdivision_select_all").prop("disabled", false);
+			$("#current_subdivision_select_none").prop("disabled", false);
+			$("#current_subdivision_select_default").prop("disabled", false);
+			$("#basketSelector").prop("disabled", false);
+			$("#subdivisionSelector").prop("disabled", false);
+		
+			// clear model
+			var selectedId = $("#basketSelector").val();
+			GLOBAL_SOURCES_TOPBAR_CONTROLLER.user_selected_subdivision_ids = [];
+			for (var i = 0; i < saved_subdivisions_by_baskets.length; i++) {
+				var thisBasket = saved_subdivisions_by_baskets[i];
+				if (thisBasket.basket_id == selectedId) {
+					GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_subdivisions_with_blank();
+		
+					for (var j = 0; j < thisBasket.subdivisions.length; j++) {
+						var thisSubdivision = thisBasket.subdivisions[j];
+		
+						// populate list on Model
+						GLOBAL_SOURCES_TOPBAR_CONTROLLER.user_selected_subdivision_ids.push(thisSubdivision.bsd_id);
+		
+						// populate list on View
+						var htmlString = '<option value="' + thisSubdivision.bsd_id + '">'
+						htmlString += thisSubdivision.subdivision_name;
+						htmlString += '</option>';
+						$("#subdivisionSelector").append(htmlString);
+					}
 				}
 			}
-		}
-	
-		this.populate_journals_in_listview_using_selected_subdivision();
-	
-		update_counters();
-	}	
+		
+			GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_using_selected_subdivision();
+		
+			$("#sources_loading_status").html("Ready.");
+			update_counters();
+		}, 0);
+	}
 
 	, user_did_select_subdivision: function() {
 		var user_selection = $("#subdivisionSelector").val();
@@ -161,22 +174,38 @@ LitbasketsSourcesTopbarController = {
 			var journal_id = user_selected_journal_ids_to_include[i];
 			var journal_record = GLOBAL_MODEL_HELPER.get_master_record_by_journal_id(journal_id);
 			prepared_return.push([
-				journal_record["scopus_source_id"],
-				journal_record["scopus_coverage"],
-				journal_record["journal_name"],
-				journal_record["issn"],
-				journal_record["issne"],
-				journal_record["url"],
-				journal_record["listing_count"]
+				nvl(journal_record["scopus_sourceid"], ""),
+				nvl(journal_record["scopus_coverage"], ""),
+				nvl(journal_record["journal_name"], ""),
+				nvl(journal_record["issn"], ""),
+				nvl(journal_record["issne"], ""),
+				nvl(journal_record["url"], ""),
+				nvl(journal_record["listing_count"], "")
 			]);
 		}
 		console.log(prepared_return);
 
+		// source: https://stackoverflow.com/a/24922761
+		var processRow = function (row) {
+			var finalVal = '';
+			for (var j = 0; j < row.length; j++) {
+				var innerValue = row[j] === null ? '' : row[j].toString();
+				if (row[j] instanceof Date) {
+					innerValue = row[j].toLocaleString();
+				};
+				var result = innerValue.replace(/"/g, '""');
+				if (result.search(/("|,|\n)/g) >= 0)
+					result = '"' + result + '"';
+				if (j > 0)
+					finalVal += ',';
+				finalVal += result;
+			}
+			return finalVal + '\n';
+		};
+
 		var csvContent = '';
 		for (var i = 0; i < prepared_return.length; i++) {
-			this_row = prepared_return[i];
-			dataString = this_row.join(',');
-			csvContent += (i < prepared_return.length ? dataString + '\n' : dataString);
+			csvContent += processRow(prepared_return[i]);
 		}
 		download(csvContent, "Litbaskets Export "+ (new Date().toISOString().replace(':','_')) +".csv", "text/csv");
 	}

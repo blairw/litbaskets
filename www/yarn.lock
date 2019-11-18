@@ -397,6 +397,11 @@ moment-timezone@^0.4.0, moment-timezone@^0.4.1:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
+nvl@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/nvl/-/nvl-1.2.2.tgz#39c5a9bf5092b424e962275bf066dd59e051ca83"
+  integrity sha512-PgQkuTBUM2UfVInbH/t6BV0BoMmn9ctppJ7wqQoL/Nrxbh0BRSLVaUp31yDwYFrCwWmxgLbpBAPclFxnXPAC9g==
+
 patternfly-bootstrap-combobox@^1.1.7, patternfly-bootstrap-combobox@~1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/patternfly-bootstrap-combobox/-/patternfly-bootstrap-combobox-1.1.7.tgz#6a5e3ccd1170c21b3c4b4aa168a7413e1ddbb6e1"
