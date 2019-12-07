@@ -1,5 +1,5 @@
 <div id="litbaskets-sources" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
-	<h1>2. Sources</h1>
+	<h1>Journals</h1>
 	
 	<p>
 		You can make personal adjustments to include or exclude specific journals you need. For example, if your research question is about graphical user interface design, you might wish to select some HCI journals and deselect some Management journals.
@@ -64,11 +64,19 @@
 		</div>
 		<!-- /row -->
 	</div>
-	<div class="container-fluid">
-
-		<div id="journalsListView" class="list-group list-view-pf list-view-pf-view">
-		
-		</div>
-	</div>
+	<table class="table table-striped table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>
+					Title
+				</th>
+				<th style="width: 15rem;">
+					Coverage
+				</th>
+			</tr>
+		</thead>
+		<tbody id="journalsListView">
+		</tbody>
+	</table>
 
 </div>

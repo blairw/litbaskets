@@ -2,7 +2,6 @@ var GLOBAL_MODEL_HELPER = Object.create(LitbasketsModelHelper);
 var GLOBAL_EXTERNAL_LOGIC_HELPER = Object.create(LitbasketsExternalLogicHelper);
 
 var GLOBAL_SEARCH_CONTROLLER = Object.create(LitbasketsSearchController);
-var GLOBAL_INITIAL_CONTROLLER = Object.create(LitbasketsInitialNetSizeController);
 var GLOBAL_SOURCES_TOPBAR_CONTROLLER = Object.create(LitbasketsSourcesTopbarController);
 var GLOBAL_SOURCES_CONTROLLER = Object.create(LitbasketsSourcesController);
 var GLOBAL_FILTERS_CONTROLLER = Object.create(LitbasketsFiltersController);
@@ -16,6 +15,10 @@ function body_did_load() {
 
 	GLOBAL_MODEL_HELPER.load_objects();
 	GLOBAL_SEARCH_CONTROLLER.check_if_search_buttons_should_be_locked();
+
+	$("#reviews_only_switch").bootstrapSwitch();
+	$("#editorials_only_switch").bootstrapSwitch();
+	$("#limit_years_switch").bootstrapSwitch();
 
 	// btn_copy_to_clipboard
 	var clipboard = new ClipboardJS('#btn_copy_to_clipboard');
@@ -34,6 +37,11 @@ function body_did_load() {
 	
 	// ready
 	$("#litbaskets_search_textbox").focus();
+
+	GLOBAL_SEARCH_CONTROLLER.init(
+		function(){},	
+		function(){}
+	);
 }
 
 function update_sidebar_badges() {

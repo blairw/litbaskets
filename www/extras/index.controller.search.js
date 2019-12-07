@@ -3,7 +3,72 @@
  * Instantiated in index.controller.js as GLOBAL_SEARCH_CONTROLLER
  */
 LitbasketsSearchController = {
-	check_if_search_buttons_should_be_locked: function() {
+	current_slider_value: 4  // default
+	, has_been_init: false
+	, just_use_bo8: false
+
+	, init: function(beforeStarting, afterStarting) {
+		console.log("GLOBAL_SEARCH_CONTROLLER: init");
+		beforeStarting();
+
+		if (!this.has_been_init) {
+			var shortslider = $("#shortslider").slider({
+				tooltip: 'always',
+				reversed : false,
+				formatter: function(value) {
+					var journal_count = -1;
+					var level_string = value + "";
+					switch (value) {
+						case 1: break;
+						case 2: journal_count = 16; break;
+						case 3: journal_count = 29; break;
+						case 4: journal_count = 51; break;
+					}
+					if (value == 1) {
+						GLOBAL_SEARCH_CONTROLLER.just_use_bo8 = true;
+						return "AIS Basket of Eight";
+					} else {
+						GLOBAL_SEARCH_CONTROLLER.just_use_bo8 = false;
+						return journal_count + " essential IS journals";
+					}
+				}
+			});
+			
+			shortslider.slider('setValue', this.current_slider_value);
+			this.has_been_init = true;
+		}
+
+		afterStarting();
+	}
+
+	, user_did_change_slider_value: function() {
+		var ss = $("#shortslider").slider();
+		var ls = $("#longslider").slider();
+		var slidervalue = ss.slider('getValue');
+
+		this.current_slider_value = slidervalue;
+		GLOBAL_MODEL_HELPER.launch_sequence_after_api_load();
+	}
+
+	, user_did_change_longslider_value: function() {
+		var ss = $("#shortslider").slider();
+		var ls = $("#longslider").slider();
+		var slidervalue = ls.slider('getValue');
+
+		if (slidervalue <= 4) {
+			$("#searchpage_shortslider_container").css("display", "block");
+			$("#searchpage_advopt_notice").css("display", "none");
+			ss.slider("setValue", slidervalue)
+		} else {
+			$("#searchpage_shortslider_container").css("display", "none");
+			$("#searchpage_advopt_notice").css("display", "block");
+		}
+
+		this.current_slider_value = slidervalue;
+		GLOBAL_MODEL_HELPER.launch_sequence_after_api_load();
+	}
+
+	, check_if_search_buttons_should_be_locked: function() {
 		var should_lock = ($("#litbaskets_search_textbox").val().length == 0);
 		
 		$("#litbaskets_search_button").attr("disabled", should_lock);
@@ -99,4 +164,8 @@ function user_starts_new_search() {
 
 $(document).on('hidden.bs.modal', '#modal_for_search_results', function () {
 	$('#litbaskets_search_textbox').focus();
+});
+
+$(document).on('shown.bs.modal', '#modal_for_advanced_search', function () {
+	GLOBAL_FILTERS_CONTROLLER.init();
 });

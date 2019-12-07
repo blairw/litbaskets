@@ -1,3 +1,7 @@
+/*
+ * LitbasketsFiltersController
+ * Instantiated in index.controller.js as GLOBAL_FILTERS_CONTROLLER
+ */
 LitbasketsFiltersController = {
 	  is_reviews_only: false
 	, is_editorials_only: false
@@ -6,20 +10,42 @@ LitbasketsFiltersController = {
 	, limit_years_data: 2013
 	, currently_killing_one_of_the_type_filter_switches: false
 
-	, init: function(beforeStarting, afterStarting) {
-		beforeStarting();
-
+	, init: function() {
 		if (!this.has_been_init) {
-			$("#reviews_only_switch").bootstrapSwitch();
-			$("#editorials_only_switch").bootstrapSwitch();
-			$("#limit_years_switch").bootstrapSwitch();
-			
 			$("#limit_years_data").val(this.limit_years_data);
-			$("#limit_years_switch").bootstrapSwitch('state', true);
+			$("#limit_years_switch").bootstrapSwitch('state', this.limit_years);
+
+			
+			var longslider = $("#longslider").slider({
+				tooltip: 'always',
+				reversed : false,
+				formatter: function(value) {
+					var journal_count = -1;
+					var level_string = value + "";
+					switch (value) {
+						case 1: break;
+						case 2: journal_count = 16; break;
+						case 3: journal_count = 29; break;
+						case 4: journal_count = 51; break;
+						case 5: journal_count = 87; break;
+						case 6: journal_count = 154; break;
+						case 7: journal_count = 302; break;
+						case 8: journal_count = 847; break;
+					}
+					if (value == 1) {
+						GLOBAL_SEARCH_CONTROLLER.just_use_bo8 = true;
+						return "AIS Basket of Eight";
+					} else {
+						GLOBAL_SEARCH_CONTROLLER.just_use_bo8 = false;
+						return journal_count + " essential IS journals";
+					}
+				}
+			});
+			
+			longslider.slider('setValue', GLOBAL_SEARCH_CONTROLLER.current_slider_value);
+
+			this.has_been_init = true;
 		}
-		
-		this.has_been_init = true;
-		afterStarting();
 	}
 
 	/*
@@ -66,6 +92,7 @@ LitbasketsFiltersController = {
 		Invoked when user changes the year to filter by year
 	*/
 	, check_limit_years_data: function() {
+		console.log("check_limit_years_data");
 		this.limit_years_data = $("#limit_years_data").val();
 	}
 

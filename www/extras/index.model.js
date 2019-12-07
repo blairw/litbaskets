@@ -9,7 +9,7 @@ LitbasketsModelHelper = {
 
 	/* 
 	 * only called here (load_objects)
-	 * and in LitbasketsInitialNetSizeController for slider handler (user_did_change_threshold)
+	 * and in GLOBAL_SEARCH_CONTROLLER for slider handler (user_did_change_slider_value)
 	*/
 	, launch_sequence_after_api_load: function() {
 		
@@ -97,12 +97,13 @@ function generate_journal_master_data() {
 		var journal_object = saved_journals_master_data[i];
 
 		var include_journal = false;
-		if (GLOBAL_INITIAL_CONTROLLER.just_use_bo8) {
+		if (GLOBAL_SEARCH_CONTROLLER.just_use_bo8) {
 			if (parseInt(journal_object.is_bo8) == 1) {
 				include_journal = true;
 			}
 		} else {
-			if (journal_object.listing_count >= GLOBAL_INITIAL_CONTROLLER.current_threshold) {
+			var threshold = 9 - GLOBAL_SEARCH_CONTROLLER.current_slider_value;
+			if (journal_object.listing_count >= threshold) {
 				include_journal = true;
 			}
 		}

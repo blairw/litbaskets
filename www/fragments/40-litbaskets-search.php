@@ -21,39 +21,52 @@
 		>
 			Search
 		</button>
+		<button class="btn btn-default" 
+			id="litbaskets_advopt_button"
+			data-toggle="modal" data-target="#modal_for_advanced_search"
+			style="font-size: 2rem;"
+		>
+			Advanced Options
+		</button>
 	</div>
 
 	<div style="text-align: left; margin-top: 4rem;">
 		<p>
-			Welcome to Litbaskets! Before you proceed, <strong>please ensure that you are happy with the following</strong> which can be configured
-			using the tabs on the left side of the screen:
+			This website allows you to search through Literature Baskets, which we call <em>Litbaskets</em>.
+			The <strong>default</strong> Litbasket has 51 journals that we believe are a great starting point for most IS research topics.
+			If you are <strong>getting too many results</strong>, you can <strong>adjust the slider below</strong> to select smaller Litbaskets, all the way down to 2XS (AIS Basket of Eight).
 		</p>
-		<table class="homepage_steps_table">
-			<tr>
-				<td style="width: 17rem;">
-					<span class="litbaskets-inline-button"><span class="fa fa-shopping-basket"></span> 1. Litbasket</span>
-				</td>
-				<td>
-					We have a number of prepacked litbaskets from the smallest (Bo8) to the largest (L1: 847 journals!). The smaller packs start with the most "core" IS journals and the larger ones begin to include those that are not as "core" to IS (Management, Computer Science, etc.). The default litbasket, L5 (51 journals), balances recall and precision reasonably well for initial exploratory searches. However, depending on your research topic, you may need to set this to be narrower (e.g. if you're searching for common keywords like "user experience") or wider (e.g. if you're searching for rare keywords like "nomadicity").
-				</td>
-			</tr>
-			<tr>
-				<td style="width: 15rem;">
-					<span class="litbaskets-inline-button"><span class="fa fa-database"></span> 2. Sources</span>
-				</td>
-				<td>
-					You can make personal adjustments to include or exclude specific journals you need. For example, if your research question is about graphical user interface design, you might wish to select some HCI journals and deselect some Management journals.
-				</td>
-			</tr>
-			<tr>
-				<td style="width: 15rem;">
-					<span class="litbaskets-inline-button"><span class="fa fa-filter"></span> 3. Filters</span>
-				</td>
-				<td>
-					You may apply some additional criteria such as limiting to papers published since some given year (default: 2013), or limiting to "reviews only" / "editorials only".
-				</td>
-			</tr>
-		</table>
+		<div style="margin-bottom: 4rem;">
+			<div style="margin: 0 auto; padding-left: 10rem; padding-right: 10rem; padding-top: 3rem; padding-bottom: 3rem;">
+				<div id="searchpage_shortslider_container">
+					<table style="width: 100%;">
+						<tr>
+							<td style="text-align: left; width: 50%;">
+								<em>Smallest Litbasket<br />Least journals</em>
+							</td>
+							<td style="text-align: right; width: 50%;">
+								<em>Default Litbasket<br />More journals</em>
+							</td>
+						</tr>
+					</table>
+					<input id="shortslider" type="text"
+						data-provide="slider"
+						data-slider-ticks="[1, 2, 3, 4]"
+						data-slider-ticks-labels='["2XS", "XS&nbsp;&nbsp;", "S&nbsp;&nbsp;", "M"]'
+						data-slider-min="1"
+						data-slider-max="4"
+						data-slider-step="1"
+						data-slider-value="4"
+						data-slider-tooltip="show"
+						onchange="GLOBAL_SEARCH_CONTROLLER.user_did_change_slider_value()"
+					/>
+				</div>
+				
+				<div id="searchpage_advopt_notice" style="background-color: lightgray; padding: 2.8rem; display: none; text-align: center;">
+					You have used the Advanced Options to set the slider to a larger Litbasket.
+				</div>
+			</div>
+		</div>
 		<br />
 		<p>
 			<strong>Litbaskets is realised through Scopus, you will need to have access to Scopus to use the search.</strong>

@@ -113,42 +113,27 @@ LitbasketsSourcesTopbarController = {
 			var journal_record = GLOBAL_MODEL_HELPER.get_master_record_by_journal_id(this_journal_id);
 			
 			// ISSN details
-			var issnString = "<div>";
-			issnString += GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("SCOPUS_SOURCE_LOOKUP", journal_record.scopus_sourceid, "Scopus #" + journal_record.scopus_sourceid);
-			issnString += "</div>";
-
-			if (journal_record.issn && journal_record.issn.length > 0) {
-				issnString += GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("ISSN_LOOKUP", journal_record.issn, journal_record.issn);
-				if (journal_record.issne && journal_record.issne.length > 0) {
-					issnString += ", " + GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("ISSN_LOOKUP", journal_record.issne, journal_record.issn);
-				}
-			} else if (journal_record.issne && journal_record.issne.length > 0) {
-				issnString += GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html("ISSN_LOOKUP", journal_record.issne, journal_record.issn);
+			var coverage_text = journal_record.scopus_coverage;
+			if (coverage_text.includes(",")) {
+				coverage_text = "See Scopus";
 			}
+			var col3 = GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html(
+				"SCOPUS_SOURCE_LOOKUP",
+				journal_record.scopus_sourceid,
+				coverage_text + "<img src='images/external-link.png' />"
+			);
 
-			// Journal details
-			var journal_name_string = "<div><strong>" + journal_record.journal_name + "</strong></div>";
-			if (journal_record.scopus_coverage && journal_record.scopus_coverage.length > 0) {
-				journal_name_string += "<div style='margin-top: 0.5rem;'>"
-				journal_name_string += "Scopus coverage: " + journal_record.scopus_coverage;
-				journal_name_string += "</div>"
-			}
-
-			if (journal_record.url && journal_record.url.length > 0) {
-				journal_name_string += "<div style='margin-top: 0.5rem;'>"
-				journal_name_string += "<a href='" + journal_record.url + "' target='_blank'>" + (journal_record.url.length > 60 ? journal_record.url.substring(0, 60) + "..." : journal_record.url) + "</a>";
-				journal_name_string += "</div>"
-			}
+			var col2 = journal_record.journal_name;
+			col2 += "<a href='" + journal_record.url + "' target='_blank'><img src='images/external-link.png' /></a>"
 
 			var is_selected = user_selected_journal_ids_to_include.includes(journal_record.journal_id);
+			var col1 = '<input style="width: 100%;" id="switch_for_journal_'+ journal_record.journal_id +'" class="bootstrap-switch" ';
+			col1 += 'onchange="GLOBAL_SOURCES_CONTROLLER.toggle_inclusion_of_journal_with_id(' + journal_record.journal_id + ')" type="checkbox">';
 
-			var html_string = '<div class="list-group-item">';
-			html_string += '<div class="list-view-pf-actions"><input id="switch_for_journal_'+ journal_record.journal_id +'" class="bootstrap-switch" ';
-			html_string += 'onchange="GLOBAL_SOURCES_CONTROLLER.toggle_inclusion_of_journal_with_id(' + journal_record.journal_id + ')" type="checkbox"> </div> <div class="list-view-pf-main-info"> <div class="list-view-pf-body"> <div class="list-view-pf-description">';
-			html_string += '<div class="list-group-item-heading">'+ issnString + '</div>';
-			html_string += '<div class="list-group-item-text">'+ journal_name_string + '</div>'; 
-			html_string += '</div>';
-			html_string += '</div> </div> </div>';
+			var html_string = '<tr>';
+			html_string += "<td style='padding: 0px;'>" + col1 + "&nbsp;" + col2 + "</td>"
+			html_string += "<td>" + col3 + "</td>"
+			html_string += '</td>';
 
 			$("#journalsListView").append(html_string);
 			$("#switch_for_journal_" + journal_record.journal_id).bootstrapSwitch();

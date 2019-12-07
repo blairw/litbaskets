@@ -2,7 +2,7 @@
 	$server = "https://litbaskets.b-cdn.net";
 	// $server = "https://localhost/dev/litbaskets/www";
 	// $server = "https://www-beta.litbaskets.io";
-// 	$server = "https://www.litbaskets.io";
+	// $server = "https://www.litbaskets.io";
 
 	include("fragments/00-preheader.php");
 	include("fragments/10-header-and-open-body.php");
@@ -13,10 +13,9 @@
 <div id="litbaskets-container" class="container-fluid container-pf-nav-pf-vertical hide-nav-pf">
 	<?php
 		include("fragments/40-litbaskets-search.php");
-		include("fragments/42-litbaskets-search-results.php");
-		include("fragments/44-litbaskets-initial.php");
+		include("fragments/41-litbaskets-advanced-search.php");
+		include("fragments/43-litbaskets-search-results.php");
 		include("fragments/46-litbaskets-sources.php");
-		include("fragments/48-litbaskets-filters.php");
 		include("fragments/50-litbaskets-about.php");
 		include("fragments/60-litbaskets-libraries.php");
 	?>
