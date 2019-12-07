@@ -10,7 +10,10 @@ LitbasketsFiltersController = {
 		beforeStarting();
 
 		if (!this.has_been_init) {
-			$(".bootstrap-switch").bootstrapSwitch();
+			$("#reviews_only_switch").bootstrapSwitch();
+			$("#editorials_only_switch").bootstrapSwitch();
+			$("#limit_years_switch").bootstrapSwitch();
+			
 			$("#limit_years_data").val(this.limit_years_data);
 			$("#limit_years_switch").bootstrapSwitch('state', true);
 		}

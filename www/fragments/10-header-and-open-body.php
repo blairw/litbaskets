@@ -1,8 +1,8 @@
-<head>
-	<meta charset="UTF-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
 	<link rel="stylesheet" type="text/css" href="<?php echo $server ?>/node_modules/patternfly/dist/css/patternfly.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $server ?>/node_modules/patternfly/dist/css/patternfly-additions.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo $server ?>/extras/styles.css?litbasketsRevision=53" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $server ?>/extras/styles.css?litbasketsRevision=56" />
 	
 	<script src="<?php echo $server ?>/node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="<?php echo $server ?>/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -14,16 +14,16 @@
 	<script src="<?php echo $server ?>/node_modules/clipboard/dist/clipboard.min.js"></script>
 	<script src="<?php echo $server ?>/node_modules/downloadjs/download.min.js"></script>
 	<script src="<?php echo $server ?>/node_modules/nvl/dist/index.js"></script>
-	<script src="<?php echo $server ?>/extras/sidebar-tab-switcher.js?litbasketsRevision=53"></script>
-	<script src="<?php echo $server ?>/extras/api.js?litbasketsRevision=53"></script>
-	<script src="<?php echo $server ?>/extras/index.model.js?litbasketsRevision=53"></script>
-	<script src="<?php echo $server ?>/extras/index.externalLogic.js?litbasketsRevision=53"></script>
-	<script src="<?php echo $server ?>/extras/index.controller.initial.js?litbasketsRevision=53"></script>
-	<script src="<?php echo $server ?>/extras/index.controller.search.js?litbasketsRevision=53"></script>
-	<script src="<?php echo $server ?>/extras/index.controller.sources.topbar.js?litbasketsRevision=53"></script>
-	<script src="<?php echo $server ?>/extras/index.controller.sources.js?litbasketsRevision=53"></script>
-	<script src="<?php echo $server ?>/extras/index.controller.filters.js?litbasketsRevision=53"></script>
-	<script src="<?php echo $server ?>/extras/index.controller.js?litbasketsRevision=53"></script>
+	<script src="<?php echo $server ?>/extras/sidebar-tab-switcher.js?litbasketsRevision=56"></script>
+	<script src="<?php echo $server ?>/extras/api.js?litbasketsRevision=56"></script>
+	<script src="<?php echo $server ?>/extras/index.model.js?litbasketsRevision=56"></script>
+	<script src="<?php echo $server ?>/extras/index.externalLogic.js?litbasketsRevision=56"></script>
+	<script src="<?php echo $server ?>/extras/index.controller.initial.js?litbasketsRevision=56"></script>
+	<script src="<?php echo $server ?>/extras/index.controller.search.js?litbasketsRevision=56"></script>
+	<script src="<?php echo $server ?>/extras/index.controller.sources.topbar.js?litbasketsRevision=56"></script>
+	<script src="<?php echo $server ?>/extras/index.controller.sources.js?litbasketsRevision=56"></script>
+	<script src="<?php echo $server ?>/extras/index.controller.filters.js?litbasketsRevision=56"></script>
+	<script src="<?php echo $server ?>/extras/index.controller.js?litbasketsRevision=56"></script>
 
 	
 	<title>Litbaskets</title>

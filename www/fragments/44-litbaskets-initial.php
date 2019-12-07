@@ -6,7 +6,7 @@
 	</p>
 
 	<div style="text-align: center; margin-bottom: 4rem;">
-		<img src="images/graph.png?litbasketsRevision=53" style="width: 100%; padding-left: 3.3rem; padding-right: 8rem;" /> 
+		<img src="images/graph.png?litbasketsRevision=54" style="width: 100%; padding-left: 3.3rem; padding-right: 8rem;" /> 
 
 		<div style="margin: 0 auto; padding-left: 10rem; padding-right: 10rem; padding-top: 3rem; padding-bottom: 3rem;">
 			<input id="myslider" type="text"

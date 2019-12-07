@@ -51,7 +51,7 @@ LitbasketsSourcesTopbarController = {
 		
 			GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_using_selected_subdivision();
 		
-			$("#sources_loading_status").html("Ready.");
+			$("#sources_loading_status").html("");
 			update_counters();
 		}, 0);
 	}
