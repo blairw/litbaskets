@@ -90,7 +90,7 @@
             </div>
             <div class="modal-footer">
                 If you're done here &mdash;&nbsp;
-                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="user_starts_new_search()">CLOSE ADVANCED OPTIONS</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">CLOSE ADVANCED OPTIONS</button>
             </div>
         </div>
     </div>
