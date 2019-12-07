@@ -3,7 +3,7 @@
 	
 	<p>
 		You can make personal adjustments to include or exclude specific journals you need. For example, if your research question is about graphical user interface design, you might wish to select some HCI journals and deselect some Management journals.
-		Use 'Baskets' to chose the Litbasket you want to use as starting point for your customization. You can start with any of the journal lists we identified (see FAQ) or simply use 'All' to make customization based on the full journal set. 'Subdivision' allows you to further narrow within a journal list.
+		Use 'Baskets' to chose the Litbasket you want to use as starting point for your customization. You can start with any of the journal lists we identified (see Help section) or simply use 'All' to make customization based on the full journal set. 'Subdivision' allows you to further narrow within a journal list.
 	</p>
 
 	<div class="container-fluid">
@@ -64,7 +64,7 @@
 		</div>
 		<!-- /row -->
 	</div>
-	<table class="table table-striped table-bordered table-hover">
+	<table class="table table-striped table-hover">
 		<thead>
 			<tr>
 				<th>

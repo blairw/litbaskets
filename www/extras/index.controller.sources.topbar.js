@@ -123,7 +123,7 @@ LitbasketsSourcesTopbarController = {
 				coverage_text + "<img src='images/external-link.png' />"
 			);
 
-			var col2 = journal_record.journal_name;
+			var col2 = "<strong>" + journal_record.journal_name + "</strong>";
 			col2 += "<a href='" + journal_record.url + "' target='_blank'><img src='images/external-link.png' /></a>"
 
 			var is_selected = user_selected_journal_ids_to_include.includes(journal_record.journal_id);

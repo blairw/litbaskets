@@ -1,5 +1,5 @@
 <div id="litbaskets-about" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
-	<h1>FAQ</h1>
+	<h1>Help</h1>
 
 	<h2>
 		Do I need Scopus to use Litbaskets.io?
@@ -41,7 +41,19 @@
 		Can I see what journals litbaskets.io is searching though?
 	</h2>
 	<p class="litfam_faq_para">
-		Yes using the 'customize search' function you can display a list of the journals included in any of our litbaskets. You can also customize your search by including or removing additional journals for your search. Please note that a direct search in Scopus will only work with up to 52 journals if you search through more journals you will need to copy the search string generated for you into the advanced search field in Scopus.
+		Yes using the 'journals' function you can display a list of the journals included in any of our litbaskets.
+		You can also customize your search by including or removing additional journals for your search.
+		Please note that a direct search in Scopus will only work with up to 51 journals if you search through more journals you will need to copy
+		the search string generated for you into the advanced search field in Scopus.
+	</p>
+	
+	<h2>
+		Can I help in further improving Litbaskets.io?
+	</h2>
+	<p class="litfam_faq_para">
+		Litbaskets.io is fully under open source and we are coordinating our development on GitHub (repo: <a href="https://github.com/blairw/litbaskets">bliarw/litbaskets</a>).
+		We are always looking for volunteers to help us in further developing litbaskets.io.
+		For instance, we need help with testing litbaskets.io on as many platforms and browsers as possible. If you come across a bug please report it through GitHub. 
 	</p>
 	
 	<h2>You're missing an important journal, can I make a suggestion?</h2>

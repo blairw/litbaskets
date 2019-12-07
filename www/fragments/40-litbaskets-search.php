@@ -71,7 +71,7 @@
 		<p>
 			<strong>Litbaskets is realised through Scopus, you will need to have access to Scopus to use the search.</strong>
 			If you want to know more about how Litbaskets works or if you want to refer to Litbaskets in your
-			research, please have a look at our paper:
+			research, please see the <strong>Help</strong> section or have a look at our paper:
 			<em>
 			<a href="https://www.researchgate.net/publication/336868520_wwwlitbasketsio_an_IT_Artifact_Supporting_Exploratory_Literature_Searches_for_Information_Systems_Research">
 			www.litbaskets.io, an IT Artifact Supporting Exploratory Literature Searches for Information Systems Research</a></em>.

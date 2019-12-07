@@ -15,7 +15,7 @@
 			onclick="userDidSelectTab('litbaskets-sources')"
 		>
 			<a href="#">
-				<span class="fa fa-book" data-toggle="tooltip" title="Sources"></span>
+				<span class="fa fa-book" data-toggle="tooltip" title="Journals"></span>
 				<span class="list-group-item-value">
 					Journals
 					<span id="sidebar_badge_for_sources" class="badge pull-right"></span>
@@ -28,8 +28,8 @@
 			onclick="userDidSelectTab('litbaskets-about')"
 		>
 			<a href="#">
-				<span class="fa fa-info-circle" data-toggle="tooltip" title="FAQ"></span>
-				<span class="list-group-item-value">FAQ</span>
+				<span class="fa fa-info-circle" data-toggle="tooltip" title="Help"></span>
+				<span class="list-group-item-value">Help</span>
 			</a>
 		</li>
 		<li class="list-group-item link_for_nav_litbaskets"
