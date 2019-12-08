@@ -51,7 +51,7 @@
 		Can I help in further improving Litbaskets.io?
 	</h2>
 	<p class="litfam_faq_para">
-		Litbaskets.io is fully under open source and we are coordinating our development on GitHub (repo: <a href="https://github.com/blairw/litbaskets">bliarw/litbaskets</a>).
+		Litbaskets.io is fully under open source and we are coordinating our development on GitHub (repo: <a href="https://github.com/blairw/litbaskets">blairw/litbaskets</a>).
 		We are always looking for volunteers to help us in further developing litbaskets.io.
 		For instance, we need help with testing litbaskets.io on as many platforms and browsers as possible. If you come across a bug please report it through GitHub. 
 	</p>
