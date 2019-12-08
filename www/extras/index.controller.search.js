@@ -113,7 +113,8 @@ function perform_search_with_journals(search_mode, list_of_journals) {
 
 	$("#txt_copy_to_clipboard").text("");
 
-	var prepared_response = "TITLE-ABS-KEY(" + $("#litbaskets_search_textbox").val() + ")";
+	var search_terms = $("#litbaskets_search_textbox").val();
+	var prepared_response = "TITLE-ABS-KEY(" + search_terms + ")";
 
 	if (GLOBAL_FILTERS_CONTROLLER.is_reviews_only) {
 		prepared_response += " AND DOCTYPE(re)";
@@ -156,6 +157,19 @@ function perform_search_with_journals(search_mode, list_of_journals) {
 			win.focus();
 		}
 	}
+
+	var formdata = {
+		"search_terms": search_terms,
+		"litbasket_size": GLOBAL_SEARCH_CONTROLLER.current_slider_value,
+		"filter_reviews_only": (GLOBAL_FILTERS_CONTROLLER.is_reviews_only ? 1 : 0),
+		"filter_editorials_only": (GLOBAL_FILTERS_CONTROLLER.is_editorials_only ? 1 : 0),
+		"year_limit_set": (GLOBAL_FILTERS_CONTROLLER.limit_years ? 1 : 0),
+		"year_limit_data": GLOBAL_FILTERS_CONTROLLER.limit_years_data,
+
+	};
+	$.post(API_ROOT + "newVisit.php", formdata, function(result) {
+		console.log(result);
+	});
 }
 
 function user_starts_new_search() {
