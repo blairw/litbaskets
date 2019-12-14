@@ -3,94 +3,10 @@
  * Instantiated in index.controller.js as GLOBAL_SOURCES_TOPBAR_CONTROLLER
  */
 LitbasketsSourcesTopbarController = {
-	user_selected_subdivision_ids: []
-
-	, data_reset: function() {
-		this.user_selected_subdivision_ids = [];
-		$("#journalsListView").html("");
-	}
-
-	, user_did_select_basket: function() {
-
-		var spinnerHTML = '<br /><i class="fa fa-cog fa-spin fa-3x fa-fw"></i> <span class="sr-only">Loading...</span>';
-
-		// source: https://stackoverflow.com/questions/4005096/force-immediate-dom-update-modified-with-jquery-in-long-running-function
-		$("#sources_loading_status").html("Loading" + spinnerHTML);
-		$("#basketSelector").prop("disabled", true);
-		$("#subdivisionSelector").prop("disabled", true);
-		window.setTimeout(function() {
-			// enable
-			$("#current_subdivision_select_all").prop("disabled", false);
-			$("#current_subdivision_select_none").prop("disabled", false);
-			$("#current_subdivision_select_default").prop("disabled", false);
-			$("#basketSelector").prop("disabled", false);
-			$("#subdivisionSelector").prop("disabled", false);
-		
-			// clear model
-			var selectedId = $("#basketSelector").val();
-			GLOBAL_SOURCES_TOPBAR_CONTROLLER.user_selected_subdivision_ids = [];
-			for (var i = 0; i < saved_subdivisions_by_baskets.length; i++) {
-				var thisBasket = saved_subdivisions_by_baskets[i];
-				if (thisBasket.basket_id == selectedId) {
-					GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_subdivisions_with_blank();
-		
-					for (var j = 0; j < thisBasket.subdivisions.length; j++) {
-						var thisSubdivision = thisBasket.subdivisions[j];
-		
-						// populate list on Model
-						GLOBAL_SOURCES_TOPBAR_CONTROLLER.user_selected_subdivision_ids.push(thisSubdivision.bsd_id);
-		
-						// populate list on View
-						var htmlString = '<option value="' + thisSubdivision.bsd_id + '">'
-						htmlString += thisSubdivision.subdivision_name;
-						htmlString += '</option>';
-						$("#subdivisionSelector").append(htmlString);
-					}
-				}
-			}
-		
-			GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_using_selected_subdivision();
-		
-			$("#sources_loading_status").html("");
-			update_counters();
-		}, 0);
-	}
-
-	, user_did_select_subdivision: function() {
-		var user_selection = $("#subdivisionSelector").val();
-		
-		if (user_selection > 0) {
-			// selected a valid option
-			this.user_selected_subdivision_ids = [];
-			this.user_selected_subdivision_ids.push(user_selection);
-			this.populate_journals_in_listview_using_selected_subdivision();
-		} else {
-			// selected "all subdivisons"
-			this.user_did_select_basket();
-		}
-
-		update_counters();
-	}
-
-	, populate_baskets: function() {
-		$("#basketSelector").html('<option value="" selected="selected" disabled>Select a Basket ...</option>');
-		for (var i = 0; i < saved_subdivisions_by_baskets.length; i++) {
-			var htmlString = '<option value="' + saved_subdivisions_by_baskets[i].basket_id + '">'
-			htmlString += saved_subdivisions_by_baskets[i].basket_name;
-			htmlString += '</option>';
-
-			$("#basketSelector").append(htmlString);
-		}
-	}
-
-	, populate_subdivisions_with_blank: function() {
-		$("#subdivisionSelector").html("<option value='-1' selected='selected'>(all subdivisions)</option>");
-	}
-	
 	/*
 	* Inserts rows into the listview on screen 'Sources'
 	*/
-   , populate_journals_in_listview_using_selected_subdivision: function() {
+   populate_journals_in_listview_for_section: function(given_section) {
 		// clear model and view
 		user_selected_journal_ids_to_inspect = [];
 		$("#journalsListView").html("");
@@ -193,14 +109,5 @@ LitbasketsSourcesTopbarController = {
 			csvContent += processRow(prepared_return[i]);
 		}
 		download(csvContent, "Litbaskets Export "+ (new Date().toISOString().replace(':','_')) +".csv", "text/csv");
-	}
-
-	, empty_litbasket: function() {
-		for (var i = 0; i < user_selected_journal_ids_to_inspect.length; i++) {
-			$("#switch_for_journal_" + user_selected_journal_ids_to_inspect[i]).bootstrapSwitch('state', false);
-		}
-		user_selected_journal_ids_to_include = [];
-		update_sidebar_badges();
-		update_counters();
 	}
 };

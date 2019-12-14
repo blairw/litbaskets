@@ -1,6 +1,6 @@
 <?php
-	$server = "https://litbaskets.b-cdn.net";
-	// $server = "https://localhost/dev/litbaskets/www";
+	// $server = "https://litbaskets.b-cdn.net";
+	$server = "https://localhost/dev/litbaskets/www";
 	// $server = "https://www-beta.litbaskets.io";
 	// $server = "https://www.litbaskets.io";
 

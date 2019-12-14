@@ -23,15 +23,11 @@ LitbasketsModelHelper = {
 
 		saved_journals_by_subdivisions = this.final_journals_by_subdivisions;
 		saved_subdivisions_by_baskets = this.final_subdivisions_by_baskets;
-
-		GLOBAL_SOURCES_TOPBAR_CONTROLLER.data_reset();
 		// END RESET DERIVED DATA
 	
 		generate_journal_master_data();
 		generate_litbaskets_ext_master_data();
 
-		GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_baskets();
-		GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_subdivisions_with_blank();
 		update_sidebar_badges();
 	}
 
