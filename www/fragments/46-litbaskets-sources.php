@@ -1,6 +1,6 @@
 <?php
-	// $url = $API_SERVER . "getJournalsForJournalExplorer.php";
-	$url = "https://api.litbaskets.io/getJournalsForJournalExplorer.php";
+	// $url = $API_SERVER . "getJournalsForJournalExplorer" + $API_MODE;
+	$url = "https://litbaskets.b-cdn.net/api-cache/getJournalsForJournalExplorer.json";
 	$contents = json_decode(file_get_contents($url), true);
 
 	$array_htmlstrings = array();

@@ -1,11 +1,14 @@
 <?php
-	$WWW_SERVER = "https://litbaskets.b-cdn.net/";
 	// $WWW_SERVER = "https://localhost/dev/litbaskets/www/";
-	// $WWW_SERVER = "https://www-beta.litbaskets.io/";
 	// $WWW_SERVER = "https://www.litbaskets.io/";
+	$WWW_SERVER = "https://litbaskets.b-cdn.net/";
 
 	// $API_SERVER = "http://localhost/dev/litbaskets/api/";
-	$API_SERVER = "https://api.litbaskets.io/";
+	// $API_SERVER = "https://api.litbaskets.io/";
+	$API_SERVER = "https://litbaskets.b-cdn.net/api-cache/";
+
+	// $API_MODE = ".php";
+	$API_MODE = ".json";
 
 	include("fragments/00-preheader.php");
 	include("fragments/10-header-and-open-body.php");

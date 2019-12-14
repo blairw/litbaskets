@@ -1,0 +1,255 @@
+[
+    {
+        "basket_id": "12",
+        "basket_name": "ACPHIS (ABDC Rankings)",
+        "litbaskets_flag": "1",
+        "litbaskets_rank_count_include_flag": "1",
+        "seqno": null,
+        "subdivisions": [
+            {
+                "bsd_id": "5",
+                "basket_id": "12",
+                "subdivision_name": "1. A* Journals"
+            },
+            {
+                "bsd_id": "6",
+                "basket_id": "12",
+                "subdivision_name": "2. A Journals"
+            },
+            {
+                "bsd_id": "7",
+                "basket_id": "12",
+                "subdivision_name": "3. B Journals"
+            },
+            {
+                "bsd_id": "8",
+                "basket_id": "12",
+                "subdivision_name": "4. C Journals"
+            }
+        ]
+    },
+    {
+        "basket_id": "5",
+        "basket_name": "AIS Baskets",
+        "litbaskets_flag": "1",
+        "litbaskets_rank_count_include_flag": "1",
+        "seqno": null,
+        "subdivisions": [
+            {
+                "bsd_id": "128",
+                "basket_id": "5",
+                "subdivision_name": "Basket of Eight (Bo8)"
+            },
+            {
+                "bsd_id": "148",
+                "basket_id": "5",
+                "subdivision_name": "Special Interest Groups (SIG)"
+            }
+        ]
+    },
+    {
+        "basket_id": "17",
+        "basket_name": "All (Litbaskets)",
+        "litbaskets_flag": "1",
+        "litbaskets_rank_count_include_flag": "0",
+        "seqno": null,
+        "subdivisions": [
+            {
+                "bsd_id": "160",
+                "basket_id": "17",
+                "subdivision_name": "L1: mentioned in 1 list or more"
+            },
+            {
+                "bsd_id": "161",
+                "basket_id": "17",
+                "subdivision_name": "L2: mentioned in 2 lists or more"
+            },
+            {
+                "bsd_id": "162",
+                "basket_id": "17",
+                "subdivision_name": "L3: mentioned in 3 lists or more"
+            },
+            {
+                "bsd_id": "163",
+                "basket_id": "17",
+                "subdivision_name": "L4: mentioned in 4 lists or more"
+            },
+            {
+                "bsd_id": "164",
+                "basket_id": "17",
+                "subdivision_name": "L5: mentioned in 5 lists or more"
+            },
+            {
+                "bsd_id": "165",
+                "basket_id": "17",
+                "subdivision_name": "L6: mentioned in 6 lists or more"
+            },
+            {
+                "bsd_id": "166",
+                "basket_id": "17",
+                "subdivision_name": "L7: mentioned in 7 lists or more"
+            }
+        ]
+    },
+    {
+        "basket_id": "22",
+        "basket_name": "CABS 2018",
+        "litbaskets_flag": "1",
+        "litbaskets_rank_count_include_flag": "1",
+        "seqno": null,
+        "subdivisions": [
+            {
+                "bsd_id": "149",
+                "basket_id": "22",
+                "subdivision_name": "1. Ranked 4* (best)"
+            },
+            {
+                "bsd_id": "151",
+                "basket_id": "22",
+                "subdivision_name": "2. Ranked 4"
+            },
+            {
+                "bsd_id": "152",
+                "basket_id": "22",
+                "subdivision_name": "3. Ranked 3"
+            },
+            {
+                "bsd_id": "153",
+                "basket_id": "22",
+                "subdivision_name": "4. Ranked 2"
+            },
+            {
+                "bsd_id": "154",
+                "basket_id": "22",
+                "subdivision_name": "5. Ranked 1"
+            }
+        ]
+    },
+    {
+        "basket_id": "18",
+        "basket_name": "Chan et al. 2015",
+        "litbaskets_flag": "1",
+        "litbaskets_rank_count_include_flag": "1",
+        "seqno": null,
+        "subdivisions": [
+            {
+                "bsd_id": "140",
+                "basket_id": "18",
+                "subdivision_name": "Hybrid"
+            },
+            {
+                "bsd_id": "141",
+                "basket_id": "18",
+                "subdivision_name": "Non-IS"
+            },
+            {
+                "bsd_id": "142",
+                "basket_id": "18",
+                "subdivision_name": "Pure"
+            }
+        ]
+    },
+    {
+        "basket_id": "19",
+        "basket_name": "Holsapple 2009",
+        "litbaskets_flag": "1",
+        "litbaskets_rank_count_include_flag": "1",
+        "seqno": null,
+        "subdivisions": [
+            {
+                "bsd_id": "143",
+                "basket_id": "19",
+                "subdivision_name": "Holsapple 2009"
+            }
+        ]
+    },
+    {
+        "basket_id": "26",
+        "basket_name": "John Lamp",
+        "litbaskets_flag": "1",
+        "litbaskets_rank_count_include_flag": "1",
+        "seqno": null,
+        "subdivisions": [
+            {
+                "bsd_id": "173",
+                "basket_id": "26",
+                "subdivision_name": "John Lamp"
+            }
+        ]
+    },
+    {
+        "basket_id": "23",
+        "basket_name": "Scopus Subject Areas IS",
+        "litbaskets_flag": "1",
+        "litbaskets_rank_count_include_flag": "1",
+        "seqno": null,
+        "subdivisions": [
+            {
+                "bsd_id": "171",
+                "basket_id": "23",
+                "subdivision_name": "Computing - IS"
+            }
+        ]
+    },
+    {
+        "basket_id": "25",
+        "basket_name": "Scopus Subject Areas ISM",
+        "litbaskets_flag": "1",
+        "litbaskets_rank_count_include_flag": "1",
+        "seqno": null,
+        "subdivisions": [
+            {
+                "bsd_id": "172",
+                "basket_id": "25",
+                "subdivision_name": "Decision Sciences - ISM"
+            }
+        ]
+    },
+    {
+        "basket_id": "24",
+        "basket_name": "Scopus Subject Areas MIS",
+        "litbaskets_flag": "1",
+        "litbaskets_rank_count_include_flag": "1",
+        "seqno": null,
+        "subdivisions": [
+            {
+                "bsd_id": "170",
+                "basket_id": "24",
+                "subdivision_name": "Business - MIS"
+            }
+        ]
+    },
+    {
+        "basket_id": "20",
+        "basket_name": "Stewart et al. 2017",
+        "litbaskets_flag": "1",
+        "litbaskets_rank_count_include_flag": "1",
+        "seqno": null,
+        "subdivisions": [
+            {
+                "bsd_id": "144",
+                "basket_id": "20",
+                "subdivision_name": "Stewart et al. 2017"
+            }
+        ]
+    },
+    {
+        "basket_id": "21",
+        "basket_name": "Willcocks et al. 2008",
+        "litbaskets_flag": "1",
+        "litbaskets_rank_count_include_flag": "1",
+        "seqno": null,
+        "subdivisions": [
+            {
+                "bsd_id": "145",
+                "basket_id": "21",
+                "subdivision_name": "Information Systems"
+            },
+            {
+                "bsd_id": "147",
+                "basket_id": "21",
+                "subdivision_name": "Related"
+            }
+        ]
+    }
+]
