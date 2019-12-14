@@ -1,8 +1,4 @@
 # API to Database connection
 api/secret.php
 
-# JS to API connection
-www/api.js
-www/extras/api.js
-
 www/bower_components

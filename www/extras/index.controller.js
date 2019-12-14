@@ -6,8 +6,15 @@ var GLOBAL_SOURCES_TOPBAR_CONTROLLER = Object.create(LitbasketsSourcesTopbarCont
 var GLOBAL_SOURCES_CONTROLLER = Object.create(LitbasketsSourcesController);
 var GLOBAL_FILTERS_CONTROLLER = Object.create(LitbasketsFiltersController);
 
+var current_task = null;
 
 function body_did_load() {
+	$("#loading_modal").on("shown.bs.modal", function () {
+		console.log("shown.bs.modal loading_modal with current_task = " + current_task);
+		if (current_task == "JOURNAL_EXPLORER") GLOBAL_SOURCES_TOPBAR_CONTROLLER.stage2();
+	});
+	
+	do_long_task("BODY_DID_LOAD");
 	userDidSelectTab('litbaskets-search');
 
 	// Initialize the vertical navigation
@@ -30,11 +37,6 @@ function body_did_load() {
 		window.setTimeout(lbl_copy_to_clipboard_fadeout, 2000); //2 seconds
 	});
 	
-	// lock subdivision operation buttons
-	$("#current_subdivision_select_all").prop("disabled", true);
-	$("#current_subdivision_select_none").prop("disabled", true);
-	$("#current_subdivision_select_default").prop("disabled", true);
-	
 	// ready
 	$("#litbaskets_search_textbox").focus();
 
@@ -47,4 +49,14 @@ function body_did_load() {
 function update_sidebar_badges() {
 	GLOBAL_SOURCES_CONTROLLER.update_sidebar_sources_count();
 	GLOBAL_FILTERS_CONTROLLER.update_sidebar_filter_count();
+}
+
+function do_long_task(task_name) {
+	current_task = task_name;
+	$('#loading_modal').modal('show');
+}
+
+function finished_long_task(task_name) {
+	current_task = null;
+	$('#loading_modal').modal('hide');
 }

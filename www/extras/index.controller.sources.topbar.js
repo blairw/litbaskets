@@ -6,55 +6,64 @@ LitbasketsSourcesTopbarController = {
 	/*
 	* Inserts rows into the listview on screen 'Sources'
 	*/
-   populate_journals_in_listview_for_section: function(given_section) {
-		// clear model and view
-		user_selected_journal_ids_to_inspect = [];
-		$("#journalsListView").html("");
-		
-		for (var i = 0; i < saved_journals_by_subdivisions.length; i++) {
-			var this_subdivision = saved_journals_by_subdivisions[i];
+	has_been_init: false
 
-			// if user selected this subdivision
-			if (this.user_selected_subdivision_ids.includes(this_subdivision.bsd_id)) {
-				for (var j = 0; j < this_subdivision.journals.length; j++) {
-					user_selected_journal_ids_to_inspect.push(this_subdivision.journals[j].journal_id);
-				}
+	, init: function(beforeStarting, afterStarting) {
+		beforeStarting();
+
+		if (!GLOBAL_SOURCES_TOPBAR_CONTROLLER.has_been_init) {
+			do_long_task("JOURNAL_EXPLORER");
+
+			window.setTimeout(function() {
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_2xs");
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_xs");
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_s");
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_m");
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_l");
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_xl");
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_2xl");
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_3xl");
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.has_been_init = true;
+				finished_long_task("JOURNAL_EXPLORER");
+			}, 300);
+		}
+
+		afterStarting();
+	}
+
+   	, populate_journals_in_listview_for_section: function(given_section) {
+		console.log("populate_journals_in_listview_for_section: " + given_section);
+		// clear model and view
+		journals_to_include = [];
+		
+		for (var i = 0; i < saved_journals_master_data.length; i++) {
+			var this_journal = saved_journals_master_data[i];
+			var include_this_journal = false;
+			var this_listing_count = parseInt(this_journal.listing_count);
+
+			if (given_section == "journalsListView_2xs" && parseInt(this_journal.is_bo8) == 1) include_this_journal = true;
+			if (given_section == "journalsListView_xs" && this_listing_count >= 7 && parseInt(this_journal.is_bo8) != 1) include_this_journal = true;
+			if (given_section == "journalsListView_s" && this_listing_count == 6) include_this_journal = true;
+			if (given_section == "journalsListView_m" && this_listing_count == 5) include_this_journal = true;
+			if (given_section == "journalsListView_l" && this_listing_count == 4) include_this_journal = true;
+			if (given_section == "journalsListView_xl" && this_listing_count == 3) include_this_journal = true;
+			if (given_section == "journalsListView_2xl" && this_listing_count == 2) include_this_journal = true;
+			if (given_section == "journalsListView_3xl" && this_listing_count == 1) include_this_journal = true;
+
+			if (include_this_journal) {
+				journals_to_include.push(this_journal);
 			}
 		}
 
-		user_selected_journal_ids_to_inspect = _.uniq(user_selected_journal_ids_to_inspect);
-
-		for (var i = 0; i < user_selected_journal_ids_to_inspect.length; i++) {
-			var this_journal_id = user_selected_journal_ids_to_inspect[i];
-			var journal_record = GLOBAL_MODEL_HELPER.get_master_record_by_journal_id(this_journal_id);
-			
-			// ISSN details
-			var coverage_text = journal_record.scopus_coverage;
-			if (coverage_text.includes(",")) {
-				coverage_text = "See Scopus";
-			}
-			var col3 = GLOBAL_EXTERNAL_LOGIC_HELPER.generate_url_html(
-				"SCOPUS_SOURCE_LOOKUP",
-				journal_record.scopus_sourceid,
-				coverage_text + "<img src='images/external-link.png' />"
-			);
-
-			var col2 = "<strong>" + journal_record.journal_name + "</strong>";
-			col2 += "<a href='" + journal_record.url + "' target='_blank'><img src='images/external-link.png' /></a>"
-
+		for (var i = 0; i < journals_to_include.length; i++) {
+			var journal_record = journals_to_include[i];
 			var is_selected = user_selected_journal_ids_to_include.includes(journal_record.journal_id);
-			var col1 = '<input style="width: 100%;" id="switch_for_journal_'+ journal_record.journal_id +'" class="bootstrap-switch" ';
-			col1 += 'onchange="GLOBAL_SOURCES_CONTROLLER.toggle_inclusion_of_journal_with_id(' + journal_record.journal_id + ')" type="checkbox">';
-
-			var html_string = '<tr>';
-			html_string += "<td style='padding: 0px;'>" + col1 + "&nbsp;" + col2 + "</td>"
-			html_string += "<td>" + col3 + "</td>"
-			html_string += '</td>';
-
-			$("#journalsListView").append(html_string);
-			$("#switch_for_journal_" + journal_record.journal_id).bootstrapSwitch();
+			
+			console.log("bootstrapSwitch: " + journal_record.journal_id);
 			if (is_selected) {
 				$("#switch_for_journal_" + journal_record.journal_id).bootstrapSwitch('state', true);
+			} else {
+				$("#switch_for_journal_" + journal_record.journal_id).bootstrapSwitch('state', false);
 			}
 		}
 	}
@@ -71,8 +80,8 @@ LitbasketsSourcesTopbarController = {
 				"Listing Count"
 			]
 		];
-		for (var i = 0; i < user_selected_journal_ids_to_include.length; i++) {
-			var journal_id = user_selected_journal_ids_to_include[i];
+		for (var i = 0; i < user_selected_journals_to_include.length; i++) {
+			var journal_id = user_selected_journals_to_include[i];
 			var journal_record = GLOBAL_MODEL_HELPER.get_master_record_by_journal_id(journal_id);
 			prepared_return.push([
 				nvl(journal_record["scopus_sourceid"], ""),

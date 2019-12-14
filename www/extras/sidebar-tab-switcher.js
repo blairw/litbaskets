@@ -7,14 +7,15 @@ function userDidSelectTab(tabId) {
     * because the init() function only works if the slider
     * is visible.
     */
-    if (tabId == "litbaskets-filters")
+    if (tabId == "litbaskets-sources")
     {
-        GLOBAL_FILTERS_CONTROLLER.init(
+        GLOBAL_SOURCES_TOPBAR_CONTROLLER.init(
             function() {
                 $("#litbaskets-container > div").css("display", "none");
-                $("#litbaskets-filters").css("display", "block");
+                $("#litbaskets-sources").css("display", "block");
             },
-            function(){}
+            function(){
+            }
         );
     }
     else

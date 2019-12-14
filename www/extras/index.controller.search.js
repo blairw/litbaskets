@@ -167,7 +167,7 @@ function perform_search_with_journals(search_mode, list_of_journals) {
 		"year_limit_data": GLOBAL_FILTERS_CONTROLLER.limit_years_data,
 
 	};
-	$.post(API_ROOT + "newVisit.php", formdata, function(result) {
+	$.post(API_ROOT + "newSearch.php", formdata, function(result) {
 		console.log(result);
 	});
 }

@@ -35,11 +35,11 @@ LitbasketsModelHelper = {
 	, load_objects: function() {
 		$.get(API_ROOT + "getSubdivisionsByBaskets.php", function(x) {
 			GLOBAL_MODEL_HELPER.final_subdivisions_by_baskets = x;
-				
 			$.get(API_ROOT + "getJournalsBySubdivisions.php", function(y) {
 				GLOBAL_MODEL_HELPER.final_journals_by_subdivisions = y;
-	
 				GLOBAL_MODEL_HELPER.launch_sequence_after_api_load();
+
+				finished_long_task("BODY_DID_LOAD");
 			});
 		});
 	}
