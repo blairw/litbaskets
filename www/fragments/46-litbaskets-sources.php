@@ -30,11 +30,16 @@
 		$col2 = "<strong>" . $journal_record["journal_name"] . "</strong>";
 		$col2 = $col2 . "<a href='" . $journal_record['url'] . "' target='_blank'><img src='images/external-link.png' /></a>";
 
-		$col1 = '<input style="width: 100%;" id="switch_for_journal_' . $journal_record["journal_id"] . '" class="bootstrap-switch" ';
-		$col1 = $col1 . 'onchange="GLOBAL_SOURCES_CONTROLLER.toggle_inclusion_of_journal_with_id(' . $journal_record["journal_id"] . ')" type="checkbox">';
+		$col1 = '<label class="mctoggle">'
+			. '<input id="switch_for_journal_' . $journal_record["journal_id"] . '" class="mctoggle-checkbox" '
+			. 'onchange="GLOBAL_SOURCES_CONTROLLER.toggle_inclusion_of_journal_with_id(' . $journal_record["journal_id"] . ')" type="checkbox">'
+			. '<div class="mctoggle-switch"></div>'
+			. '<span class="mctoggle-label">' . $col2 . '</span>'
+			. '</label>'
+		;
 
 		$html_string = '<tr>'
-			. "<td style='padding: 0px;'>" . $col1 . "&nbsp;" . $col2 . "</td>"
+			. "<td style='padding: 0px;'>" . $col1 . "</td>"
 			. "<td>" . $col3 . "</td>"
 			. '</td>'
 		;

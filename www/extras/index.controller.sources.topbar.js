@@ -15,14 +15,15 @@ LitbasketsSourcesTopbarController = {
 			do_long_task("JOURNAL_EXPLORER");
 
 			window.setTimeout(function() {
-				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_2xs");
-				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_xs");
-				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_s");
-				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_m");
-				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_l");
-				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_xl");
-				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_2xl");
-				GLOBAL_SOURCES_TOPBAR_CONTROLLER.populate_journals_in_listview_for_section("journalsListView_3xl");
+				// $(".switch_for_journal").bootstrapSwitch();
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.switchesWhereSelected("journalsListView_2xs");
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.switchesWhereSelected("journalsListView_xs");
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.switchesWhereSelected("journalsListView_s");
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.switchesWhereSelected("journalsListView_m");
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.switchesWhereSelected("journalsListView_l");
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.switchesWhereSelected("journalsListView_xl");
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.switchesWhereSelected("journalsListView_2xl");
+				GLOBAL_SOURCES_TOPBAR_CONTROLLER.switchesWhereSelected("journalsListView_3xl");
 				GLOBAL_SOURCES_TOPBAR_CONTROLLER.has_been_init = true;
 				finished_long_task("JOURNAL_EXPLORER");
 			}, 300);
@@ -31,8 +32,8 @@ LitbasketsSourcesTopbarController = {
 		afterStarting();
 	}
 
-   	, populate_journals_in_listview_for_section: function(given_section) {
-		console.log("populate_journals_in_listview_for_section: " + given_section);
+   	, switchesWhereSelected: function(given_section) {
+		console.log("switchesWhereSelected: " + given_section);
 		// clear model and view
 		journals_to_include = [];
 		
@@ -58,12 +59,8 @@ LitbasketsSourcesTopbarController = {
 		for (var i = 0; i < journals_to_include.length; i++) {
 			var journal_record = journals_to_include[i];
 			var is_selected = user_selected_journal_ids_to_include.includes(journal_record.journal_id);
-			
-			console.log("bootstrapSwitch: " + journal_record.journal_id);
 			if (is_selected) {
-				$("#switch_for_journal_" + journal_record.journal_id).bootstrapSwitch('state', true);
-			} else {
-				$("#switch_for_journal_" + journal_record.journal_id).bootstrapSwitch('state', false);
+				$("#switch_for_journal_" + journal_record.journal_id).prop('checked', true);
 			}
 		}
 	}
