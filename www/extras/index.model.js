@@ -29,6 +29,7 @@ LitbasketsModelHelper = {
 		generate_litbaskets_ext_master_data();
 
 		update_sidebar_badges();
+		GLOBAL_SOURCES_TOPBAR_CONTROLLER.has_been_init = false; // force the toggles to reupdate on next visit to journal explorer
 	}
 
 	/* called in body_did_load */

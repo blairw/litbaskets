@@ -61,6 +61,8 @@ LitbasketsSourcesTopbarController = {
 			var is_selected = user_selected_journal_ids_to_include.includes(journal_record.journal_id);
 			if (is_selected) {
 				$("#switch_for_journal_" + journal_record.journal_id).prop('checked', true);
+			} else {
+				$("#switch_for_journal_" + journal_record.journal_id).prop('checked', false);
 			}
 		}
 	}
