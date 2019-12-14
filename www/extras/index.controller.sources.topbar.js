@@ -80,8 +80,8 @@ LitbasketsSourcesTopbarController = {
 				"Listing Count"
 			]
 		];
-		for (var i = 0; i < user_selected_journals_to_include.length; i++) {
-			var journal_id = user_selected_journals_to_include[i];
+		for (var i = 0; i < user_selected_journal_ids_to_include.length; i++) {
+			var journal_id = user_selected_journal_ids_to_include[i];
 			var journal_record = GLOBAL_MODEL_HELPER.get_master_record_by_journal_id(journal_id);
 			prepared_return.push([
 				nvl(journal_record["scopus_sourceid"], ""),

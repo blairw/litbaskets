@@ -59,7 +59,7 @@
 	
     <div style="margin-top: 0.5rem;">
         <button style="min-width: 12.5rem;" id="download_csv" onclick="GLOBAL_SOURCES_TOPBAR_CONTROLLER.download_csv()" class="btn btn-primary">
-            DOWNLOAD CSV
+            DOWNLOAD CSV FOR JOURNALS CURRENTLY INCLUDED IN SEARCH
         </button>
     </div>
     
