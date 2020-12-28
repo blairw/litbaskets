@@ -38,7 +38,7 @@
 	</p>
 
 	<h2>
-		Can I see what journals litbaskets.io is searching through?
+		Can I see what journals litbaskets.io is searching though?
 	</h2>
 	<p class="litfam_faq_para">
 		Yes using the 'journals' function you can display a list of the journals included in any of our litbaskets.
