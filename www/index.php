@@ -1,9 +1,9 @@
 <?php
-	// $WWW_SERVER = "https://localhost/dev/litbaskets/www/";
+	// $WWW_SERVER = "http://localhost/litbaskets/www/";
 	// $WWW_SERVER = "https://www.litbaskets.io/";
 	$WWW_SERVER = "https://litbaskets.b-cdn.net/";
 
-	// $API_SERVER = "http://localhost/dev/litbaskets/api/";
+	// $API_SERVER = "http://localhost/litbaskets/api/";
 	// $API_SERVER = "https://api.litbaskets.io/";
 	$API_SERVER = "https://litbaskets.b-cdn.net/api-cache/";
 
@@ -14,6 +14,8 @@
 	include("fragments/10-header-and-open-body.php");
 	include("fragments/20-top-bar.php");
 	include("fragments/30-sidebar.php");
+
+	// push now
 ?>
 
 <div id="litbaskets-container" class="container-fluid container-pf-nav-pf-vertical hide-nav-pf">

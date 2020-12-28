@@ -7,7 +7,9 @@
   $.fn.selectpicker.defaults = {
     noneSelectedText: 'Nič izbranega',
     noneResultsText: 'Ni zadetkov za {0}',
-    countSelectedText: '{0} od {1} izbranih',
+    countSelectedText: function (numSelected, numTotal) {
+      "Število izbranih: {0}";
+    },
     maxOptionsText: function (numAll, numGroup) {
       return [
         'Omejitev dosežena (max. izbranih: {n})',

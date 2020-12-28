@@ -1,28 +1,29 @@
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	
-	<link rel="stylesheet" type="text/css" href="<?php echo $WWW_SERVER ?>node_modules/patternfly/dist/css/patternfly.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo $WWW_SERVER ?>node_modules/patternfly/dist/css/patternfly-additions.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo $WWW_SERVER ?>notnode_modules/mctoggle.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo $WWW_SERVER ?>extras/styles.css?litbasketsRevision=62" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $WWW_SERVER ?>node_modules/patternfly/dist/css/patternfly.min.css?litbasketsRevision=63">
+	<link rel="stylesheet" type="text/css" href="<?php echo $WWW_SERVER ?>node_modules/patternfly/dist/css/patternfly-additions.min.css?litbasketsRevision=63">
+	<link rel="stylesheet" type="text/css" href="<?php echo $WWW_SERVER ?>node_modules/select2/dist/css/select2.min.css?litbasketsRevision=63">
+	<link rel="stylesheet" type="text/css" href="<?php echo $WWW_SERVER ?>notnode_modules/mctoggle.css?litbasketsRevision=63">
+	<link rel="stylesheet" type="text/css" href="<?php echo $WWW_SERVER ?>extras/styles.css?litbasketsRevision=63" />
 	
-	<script src="<?php echo $WWW_SERVER ?>node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="<?php echo $WWW_SERVER ?>node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="<?php echo $WWW_SERVER ?>node_modules/patternfly/dist/js/patternfly.min.js"></script>
-	<script src="<?php echo $WWW_SERVER ?>node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
-	<script src="<?php echo $WWW_SERVER ?>node_modules/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
-	<script src="<?php echo $WWW_SERVER ?>node_modules/patternfly-bootstrap-combobox/js/bootstrap-combobox.js"></script>
-	<script src="<?php echo $WWW_SERVER ?>node_modules/underscore/underscore-min.js"></script>
-	<script src="<?php echo $WWW_SERVER ?>node_modules/clipboard/dist/clipboard.min.js"></script>
-	<script src="<?php echo $WWW_SERVER ?>node_modules/downloadjs/download.min.js"></script>
-	<script src="<?php echo $WWW_SERVER ?>node_modules/nvl/dist/index.js"></script>
-	<script src="<?php echo $WWW_SERVER ?>extras/sidebar-tab-switcher.js?litbasketsRevision=62"></script>
-	<script src="<?php echo $WWW_SERVER ?>extras/index.model.js?litbasketsRevision=62"></script>
-	<script src="<?php echo $WWW_SERVER ?>extras/index.externalLogic.js?litbasketsRevision=62"></script>
-	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.search.js?litbasketsRevision=62"></script>
-	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.sources.topbar.js?litbasketsRevision=62"></script>
-	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.sources.js?litbasketsRevision=62"></script>
-	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.filters.js?litbasketsRevision=62"></script>
-	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.js?litbasketsRevision=62"></script>
+	<script src="<?php echo $WWW_SERVER ?>node_modules/jquery/dist/jquery.min.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>node_modules/bootstrap/dist/js/bootstrap.min.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>node_modules/patternfly/dist/js/patternfly.min.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>node_modules/bootstrap-slider/dist/bootstrap-slider.min.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>node_modules/bootstrap-switch/dist/js/bootstrap-switch.min.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>node_modules/select2/dist/js/select2.min.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>node_modules/underscore/underscore-min.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>node_modules/clipboard/dist/clipboard.min.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>node_modules/downloadjs/download.min.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>node_modules/nvl/dist/index.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>extras/sidebar-tab-switcher.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>extras/index.model.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>extras/index.externalLogic.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.search.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.sources.topbar.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.sources.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.filters.js?litbasketsRevision=63"></script>
+	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.js?litbasketsRevision=63"></script>
 	<script>
 		var API_ROOT = "<?php echo $API_SERVER ?>";
 		var API_MODE = "<?php echo $API_MODE ?>";

@@ -90,13 +90,22 @@
 
 				<!-- PROXY -->
 				<h2 style="margin-top: 6rem;">Proxy</h2>
-				<p style="margin-bottom: 4rem;">
-					You can set a proxy if required.
+				<p style="margin-bottom: 2rem;">
+					If you see your institution on the proxy selection, you can select their proxy server to ensure a smoother institutional login experience.
 				</p>
+				<select id="litbasketsproxy" style="width: 100%;" onchange="GLOBAL_SEARCH_CONTROLLER.user_did_change_litbasketsproxy_value()">
+					<option value="none">(None)</option>
+					<option value="CBS">Copenhagen Business School</option>
+					<option value="ETH_ZURICH">ETH Zurich</option>
+					<option value="UNI_CALGARY">University of Calgary</option>
+					<option value="UNSW">University of New South Wales (UNSW Sydney)</option>
+					<option value="USYD">University of Sydney (USYD)</option>
+					<option value="UTS">University of Technology, Sydney (UTS)</option>
+				</select>
 			</div>
 			<div class="modal-footer">
 				If you're done here &mdash;&nbsp;
-				<button type="button" class="btn btn-success" data-dismiss="modal">CLOSE ADVANCED OPTIONS</button>
+				<button type="button" class="btn btn-success" data-dismiss="modal">SAVE &AMP; CLOSE</button>
 			</div>
 		</div>
 	</div>

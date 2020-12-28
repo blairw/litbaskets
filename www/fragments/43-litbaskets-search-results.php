@@ -18,13 +18,13 @@
                 <p class="litbaskets_modal_message_if_short_search">
                     In some cases, you might get a message saying that <strong>"this bookmarked page cannot be displayed"</strong>.    
                     This happens if your search is a bit more complex. If this happens, you should copy and paste the query string below
-                    into the <a href="https://www.scopus.com/search/form.uri?display=advanced" target="_blank">Scopus advanced search</a>:
+                    into the <a class="scopus_advanced_search_link" href="https://www.scopus.com/search/form.uri?display=advanced" target="_blank">Scopus advanced search</a>:
                 </p>
 
                 <p class="litbaskets_modal_message_if_long_search">
                     <strong>
                         Please copy and paste the query string below
-                        into the <a href="https://www.scopus.com/search/form.uri?display=advanced" target="_blank">Scopus advanced search</a>:
+                        into the <a class="scopus_advanced_search_link" href="https://www.scopus.com/search/form.uri?display=advanced" target="_blank">Scopus advanced search</a>:
                     </strong>
                 </p>
                 

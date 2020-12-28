@@ -6,6 +6,17 @@ LitbasketsSearchController = {
 	current_slider_value: 4  // default
 	, has_been_init: false
 	, just_use_bo8: false
+	, current_proxy_choice: "(none)"
+
+	, proxy_search_prefix_dictionary: {
+		"(none)": "https://www.scopus.com/"
+		, "CBS": "http://esc-web.lib.cbs.dk/login?url=https://www.scopus.com/"
+		, "ETH_ZURICH": "https://proxy.ethz.ch/cgi-bin/login.pl?url=https://www.scopus.com/"
+		, "UNSW": "https://www-scopus-com.wwwproxy1.library.unsw.edu.au/"
+		, "USYD": "https://www-scopus-com.ezproxy.library.sydney.edu.au/"
+		, "UTS": "https://www-scopus-com.ezproxy.lib.uts.edu.au/"
+		, "UNI_CALGARY": "https://login.ezproxy.lib.ucalgary.ca/login?url=https://www.scopus.com/"
+	}
 
 	, init: function(beforeStarting, afterStarting) {
 		console.log("GLOBAL_SEARCH_CONTROLLER: init");
@@ -35,7 +46,11 @@ LitbasketsSearchController = {
 			});
 			
 			shortslider.slider('setValue', this.current_slider_value);
+
+			var litbasketsproxyselector = $("#litbasketsproxy").select2();
+
 			this.has_been_init = true;
+			console.log("LitbasketsSearchController init() completed")
 		}
 
 		afterStarting();
@@ -66,6 +81,16 @@ LitbasketsSearchController = {
 
 		this.current_slider_value = slidervalue;
 		GLOBAL_MODEL_HELPER.launch_sequence_after_api_load();
+	}
+
+	, user_did_change_litbasketsproxy_value: function() {
+		this.current_proxy_choice = $("#litbasketsproxy").val();
+
+		$(".scopus_advanced_search_link").attr("href", this.get_current_scopus_url() + "search/form.uri?display=advanced");
+	}
+
+	, get_current_scopus_url: function() {
+		return this.proxy_search_prefix_dictionary[this.current_proxy_choice];
 	}
 
 	, check_if_search_buttons_should_be_locked: function() {
@@ -167,7 +192,7 @@ function perform_search_with_journals(search_mode, list_of_journals) {
 		"year_limit_data": GLOBAL_FILTERS_CONTROLLER.limit_years_data,
 
 	};
-	$.post(API_ROOT + "newSearch.php", formdata, function(result) {
+	$.post("https://api.litbaskets.io/newSearch.php", formdata, function(result) {
 		console.log(result);
 	});
 }

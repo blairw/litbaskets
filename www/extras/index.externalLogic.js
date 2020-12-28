@@ -6,6 +6,7 @@ LitbasketsExternalLogicHelper = {
 	
 	generate_url: function (mode, search_terms) {
 		var preparedReturn = "";
+
 		if (mode == "ISSN_LOOKUP") {
 			preparedReturn = "https://portal.issn.org/api/search?search[]=MUST=notcanc,notinc,notissn,notissnl=" + search_terms;
 		}
@@ -16,10 +17,10 @@ LitbasketsExternalLogicHelper = {
 			preparedReturn = "https://dblp.org/search?q=" + search_terms;
 		}
 		if (mode == "SCOPUS_SOURCE_LOOKUP") {
-			preparedReturn = "https://www.scopus.com/sourceid/" + search_terms;
+			preparedReturn = GLOBAL_SEARCH_CONTROLLER.get_current_scopus_url() + "sourceid/" + search_terms;
 		}
 		if (mode == "SCOPUS_SEARCH_QUERY") {
-			preparedReturn = "https://www.scopus.com/results/results.uri?sort=plf-f&src=s&sot=a&s=" + search_terms;
+			preparedReturn = GLOBAL_SEARCH_CONTROLLER.get_current_scopus_url() + "results/results.uri?sort=plf-f&src=s&sot=a&s=" + search_terms;
 		}
 
 		return preparedReturn;
