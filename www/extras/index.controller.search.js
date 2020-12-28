@@ -47,7 +47,9 @@ LitbasketsSearchController = {
 			
 			shortslider.slider('setValue', this.current_slider_value);
 
-			var litbasketsproxyselector = $("#litbasketsproxy").select2();
+			var litbasketsproxyselector = $("#litbasketsproxy").select2({
+				placeholder: "Select a proxy",
+			});
 
 			this.has_been_init = true;
 			console.log("LitbasketsSearchController init() completed")
