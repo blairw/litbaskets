@@ -1,5 +1,41 @@
 <div id="litbaskets-about" style="display: none; width: 90%; max-width: 90rem; margin: 0 auto; padding: 1rem;">
-	<h1>Help</h1>
+	<h1>Videos</h1>
+
+	<button onclick='userDidClickVideo(1)'>Video 1</button>
+	<button onclick='userDidClickVideo(2)'>Video 2</button>
+	<button onclick='userDidClickVideo(3)'>Video 3</button>
+	<button onclick='userDidClickVideo(4)'>Video 4</button>
+
+	<div class="InstructionalVideo" id="video1">
+		<h2>Video 1</h2>
+		<video width="100%" controls>
+			<source src="<?php echo $WWW_SERVER ?>videos/video1.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+	</div>
+	<div class="InstructionalVideo" id="video2" style="display: none;">
+		<h2>Video 2</h2>
+		<video width="100%" controls>
+			<source src="<?php echo $WWW_SERVER ?>videos/video2.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+	</div>
+	<div class="InstructionalVideo" id="video3" style="display: none;">
+		<h2>Video 3</h2>
+		<video width="100%" controls>
+			<source src="<?php echo $WWW_SERVER ?>videos/video3.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+	</div>
+	<div class="InstructionalVideo" id="video4" style="display: none;">
+		<h2>Video 4</h2>
+		<video width="100%" controls>
+			<source src="<?php echo $WWW_SERVER ?>videos/video4.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+	</div>
+
+	<h1>More Help</h1>
 
 	<h2>
 		Do I need Scopus to use Litbaskets.io?
@@ -19,8 +55,8 @@
 		If you want to know more about how Litbaskets works or if you want to refer to Litbaskets in your
 		research, please have a look at our paper:
 		<em>
-		<a href="https://www.researchgate.net/publication/336868520_wwwlitbasketsio_an_IT_Artifact_Supporting_Exploratory_Literature_Searches_for_Information_Systems_Research">
-		www.litbaskets.io, an IT Artifact Supporting Exploratory Literature Searches for Information Systems Research</a></em>.
+			<a href="https://www.researchgate.net/publication/336868520_wwwlitbasketsio_an_IT_Artifact_Supporting_Exploratory_Literature_Searches_for_Information_Systems_Research">
+				www.litbaskets.io, an IT Artifact Supporting Exploratory Literature Searches for Information Systems Research</a></em>.
 	</p>
 
 	<h2>
@@ -46,16 +82,16 @@
 		Please note that a direct search in Scopus will only work with up to 51 journals if you search through more journals you will need to copy
 		the search string generated for you into the advanced search field in Scopus.
 	</p>
-	
+
 	<h2>
 		Can I help in further improving Litbaskets.io?
 	</h2>
 	<p class="litfam_faq_para">
 		Litbaskets.io is fully under open source and we are coordinating our development on GitHub (repo: <a href="https://github.com/blairw/litbaskets">blairw/litbaskets</a>).
 		We are always looking for volunteers to help us in further developing litbaskets.io.
-		For instance, we need help with testing litbaskets.io on as many platforms and browsers as possible. If you come across a bug please report it through GitHub. 
+		For instance, we need help with testing litbaskets.io on as many platforms and browsers as possible. If you come across a bug please report it through GitHub.
 	</p>
-	
+
 	<h2>You're missing an important journal, can I make a suggestion?</h2>
 	<p class="litfam_faq_para">
 		Yes you can! please use our
