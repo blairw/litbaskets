@@ -37,8 +37,8 @@ LitbasketsSourcesTopbarController = {
 		// clear model and view
 		journals_to_include = [];
 		
-		for (var i = 0; i < saved_journals_master_data.length; i++) {
-			var this_journal = saved_journals_master_data[i];
+		for (var i = 0; i < DataHelper.savedJournalsMasterData.length; i++) {
+			var this_journal = DataHelper.savedJournalsMasterData[i];
 			var include_this_journal = false;
 			var this_listing_count = parseInt(this_journal.listing_count);
 

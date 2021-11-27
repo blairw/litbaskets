@@ -14,7 +14,7 @@ LitbasketsModelHelper = {
 	, launch_sequence_after_api_load: function() {
 		
 		// BEGIN RESET DERIVED DATA
-		saved_journals_master_data = [];
+		DataHelper.savedJournalsMasterData = [];
 		saved_journals_vlookup_journal_id_to_index = [];
 		saved_journals_litbaskets_ext_only = [];
 
@@ -47,7 +47,7 @@ LitbasketsModelHelper = {
 
 	, get_master_record_by_journal_id(journal_id) {
 		var index_in_master = saved_journals_vlookup_journal_id_to_index[journal_id];
-		return saved_journals_master_data[index_in_master];
+		return DataHelper.savedJournalsMasterData[index_in_master];
 	}
 }
 
@@ -58,7 +58,6 @@ var saved_journals_by_subdivisions = [];
 var saved_subdivisions_by_baskets = [];
 
 // derived from API requests
-var saved_journals_master_data = [];
 var saved_journals_vlookup_journal_id_to_index = [];
 var saved_journals_litbaskets_ext_only = [];
 
@@ -75,23 +74,23 @@ function generate_journal_master_data() {
 		var this_subdivision = saved_journals_by_subdivisions[i];
 		for (var j = 0; j < this_subdivision.journals.length; j++) {
 			var this_journal = this_subdivision.journals[j];
-			saved_journals_master_data.push(this_journal);
+			DataHelper.savedJournalsMasterData.push(this_journal);
 		}
 	}
 
 	// https://stackoverflow.com/questions/9923890/removing-duplicate-objects-with-underscore-for-javascript
-	saved_journals_master_data = _.uniq(saved_journals_master_data, function(x){
+	DataHelper.savedJournalsMasterData = _.uniq(DataHelper.savedJournalsMasterData, function(x){
 		return JSON.stringify(x);
 	});
 
 	
-	for (var i = 0; i < saved_journals_master_data.length; i++) {
+	for (var i = 0; i < DataHelper.savedJournalsMasterData.length; i++) {
 		// populate vlookup
-		saved_journals_vlookup_journal_id_to_index[saved_journals_master_data[i]["journal_id"]] = i;
+		saved_journals_vlookup_journal_id_to_index[DataHelper.savedJournalsMasterData[i]["journal_id"]] = i;
 
 		// set default on/off ----
 
-		var journal_object = saved_journals_master_data[i];
+		var journal_object = DataHelper.savedJournalsMasterData[i];
 
 		var include_journal = false;
 		if (GLOBAL_SEARCH_CONTROLLER.just_use_bo8) {
