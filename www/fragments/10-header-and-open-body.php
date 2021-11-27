@@ -17,6 +17,7 @@
 	<script src="<?php echo $WWW_SERVER ?>node_modules/downloadjs/download.min.js?litbasketsRevision=64"></script>
 	<script src="<?php echo $WWW_SERVER ?>notnode_modules/nvl.js?litbasketsRevision=64"></script>
 	<script src="<?php echo $WWW_SERVER ?>extras/sidebar-tab-switcher.js?litbasketsRevision=64"></script>
+	<script src="<?php echo $WWW_SERVER ?>extras/typescript-compiled-app.js?litbasketsRevision=64"></script>
 	<script src="<?php echo $WWW_SERVER ?>extras/index.model.js?litbasketsRevision=64"></script>
 	<script src="<?php echo $WWW_SERVER ?>extras/index.externalLogic.js?litbasketsRevision=64"></script>
 	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.search.js?litbasketsRevision=64"></script>

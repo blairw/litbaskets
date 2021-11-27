@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"noImplicitAny": true,
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"sourceMap": true
+	},
+	"files": [
+		"DataHelper.ts",
+		"TSJournal.ts",
+		"UIJournalSelectorController.ts",
+		"UsefulHelper.ts",
+		"UserDataExtraJournals.ts"
+	]
+}
