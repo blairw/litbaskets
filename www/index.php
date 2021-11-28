@@ -1,7 +1,7 @@
 <?php
 	// $WWW_SERVER = "http://localhost/litbaskets/www/";
-	// $WWW_SERVER = "https://www.litbaskets.io/";
-	$WWW_SERVER = "https://litbaskets.b-cdn.net/";
+	$WWW_SERVER = "https://www.litbaskets.io/";
+	// $WWW_SERVER = "https://litbaskets.b-cdn.net/";
 
 	// $API_SERVER = "http://localhost/litbaskets/api/";
 	// $API_SERVER = "https://api.litbaskets.io/";

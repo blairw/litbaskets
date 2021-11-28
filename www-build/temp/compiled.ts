@@ -1,16 +1,26 @@
 class DataHelper {
-    public static savedJournalsMasterData: Array<TSJournal> = [];
+    public static savedJournalsMasterDataArray: Array<TSJournal> = [];
+    public static savedJournalsMasterDataDictionary: any = {};
+
+    public static populateSjmdArrayToDictionary() {
+        this.savedJournalsMasterDataDictionary = {}; // reset.
+        this.savedJournalsMasterDataArray.forEach(thisJournal => {
+            this.savedJournalsMasterDataDictionary[thisJournal.journal_id] = thisJournal;
+        });
+    }
 }
 class TSJournal {
-	journalId: string;
-	journalName: string;
+	journal_id: string;
+	journal_name: string;
 	url: string;
 	issn: string;
 	issne: string;
-	scopusSourceId: string;
-	scopusCoverage: string;
+	scopus_sourceid: string;
+	scopus_coverage: string;
 }
-class JournaSelectorController {
+class UIJournalSelectorController {
+    public static selectedJournalIdsForSearch: string[] = [];
+    
 }
 class UsefulHelper {
 	public static nvl(value: any, fallbackValue: any) {

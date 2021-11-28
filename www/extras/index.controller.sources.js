@@ -5,8 +5,8 @@
 LitbasketsSourcesController = {
 	update_sidebar_sources_count: function() {
 		var sources_count = "";
-		if (user_selected_journal_ids_to_include.length > 0) {
-			sources_count = user_selected_journal_ids_to_include.length;
+		if (UIJournalSelectorController.selectedJournalIdsForSearch.length > 0) {
+			sources_count = UIJournalSelectorController.selectedJournalIdsForSearch.length;
 		}
 		$("#sidebar_badge_for_sources").html(sources_count);
 	}
@@ -70,7 +70,7 @@ LitbasketsSourcesController = {
 };
 
 function update_counters() {
-	var my_intersection = _.intersection(user_selected_journal_ids_to_include, user_selected_journal_ids_to_inspect);
+	var my_intersection = _.intersection(UIJournalSelectorController.selectedJournalIdsForSearch, user_selected_journal_ids_to_inspect);
 	$("#litbasket_sources_inclusion_count").html(my_intersection.length);
 	$("#litbasket_sources_inspection_count").html(user_selected_journal_ids_to_inspect.length);
 }
@@ -80,8 +80,8 @@ function update_counters() {
 // To do that, use:
 // $("#switch_for_journal_" + given_journal_id).bootstrapSwitch('state', true);
 function include_journal_with_id(given_journal_id) {
-	user_selected_journal_ids_to_include.push(given_journal_id.toString());
-	user_selected_journal_ids_to_include = _.uniq(user_selected_journal_ids_to_include);
+	UIJournalSelectorController.selectedJournalIdsForSearch.push(given_journal_id.toString());
+	UIJournalSelectorController.selectedJournalIdsForSearch = _.uniq(UIJournalSelectorController.selectedJournalIdsForSearch);
 
 	update_sidebar_badges();
 	update_counters();
@@ -91,8 +91,8 @@ function include_journal_with_id(given_journal_id) {
 // To do that, use:
 // $("#switch_for_journal_" + given_journal_id).bootstrapSwitch('state', false);
 function exclude_journal_with_id(given_journal_id) {
-	user_selected_journal_ids_to_include = _.without(user_selected_journal_ids_to_include, given_journal_id.toString());
-	user_selected_journal_ids_to_include = _.uniq(user_selected_journal_ids_to_include);
+	UIJournalSelectorController.selectedJournalIdsForSearch = _.without(UIJournalSelectorController.selectedJournalIdsForSearch, given_journal_id.toString());
+	UIJournalSelectorController.selectedJournalIdsForSearch = _.uniq(UIJournalSelectorController.selectedJournalIdsForSearch);
 
 	update_sidebar_badges();
 	update_counters();

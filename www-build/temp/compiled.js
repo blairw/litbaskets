@@ -1,7 +1,15 @@
 var DataHelper = /** @class */ (function () {
     function DataHelper() {
     }
-    DataHelper.savedJournalsMasterData = [];
+    DataHelper.populateSjmdArrayToDictionary = function () {
+        var _this = this;
+        this.savedJournalsMasterDataDictionary = {}; // reset.
+        this.savedJournalsMasterDataArray.forEach(function (thisJournal) {
+            _this.savedJournalsMasterDataDictionary[thisJournal.journal_id] = thisJournal;
+        });
+    };
+    DataHelper.savedJournalsMasterDataArray = [];
+    DataHelper.savedJournalsMasterDataDictionary = {};
     return DataHelper;
 }());
 var TSJournal = /** @class */ (function () {
@@ -9,10 +17,11 @@ var TSJournal = /** @class */ (function () {
     }
     return TSJournal;
 }());
-var JournaSelectorController = /** @class */ (function () {
-    function JournaSelectorController() {
+var UIJournalSelectorController = /** @class */ (function () {
+    function UIJournalSelectorController() {
     }
-    return JournaSelectorController;
+    UIJournalSelectorController.selectedJournalIdsForSearch = [];
+    return UIJournalSelectorController;
 }());
 var UsefulHelper = /** @class */ (function () {
     function UsefulHelper() {

@@ -14,12 +14,11 @@ LitbasketsModelHelper = {
 	, launch_sequence_after_api_load: function() {
 		
 		// BEGIN RESET DERIVED DATA
-		DataHelper.savedJournalsMasterData = [];
-		saved_journals_vlookup_journal_id_to_index = [];
+		DataHelper.savedJournalsMasterDataArray = [];
 		saved_journals_litbaskets_ext_only = [];
 
 		user_selected_journal_ids_to_inspect = [];
-		user_selected_journal_ids_to_include = [];
+		UIJournalSelectorController.selectedJournalIdsForSearch = [];
 
 		saved_journals_by_subdivisions = this.final_journals_by_subdivisions;
 		saved_subdivisions_by_baskets = this.final_subdivisions_by_baskets;
@@ -46,8 +45,7 @@ LitbasketsModelHelper = {
 	}
 
 	, get_master_record_by_journal_id(journal_id) {
-		var index_in_master = saved_journals_vlookup_journal_id_to_index[journal_id];
-		return DataHelper.savedJournalsMasterData[index_in_master];
+		return DataHelper.savedJournalsMasterDataDictionary[journal_id];
 	}
 }
 
@@ -58,39 +56,39 @@ var saved_journals_by_subdivisions = [];
 var saved_subdivisions_by_baskets = [];
 
 // derived from API requests
-var saved_journals_vlookup_journal_id_to_index = [];
 var saved_journals_litbaskets_ext_only = [];
 
 // storing user selections
 var user_selected_journal_ids_to_inspect = [];
-var user_selected_journal_ids_to_include = [];
 
 function lbl_copy_to_clipboard_fadeout() {
 	document.getElementById("lbl_copy_to_clipboard").style.opacity = '0';
 }
 
 function generate_journal_master_data() {
+	// Add all journals
 	for (var i = 0; i < saved_journals_by_subdivisions.length; i++) {
 		var this_subdivision = saved_journals_by_subdivisions[i];
 		for (var j = 0; j < this_subdivision.journals.length; j++) {
 			var this_journal = this_subdivision.journals[j];
-			DataHelper.savedJournalsMasterData.push(this_journal);
+			DataHelper.savedJournalsMasterDataArray.push(this_journal);
 		}
 	}
 
+	// Dedupe
 	// https://stackoverflow.com/questions/9923890/removing-duplicate-objects-with-underscore-for-javascript
-	DataHelper.savedJournalsMasterData = _.uniq(DataHelper.savedJournalsMasterData, function(x){
+	DataHelper.savedJournalsMasterDataArray = _.uniq(DataHelper.savedJournalsMasterDataArray, function(x){
 		return JSON.stringify(x);
 	});
 
-	
-	for (var i = 0; i < DataHelper.savedJournalsMasterData.length; i++) {
-		// populate vlookup
-		saved_journals_vlookup_journal_id_to_index[DataHelper.savedJournalsMasterData[i]["journal_id"]] = i;
+	// Generate Vlookuper
+	DataHelper.populateSjmdArrayToDictionary();
+
+	for (var i = 0; i < DataHelper.savedJournalsMasterDataArray.length; i++) {
 
 		// set default on/off ----
 
-		var journal_object = DataHelper.savedJournalsMasterData[i];
+		var journal_object = DataHelper.savedJournalsMasterDataArray[i];
 
 		var include_journal = false;
 		if (GLOBAL_SEARCH_CONTROLLER.just_use_bo8) {
@@ -105,7 +103,7 @@ function generate_journal_master_data() {
 		}
 		
 		if (include_journal) {
-			user_selected_journal_ids_to_include.push(journal_object.journal_id);
+			UIJournalSelectorController.selectedJournalIdsForSearch.push(journal_object.journal_id);
 		}
 
 		// -------------------------

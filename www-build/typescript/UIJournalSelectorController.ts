@@ -1,2 +1,4 @@
-class JournaSelectorController {
+class UIJournalSelectorController {
+    public static selectedJournalIdsForSearch: string[] = [];
+    
 }

@@ -37,8 +37,8 @@ LitbasketsSourcesTopbarController = {
 		// clear model and view
 		journals_to_include = [];
 		
-		for (var i = 0; i < DataHelper.savedJournalsMasterData.length; i++) {
-			var this_journal = DataHelper.savedJournalsMasterData[i];
+		for (var i = 0; i < DataHelper.savedJournalsMasterDataArray.length; i++) {
+			var this_journal = DataHelper.savedJournalsMasterDataArray[i];
 			var include_this_journal = false;
 			var this_listing_count = parseInt(this_journal.listing_count);
 
@@ -58,7 +58,7 @@ LitbasketsSourcesTopbarController = {
 
 		for (var i = 0; i < journals_to_include.length; i++) {
 			var journal_record = journals_to_include[i];
-			var is_selected = user_selected_journal_ids_to_include.includes(journal_record.journal_id);
+			var is_selected = UIJournalSelectorController.selectedJournalIdsForSearch.includes(journal_record.journal_id);
 			if (is_selected) {
 				$("#switch_for_journal_" + journal_record.journal_id).prop('checked', true);
 			} else {
@@ -79,8 +79,8 @@ LitbasketsSourcesTopbarController = {
 				"Listing Count"
 			]
 		];
-		for (var i = 0; i < user_selected_journal_ids_to_include.length; i++) {
-			var journal_id = user_selected_journal_ids_to_include[i];
+		for (var i = 0; i < UIJournalSelectorController.selectedJournalIdsForSearch.length; i++) {
+			var journal_id = UIJournalSelectorController.selectedJournalIdsForSearch[i];
 			var journal_record = GLOBAL_MODEL_HELPER.get_master_record_by_journal_id(journal_id);
 			prepared_return.push([
 				nvl(journal_record["scopus_sourceid"], ""),
