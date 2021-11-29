@@ -103,11 +103,11 @@ LitbasketsSearchController = {
 
 	, user_did_click_search_button: function() {
 		var scopus_ids = [];
-		for (var i = 0; i < UIJournalSelectorController.selectedJournalIdsForSearch.length; i++) {
-			var this_journal_id = UIJournalSelectorController.selectedJournalIdsForSearch[i];
-			var this_journal = GLOBAL_MODEL_HELPER.get_master_record_by_journal_id(this_journal_id);
-			scopus_ids.push(this_journal.scopus_sourceid);
-		}
+		UIJournalSelectorController.selectedJournalIdsForSearch.forEach(journalId => {
+			var journalRecord = DataHelper.savedJournalsMasterDataDictionary[journalId];
+			var scopusId = journalRecord.scopus_sourceid;
+			scopus_ids.push(scopusId);
+		});
 	
 		var search_mode = "LONG_SEARCH";
 		if (scopus_ids.length <= 55) {

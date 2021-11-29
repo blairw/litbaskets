@@ -1,15 +1,24 @@
 <?php
-	// $url = $API_SERVER . "getJournalsForJournalExplorer" + $API_MODE;
-	$url = "https://litbaskets.b-cdn.net/api-cache/getJournalsForJournalExplorer.json";
-	$contents = json_decode(file_get_contents($url), true);
+	// TODO: rewrite this as static site generation so it can be stored in CDN.
 
+	// CATEGORIES SETUP
 	$array_htmlstrings = array();
-	foreach (array("2xs", "xs", "s", "m", "l", "xl", "2xl", "3xl") as $value) {
+	foreach (array("2xs", "xs", "s", "m", "l", "xl", "2xl", "3xl", "EXTRAS") as $value) {
 		$array_htmlstrings[$value] = array();
 	}
-		
-	for ($i = 0; $i < count($contents); $i++) {
-		$journal_record = $contents[$i];
+
+	// MAIN JOURNALS
+	$urlMainJournals = "https://litbaskets.b-cdn.net/api-cache/getJournalsForJournalExplorer.json";
+	$contentsMainJournals = json_decode(file_get_contents($urlMainJournals), true);
+
+	// EXTRA JOURNALS
+	$urlExtraJournals = "https://litbaskets.b-cdn.net/api-cache/UserDataExtraJournals.json";
+	$contentsExtraJournals = json_decode(file_get_contents($urlExtraJournals), true);
+
+	// MERGE TOGETHER AND PROCESS
+	$mergedJournals = array_merge($contentsMainJournals, $contentsExtraJournals);
+	for ($i = 0; $i < count($mergedJournals); $i++) {
+		$journal_record = $mergedJournals[$i];
 
 		$coverage_text = $journal_record["scopus_coverage"];
 		if (strpos($coverage_text, ",") !== false) {
@@ -32,7 +41,7 @@
 
 		$col1 = '<label class="mctoggle">'
 			. '<input id="switch_for_journal_' . $journal_record["journal_id"] . '" class="mctoggle-checkbox" '
-			. 'onchange="GLOBAL_SOURCES_CONTROLLER.toggle_inclusion_of_journal_with_id(' . $journal_record["journal_id"] . ')" type="checkbox">'
+			. 'onchange="GLOBAL_SOURCES_CONTROLLER.toggle_inclusion_of_journal_with_id(\'' . $journal_record["journal_id"] . '\')" type="checkbox">'
 			. '<div class="mctoggle-switch"></div>'
 			. '<span class="mctoggle-label">' . $col2 . '</span>'
 			. '</label>'
@@ -45,17 +54,27 @@
 		;
 
 		$listing_count = intval($journal_record["listing_count"]);
-		if (intval($journal_record["is_bo8"]) == 1) {
+		if ($journal_record["is_extra_journal"] == true)
+		{
+			array_push($array_htmlstrings["EXTRAS"], $html_string);
+		}
+		else if (intval($journal_record["is_bo8"]) == 1)
+		{
 			array_push($array_htmlstrings["2xs"], $html_string);
-		} else if ($listing_count >= 7) {
+		}
+		else if ($listing_count >= 7)
+		{
 			array_push($array_htmlstrings["xs"], $html_string);
 		}
-		if ($listing_count == 6) array_push($array_htmlstrings["s"], $html_string);
-		if ($listing_count == 5) array_push($array_htmlstrings["m"], $html_string);
-		if ($listing_count == 4) array_push($array_htmlstrings["l"], $html_string);
-		if ($listing_count == 3) array_push($array_htmlstrings["xl"], $html_string);
-		if ($listing_count == 2) array_push($array_htmlstrings["2xl"], $html_string);
-		if ($listing_count == 1) array_push($array_htmlstrings["3xl"], $html_string);
+		else
+		{
+			if ($listing_count == 6) array_push($array_htmlstrings["s"], $html_string);
+			if ($listing_count == 5) array_push($array_htmlstrings["m"], $html_string);
+			if ($listing_count == 4) array_push($array_htmlstrings["l"], $html_string);
+			if ($listing_count == 3) array_push($array_htmlstrings["xl"], $html_string);
+			if ($listing_count == 2) array_push($array_htmlstrings["2xl"], $html_string);
+			if ($listing_count == 1) array_push($array_htmlstrings["3xl"], $html_string);
+		}
 	}
 ?>
 
@@ -246,6 +265,29 @@
 		<tbody id="journalsListView_3xl">
 			<?php
 				foreach ($array_htmlstrings["3xl"] as $line) {
+					echo $line;
+				}
+			?>
+		</tbody>
+	</table>
+
+	<!-- EXTRAS -->
+	<h2>Extra Journals</h2>
+	<p>You can add, ad-hoc, the following journals:
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>
+					Title
+				</th>
+				<th style="width: 15rem;">
+					Coverage
+				</th>
+			</tr>
+		</thead>
+		<tbody id="journalsListView_extras">
+			<?php
+				foreach ($array_htmlstrings["EXTRAS"] as $line) {
 					echo $line;
 				}
 			?>

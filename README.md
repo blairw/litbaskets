@@ -4,9 +4,6 @@
 
 - This is the `api` folder (somewhat misleading name, I know, sorry)
 - The live production version actually uses `www/api-cache` to leverage the CDN (BunnyCDN)
-- Only `getJournalsBySubdivisions` is actually used at the moment.
-    - The other two are to support an old feature of baskets &rarr; subdivisions, based on themes (e.g., ABDC, SIGs, etc)
-    - TODO: Bring those baskets back one day?
 
 ## Frontend (`www/`, `www-build/`)
 

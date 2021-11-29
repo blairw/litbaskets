@@ -81,7 +81,7 @@ LitbasketsSourcesTopbarController = {
 		];
 		for (var i = 0; i < UIJournalSelectorController.selectedJournalIdsForSearch.length; i++) {
 			var journal_id = UIJournalSelectorController.selectedJournalIdsForSearch[i];
-			var journal_record = GLOBAL_MODEL_HELPER.get_master_record_by_journal_id(journal_id);
+			var journal_record = DataHelper.savedJournalsMasterDataDictionary[journal_id];
 			prepared_return.push([
 				nvl(journal_record["scopus_sourceid"], ""),
 				nvl(journal_record["scopus_coverage"], ""),

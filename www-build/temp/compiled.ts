@@ -40,7 +40,8 @@ let UserDataExtraJournals =
 		"issn": "0033-6807",
 		"issne": "1467-9310",
 		"scopus_sourceid": "22486",
-		"scopus_coverage": "1970-ongoing"
+		"scopus_coverage": "1970-ongoing",
+		"is_extra_journal": true
 	},
 	{
 		"journal_id": "SCOPUS_28945",
@@ -49,6 +50,7 @@ let UserDataExtraJournals =
 		"issn": "0960-6491",
 		"issne": "1464-3650",
 		"scopus_sourceid": "28945",
-		"scopus_coverage": "1992-ongoing"
+		"scopus_coverage": "1992-ongoing",
+		"is_extra_journal": true
 	}
 ];

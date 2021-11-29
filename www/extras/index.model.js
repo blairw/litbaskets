@@ -43,10 +43,6 @@ LitbasketsModelHelper = {
 			});
 		});
 	}
-
-	, get_master_record_by_journal_id(journal_id) {
-		return DataHelper.savedJournalsMasterDataDictionary[journal_id];
-	}
 }
 
 
@@ -74,6 +70,11 @@ function generate_journal_master_data() {
 			DataHelper.savedJournalsMasterDataArray.push(this_journal);
 		}
 	}
+
+	// Add all extra journals
+	UserDataExtraJournals.forEach(journal => {
+		DataHelper.savedJournalsMasterDataArray.push(journal);
+	})
 
 	// Dedupe
 	// https://stackoverflow.com/questions/9923890/removing-duplicate-objects-with-underscore-for-javascript
