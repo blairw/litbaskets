@@ -4,7 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $WWW_SERVER ?>node_modules/patternfly/dist/css/patternfly-additions.min.css?litbasketsRevision=65">
 	<link rel="stylesheet" type="text/css" href="<?php echo $WWW_SERVER ?>node_modules/select2/dist/css/select2.min.css?litbasketsRevision=65">
 	<link rel="stylesheet" type="text/css" href="<?php echo $WWW_SERVER ?>notnode_modules/mctoggle.css?litbasketsRevision=65">
-	<link rel="stylesheet" type="text/css" href="<?php echo $WWW_SERVER ?>extras/styles.css?litbasketsRevision=65" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $WWW_SERVER ?>extras/styles3.css" />
 	
 	<script src="<?php echo $WWW_SERVER ?>node_modules/jquery/dist/jquery.min.js?litbasketsRevision=65"></script>
 	<script src="<?php echo $WWW_SERVER ?>node_modules/bootstrap/dist/js/bootstrap.min.js?litbasketsRevision=65"></script>

@@ -30,7 +30,7 @@
 		</button>
 	</div>
 
-	<div style="text-align: left; margin-top: 4rem;">
+	<div style="text-align: left; font-size: 12pt; margin-top: 4rem;">
 		<p>
 			This website allows you to search through Literature Baskets, which we call <em>Litbaskets</em>.
 			The <strong>default</strong> Litbasket has 51 journals that we believe are a great starting point for most IS research topics.

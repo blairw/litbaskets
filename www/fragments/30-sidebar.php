@@ -1,6 +1,6 @@
 <div class="nav-pf-vertical nav-pf-vertical-with-sub-menus hide-nav-pf">
 	<ul class="list-group">
-		<li class="list-group-item active"
+		<li class="list-group-item link_for_nav_litbaskets active"
 			data-target="#litbaskets-search"
 			onclick="userDidSelectTab('litbaskets-search')"
 		>

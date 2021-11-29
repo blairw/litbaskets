@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 html, body, pre {
-	font-family: 'IBM Plex Mono', monospace;
+	font-family: 'Open Sans', monospace;
 }
 
 h1 {
@@ -47,9 +47,9 @@ h2 {
 	font-size: 1.5rem;
 }
 
-.link_for_nav_litbaskets > a {
+/* .link_for_nav_litbaskets > a {
 	font-size: 100% !important;
-}
+} */
 
 .homepage_steps_table {
 	border-collapse: separate;
