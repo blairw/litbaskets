@@ -25,7 +25,6 @@
 	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.sources.js?litbasketsRevision=65"></script>
 	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.filters.js?litbasketsRevision=65"></script>
 	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.js?litbasketsRevision=65"></script>
-	<script src="<?php echo $WWW_SERVER ?>extras/about.videos.js?litbasketsRevision=65"></script>
 	<script>
 		var API_ROOT = "<?php echo $API_SERVER ?>";
 		var API_MODE = "<?php echo $API_MODE ?>";
