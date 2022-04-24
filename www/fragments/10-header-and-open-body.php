@@ -20,7 +20,7 @@
 	<script src="<?php echo $WWW_SERVER ?>extras/typescript-compiled-app.js?litbasketsRevision=65"></script>
 	<script src="<?php echo $WWW_SERVER ?>extras/index.model.js?litbasketsRevision=65"></script>
 	<script src="<?php echo $WWW_SERVER ?>extras/index.externalLogic.js?litbasketsRevision=65"></script>
-	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.search.js?litbasketsRevision=65"></script>
+	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.search.rev66.js"></script>
 	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.sources.topbar.js?litbasketsRevision=65"></script>
 	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.sources.js?litbasketsRevision=65"></script>
 	<script src="<?php echo $WWW_SERVER ?>extras/index.controller.filters.js?litbasketsRevision=65"></script>
