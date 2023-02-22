@@ -1,4 +1,7 @@
 # API to Database connection
 api/secret.php
 
+.DS_Store
+
 www/bower_components
+
