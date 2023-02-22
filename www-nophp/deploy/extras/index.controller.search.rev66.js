@@ -195,9 +195,6 @@ function perform_search_with_journals(search_mode, list_of_journals) {
 		"year_limit_data": GLOBAL_FILTERS_CONTROLLER.limit_years_data,
 
 	};
-	$.post("https://api.litbaskets.io/newSearch.php", formdata, function(result) {
-		console.log(result);
-	});
 }
 
 function user_starts_new_search() {
