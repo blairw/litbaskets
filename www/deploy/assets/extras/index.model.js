@@ -33,9 +33,9 @@ LitbasketsModelHelper = {
 
 	/* called in body_did_load */
 	, load_objects: function() {
-		$.get("api-cache/getSubdivisionsByBaskets.json", function(x) {
+		$.get("assets/api-cache/getSubdivisionsByBaskets.json", function(x) {
 			GLOBAL_MODEL_HELPER.final_subdivisions_by_baskets = x;
-			$.get("api-cache/getJournalsBySubdivisions.json", function(y) {
+			$.get("assets/api-cache/getJournalsBySubdivisions.json", function(y) {
 				GLOBAL_MODEL_HELPER.final_journals_by_subdivisions = y;
 				GLOBAL_MODEL_HELPER.launch_sequence_after_api_load();
 

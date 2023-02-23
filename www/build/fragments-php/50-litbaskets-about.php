@@ -8,7 +8,7 @@
 	</p>
 	<div class="InstructionalVideo" id="video2">
 		<video width="100%" controls>
-			<source src="videos/video2.mp4" type="video/mp4">
+			<source src="assets/videos/video2.mp4" type="video/mp4">
 			Your browser does not support the video tag.
 		</video>
 	</div>
@@ -24,7 +24,7 @@
 	</p>
 	<div class="InstructionalVideo" id="video4">
 		<video width="100%" controls>
-			<source src="videos/video4.mp4" type="video/mp4">
+			<source src="assets/videos/video4.mp4" type="video/mp4">
 			Your browser does not support the video tag.
 		</video>
 	</div>
@@ -42,7 +42,7 @@
 	</p>
 	<div class="InstructionalVideo" id="video1">
 		<video width="100%" controls>
-			<source src="videos/video1.mp4" type="video/mp4">
+			<source src="assets/videos/video1.mp4" type="video/mp4">
 			Your browser does not support the video tag.
 		</video>
 	</div>
@@ -55,7 +55,7 @@
 	</p>
 	<div class="InstructionalVideo" id="video3">
 		<video width="100%" controls>
-			<source src="videos/video3.mp4" type="video/mp4">
+			<source src="assets/videos/video3.mp4" type="video/mp4">
 			Your browser does not support the video tag.
 		</video>
 	</div>

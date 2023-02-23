@@ -11,20 +11,21 @@
 	</p>
 
 	<h2>Bootstrap</h2>
-	<pre><?php include ('../../deploy/node_modules/bootstrap/LICENSE'); ?></pre>
+	<pre><?php include ('../../deploy/assets/node_modules/bootstrap/LICENSE'); ?></pre>
 
 	<h2>bootstrap-switch</h2>
-	<pre><?php include ('../../deploy/node_modules/bootstrap-switch/LICENSE'); ?></pre>
+	<pre><?php include ('../../deploy/assets/node_modules/bootstrap-switch/LICENSE'); ?></pre>
 
 	<h2>clipboard</h2>
 	<pre>MIT License http://zenorocha.mit-license.org/ © Zeno Rocha</pre>
 
 	<h2>jQuery</h2>
-	<pre><?php include ('../../deploy/node_modules/jquery/LICENSE.txt'); ?></pre>
+	<pre><?php include ('../../deploy/assets/node_modules/jquery/LICENSE.txt'); ?></pre>
 
 	<h2>Patternfly</h2>
-	<pre><?php include ('../../deploy/node_modules/patternfly/LICENSE.txt'); ?></pre>
+	<pre><?php include ('../../deploy/assets/node_modules/patternfly/LICENSE.txt'); ?></pre>
 
 	<h2>Underscore</h2>
-	<pre><?php include ('../../deploy/node_modules/underscore/LICENSE'); ?></pre>
+	<pre><?php include ('../../deploy/assets/node_modules/underscore/LICENSE'); ?></pre>
 </div>
+

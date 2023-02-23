@@ -8,11 +8,11 @@ foreach (array("2xs", "xs", "s", "m", "l", "xl", "2xl", "3xl", "EXTRAS") as $val
 }
 
 // MAIN JOURNALS
-$urlMainJournals = "../../deploy/api-cache/getJournalsForJournalExplorer.json";
+$urlMainJournals = "../../deploy/assets/api-cache/getJournalsForJournalExplorer.json";
 $contentsMainJournals = json_decode(file_get_contents($urlMainJournals), true);
 
 // EXTRA JOURNALS
-$urlExtraJournals = "../../deploy/api-cache/UserDataExtraJournals.json";
+$urlExtraJournals = "../../deploy/assets/api-cache/UserDataExtraJournals.json";
 $contentsExtraJournals = json_decode(file_get_contents($urlExtraJournals), true);
 
 // MERGE TOGETHER AND PROCESS
@@ -35,10 +35,10 @@ for ($i = 0; $i < count($mergedJournals); $i++) {
 	$col3 = '<a href="https://www.scopus.com/sourceid/' . $journal_record["scopus_sourceid"] . '">'
 		. $coverage_text
 		. '</a>'
-		. "<img src='images/external-link.png' />";
+		. "<img src='assets/images/external-link.png' />";
 
 	$col2 = "<strong>" . $journal_record["journal_name"] . "</strong>";
-	$col2 = $col2 . "<a href='" . $journal_record['url'] . "' target='_blank'><img src='images/external-link.png' /></a>";
+	$col2 = $col2 . "<a href='" . $journal_record['url'] . "' target='_blank'><img src='assets/images/external-link.png' /></a>";
 
 	$col1 = '<label class="mctoggle">'
 		. '<input id="switch_for_journal_' . $journal_record["journal_id"] . '" class="mctoggle-checkbox" '

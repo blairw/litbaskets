@@ -1,3 +1,5 @@
+OUTPUTFILE="../deploy/index.html"
+
 mkdir temp
 
 cd fragments-php
@@ -9,5 +11,8 @@ for d in ./*.php; do
 done
 cd ..
 
-cat temp/*.html > "../deploy/index.html"
+cat temp/*.html > $OUTPUTFILE
 rm -rf temp
+
+unix2dos $OUTPUTFILE
+
