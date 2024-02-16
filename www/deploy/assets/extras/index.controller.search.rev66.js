@@ -17,6 +17,8 @@ LitbasketsSearchController = {
 		, "USYD": "https://www-scopus-com.ezproxy.library.sydney.edu.au/"
 		, "UTS": "https://www-scopus-com.ezproxy.lib.uts.edu.au/"
 		, "UNI_CALGARY": "https://login.ezproxy.lib.ucalgary.ca/login?url=https://www.scopus.com/"
+		, "UCC": "https://ucc.idm.oclc.org/login?url=https://www.scopus.com/"
+		, "RMIT": "https://www-scopus-com.ezproxy.lib.rmit.edu.au/"
 	}
 
 	, init: function(beforeStarting, afterStarting) {

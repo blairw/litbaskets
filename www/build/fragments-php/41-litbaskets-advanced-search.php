@@ -96,12 +96,14 @@
 				<select id="litbasketsproxy" style="width: 100%;" onchange="GLOBAL_SEARCH_CONTROLLER.user_did_change_litbasketsproxy_value()">
 					<option value="none">(None)</option>
 					<option value="CBS">Copenhagen Business School</option>
+					<option value="RMIT">Royal Melbourne Institute of Technology (RMIT)</option>
 					<option value="ETH_ZURICH">ETH Zurich</option>
-					<option value="NUI_GALWAY">NUI Galway</option>
 					<option value="UNI_CALGARY">University of Calgary</option>
+					<option value="NUI_GALWAY">University of Galway (Ollscoil na Gaillimhe)</option>
 					<option value="UNSW">University of New South Wales (UNSW Sydney)</option>
 					<option value="USYD">University of Sydney (USYD)</option>
 					<option value="UTS">University of Technology, Sydney (UTS)</option>
+					<option value="UCC">University College Cork (UCC)</option>
 				</select>
 			</div>
 			<div class="modal-footer">
