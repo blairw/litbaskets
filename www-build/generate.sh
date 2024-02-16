@@ -7,4 +7,4 @@ echo ';' >> typescript/UserDataExtraJournals.ts
 
 cat typescript/*.ts > temp/compiled.ts
 tsc temp/compiled.ts
-cat temp/compiled.js >> ../www/extras/typescript-compiled-app.js
+cat temp/compiled.js > ../www/deploy/assets/extras/typescript-compiled-app.js

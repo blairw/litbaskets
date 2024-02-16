@@ -19,8 +19,7 @@ class TSJournal {
 	scopus_coverage: string;
 }
 class UIJournalSelectorController {
-    public static selectedJournalIdsForSearch: string[] = [];
-    
+	public static selectedJournalIdsForSearch: string[] = [];
 }
 class UsefulHelper {
 	public static nvl(value: any, fallbackValue: any) {

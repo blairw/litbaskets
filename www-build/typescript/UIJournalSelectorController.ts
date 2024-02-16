@@ -1,4 +1,3 @@
 class UIJournalSelectorController {
-    public static selectedJournalIdsForSearch: string[] = [];
-    
+	public static selectedJournalIdsForSearch: string[] = [];
 }
