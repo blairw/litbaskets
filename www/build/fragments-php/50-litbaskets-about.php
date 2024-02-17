@@ -77,14 +77,14 @@
 		the search string generated for you into the advanced search field in Scopus.
 	</p>
 
-	<h2>
+	<!-- <h2>
 		Can I help in further improving Litbaskets.io?
 	</h2>
 	<p class="litfam_faq_para">
 		Litbaskets.io is fully under open source and we are coordinating our development on GitHub (repo: <a href="https://github.com/blairw/litbaskets">blairw/litbaskets</a>).
 		We are always looking for volunteers to help us in further developing litbaskets.io.
 		For instance, we need help with testing litbaskets.io on as many platforms and browsers as possible. If you come across a bug please report it through GitHub.
-	</p>
+	</p> -->
 
 	<h2>You're missing an important journal, can I make a suggestion?</h2>
 	<p class="litfam_faq_para">
@@ -92,12 +92,14 @@
 		<a href="https://docs.google.com/forms/d/e/1FAIpQLSeq5LjmBr_urTG__b4K7lTg6vCbdML7CKT6b9vH9c15cvhwOQ/viewform?usp=sf_link">Google form</a>
 		to make suggestions for additional sources.
 	</p>
-	<h2>Who made this?</h2>
+	
+	<!-- <h2>Who made this?</h2>
 	<p class="litfam_faq_para">
 		Product design and implementation by
 		<a href="https://business.sydney.edu.au/staff/sebastian.boell">Sebastian Boell</a>
 		and
 		<a href="https://blair.wang/">Blair Wang</a>.
 		Illustration by <a href="https://www.instagram.com/acidyellows/" target="_blank">acidyellows</a>.
-	</p>
+	</p> -->
+	
 </div>
