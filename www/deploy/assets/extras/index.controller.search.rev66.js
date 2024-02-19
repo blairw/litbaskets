@@ -12,6 +12,7 @@ LitbasketsSearchController = {
 		"(none)": "https://www.scopus.com/"
 		, "CBS": "http://esc-web.lib.cbs.dk/login?url=https://www.scopus.com/"
 		, "ETH_ZURICH": "https://proxy.ethz.ch/cgi-bin/login.pl?url=https://www.scopus.com/"
+		, "UNI_AUCKLAND": "https://www-scopus-com.ezproxy.auckland.ac.nz/"
 		, "NUI_GALWAY": "https://nuigalway.idm.oclc.org/login?url=https://www.scopus.com/"
 		, "UNSW": "https://www-scopus-com.wwwproxy1.library.unsw.edu.au/"
 		, "USYD": "https://www-scopus-com.ezproxy.library.sydney.edu.au/"
