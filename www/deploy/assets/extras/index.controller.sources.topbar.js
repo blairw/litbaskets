@@ -67,6 +67,10 @@ LitbasketsSourcesTopbarController = {
 		}
 	}
 
+	, import_csv: function() {
+		// TODO: implement
+	}
+
 	, download_csv: function() {
 		var prepared_return = [
 			[
